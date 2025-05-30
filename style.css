@@ -2,6 +2,11 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
+  background: #ffffff url('https://www.transparenttextures.com/patterns/dark-mosaic.png') repeat;
+  color: #222;
+}
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
   background: #ffffff url('https://www.transparenttextures.com/patterns/concrete-wall.png') repeat;
   color: #222;
 }
