@@ -1,0 +1,109 @@
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #ffffff url('https://www.transparenttextures.com/patterns/concrete-wall.png') repeat;
+  color: #222;
+}
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.header {
+  background-color: #f7f7f7cc;
+  border-bottom: 1px solid #ddd;
+  padding: 20px 0;
+}
+.logo {
+  float: left;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+.title-group {
+  display: inline-block;
+  vertical-align: top;
+}
+.header h1 {
+  margin: 0;
+  font-size: 24px;
+  color: #004aad;
+}
+.header p {
+  margin: 5px 0 0;
+  font-size: 14px;
+}
+nav {
+  float: right;
+  margin-top: 10px;
+}
+nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #004aad;
+  font-weight: bold;
+}
+.hero-section {
+  background-color: #eef3f8cc;
+  padding: 60px 20px;
+  text-align: center;
+}
+.hero-section h2 {
+  font-size: 32px;
+  margin-bottom: 15px;
+  color: #002e5b;
+}
+.hero-section p {
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+.cta {
+  display: inline-block;
+  background-color: #004aad;
+  color: white;
+  padding: 12px 30px;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+}
+footer {
+  background-color: #f1f1f1dd;
+  padding: 20px 0;
+  text-align: center;
+  font-size: 14px;
+  color: #555;
+}
+
+.gallery-section {
+  background: #ffffffdd;
+  padding: 40px 20px;
+  text-align: center;
+}
+.gallery img {
+  width: 30%;
+  margin: 10px;
+  border-radius: 6px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+.form-section {
+  background: #eef3f8ee;
+  padding: 40px 20px;
+  text-align: center;
+}
+form input, form textarea {
+  width: 60%;
+  padding: 10px;
+  margin: 8px 0;
+  font-size: 16px;
+}
+form button {
+  padding: 12px 30px;
+  font-size: 16px;
+  background: #004aad;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
