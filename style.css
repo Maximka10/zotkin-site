@@ -1,71 +1,72 @@
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f5f7fa url('background.jpg') repeat fixed;
-  color: #333;
-}
-
-.container {
-  width: 90%;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
 .header {
-  background-color: rgba(255, 255, 255, 0.95);
-  border-bottom: 2px solid #ddd;
-  padding: 10px 0;
+  background: #fff;
+  border-bottom: 1.5px solid #eee;
+  padding: 16px 0 8px 0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
-.header h1 {
-  margin: 0;
-  font-size: 24px;
+.header h1 a {
+  color: #014c8c;
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
 }
 
-.header nav {
-  margin-top: 10px;
+.header h1 a img {
+  margin-right: 10px;
+  border-radius: 50%;
 }
 
 .header nav a {
-  margin-right: 20px;
-  text-decoration: none;
-  color: #004f7c;
+  color: #014c8c;
   font-weight: bold;
+  text-decoration: none;
+  margin-right: 25px;
+  transition: color 0.2s;
 }
 
 .header nav a:hover {
-  text-decoration: underline;
+  color: #2299ff;
 }
 
 .main {
-  background-color: rgba(255, 255, 255, 0.92);
-  margin: 20px 0;
-  padding: 20px;
-  border-radius: 8px;
-}
-
-h2 {
-  color: #003355;
+  background: rgba(255,255,255,0.95);
+  margin: 40px auto 10px auto;
+  padding: 32px 28px;
+  border-radius: 14px;
+  max-width: 700px;
+  box-shadow: 0 6px 32px rgba(70,130,180,0.06);
 }
 
 .cta {
-  display: inline-block;
-  margin-top: 15px;
-  padding: 10px 20px;
-  background-color: #0066cc;
-  color: white;
+  margin-top: 22px;
+  font-size: 1.1em;
+  padding: 13px 28px;
+  background: linear-gradient(90deg, #227af3, #014c8c 95%);
+  color: #fff;
+  border-radius: 7px;
+  border: none;
+  box-shadow: 0 3px 12px rgba(34,122,243,0.09);
+  transition: background 0.2s, box-shadow 0.2s;
+  cursor: pointer;
   text-decoration: none;
-  border-radius: 4px;
+  display: inline-block;
 }
 
 .cta:hover {
-  background-color: #004a99;
+  background: linear-gradient(90deg, #014c8c, #2299ff 95%);
+  box-shadow: 0 6px 18px rgba(34,122,243,0.13);
 }
 
 footer {
-  background-color: #222;
-  color: #fff;
-  padding: 10px 0;
-  text-align: center;
+  margin-top: 30px;
+  background: #232323;
+  color: #eee;
+  padding: 18px 0;
+  font-size: 1.1em;
+  letter-spacing: 0.5px;
 }
