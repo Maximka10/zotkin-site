@@ -3,12 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <title>Контакты — Золотарь 58</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="header">
-    <div class="container">
-      <h1><a href="index.html"><img src="logo.png" style="height:40px; vertical-align:middle;"> Золотарь 58</a></h1>
+    <div class="container header-row">
+      <a href="index.html" class="logo-link">
+        <img src="logo.png" alt="Логотип Золотарь 58" class="logo">
+        <span class="brand-name">Золотарь 58</span>
+      </a>
       <nav>
         <a href="services.html">Услуги</a>
         <a href="about.html">О нас</a>
@@ -19,24 +23,40 @@
 
   <section class="main">
     <div class="container">
-      <h2>Контакты</h2>
-      <p><strong>Телефон:</strong> +7 (999) 123-45-67</p>
-      <p><strong>Email:</strong> zakaz@zolotar58.ru</p>
-      <p><strong>Время работы:</strong> Круглосуточно, без выходных</p>
-
-      <h3>Оставьте заявку</h3>
-      <form action="mailto:zakaz@zolotar58.ru" method="post" enctype="text/plain">
-        <label>Имя:<br><input type="text" name="name" required></label><br><br>
-        <label>Телефон:<br><input type="tel" name="phone" required></label><br><br>
-        <label>Комментарий:<br><textarea name="message" rows="4"></textarea></label><br><br>
-        <input type="submit" value="Отправить">
-      </form>
+      <h1>Контакты</h1>
+      <div class="contacts-flex">
+        <div>
+          <b>Телефон:</b><br>
+          <a href="tel:+79991234567">+7 (999) 123-45-67</a><br>
+          <b>Email:</b><br>
+          <a href="mailto:zakaz@zolotar58.ru">zakaz@zolotar58.ru</a><br>
+          <b>Время работы:</b><br>
+          Круглосуточно, без выходных<br>
+          <b>Адрес:</b><br>
+          Пенза и область
+        </div>
+        <div>
+          <h3>Оставить заявку</h3>
+          <form id="form" action="mailto:zakaz@zolotar58.ru" method="post" enctype="text/plain">
+            <input type="text" name="name" placeholder="Ваше имя" required>
+            <input type="tel" name="phone" placeholder="Телефон для связи" required>
+            <textarea name="message" placeholder="Комментарий или адрес" rows="3"></textarea>
+            <button type="submit" class="cta">Отправить</button>
+          </form>
+        </div>
+      </div>
+      <div class="map">
+        <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Afc377fcaa8ed70df5ed7b013bb62c88d347da5c1c24d2c03e865a64bcdbd0911&amp;source=constructor" width="100%" height="240" frameborder="0"></iframe>
+      </div>
     </div>
   </section>
 
   <footer>
     <div class="container">
-      <p>© 2025 Золотарь 58 — ИП Зоткин А.И.</p>
+      <div class="footer-flex">
+        <span>© 2025 Золотарь 58 — ИП Зоткин А.И.</span>
+        <span><a href="mailto:zakaz@zolotar58.ru">zakaz@zolotar58.ru</a></span>
+      </div>
     </div>
   </footer>
 </body>
