@@ -1,1 +1,43 @@
-/mnt/data/zolotar58-final-ready/contacts.html
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Контакты — Золотарь 58</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <h1><a href="index.html"><img src="logo.png" style="height:40px; vertical-align:middle;"> Золотарь 58</a></h1>
+      <nav>
+        <a href="services.html">Услуги</a>
+        <a href="about.html">О нас</a>
+        <a href="contacts.html">Контакты</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="main">
+    <div class="container">
+      <h2>Контакты</h2>
+      <p><strong>Телефон:</strong> +7 (999) 123-45-67</p>
+      <p><strong>Email:</strong> zakaz@zolotar58.ru</p>
+      <p><strong>Время работы:</strong> Круглосуточно, без выходных</p>
+
+      <h3>Оставьте заявку</h3>
+      <form action="mailto:zakaz@zolotar58.ru" method="post" enctype="text/plain">
+        <label>Имя:<br><input type="text" name="name" required></label><br><br>
+        <label>Телефон:<br><input type="tel" name="phone" required></label><br><br>
+        <label>Комментарий:<br><textarea name="message" rows="4"></textarea></label><br><br>
+        <input type="submit" value="Отправить">
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 Золотарь 58 — ИП Зоткин А.И.</p>
+    </div>
+  </footer>
+</body>
+</html>
