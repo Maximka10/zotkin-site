@@ -1,0 +1,120 @@
+body {
+  background-color: #181c22;
+  color: #f3f6fb;
+  transition: background 0.3s, color 0.3s;
+}
+
+.header, footer {
+  background: #23272f;
+  color: #f3f6fb;
+}
+
+.header a,
+.nav a,
+.logo-title {
+  color: #e3eeff;
+}
+
+.header a:hover,
+.nav a:hover {
+  color: #8ab6f9;
+}
+
+.theme-btn {
+  background: #23272f;
+  color: #e3eeff;
+  border: 1px solid #47566e;
+  border-radius: 8px;
+  padding: 7px 16px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-left: 10px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.theme-btn:hover {
+  background: #1a1e24;
+  color: #ffe06c;
+}
+
+.main-intro h1,
+h2,
+h3 {
+  color: #ffcc5c;
+}
+
+.main-subtitle {
+  color: #d7eaff;
+}
+
+ul, .about-text p, .service-list p, .contacts-details, .contacts-form {
+  color: #f3f6fb;
+}
+
+.service-item {
+  background: #23272f;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px #1115  ;
+  margin-bottom: 30px;
+  padding: 22px 22px 18px 22px;
+  transition: background 0.3s;
+}
+
+.method-img {
+  background: #181c22;
+  border-radius: 12px;
+  display: block;
+  margin: 12px auto 15px auto;
+  max-width: 170px;
+  width: 100%;
+  box-shadow: 0 2px 16px #1119;
+}
+
+.cta {
+  background: #ffcc5c;
+  color: #23272f;
+  border-radius: 12px;
+  font-weight: bold;
+  padding: 12px 28px;
+  text-decoration: none;
+  display: inline-block;
+  margin: 15px 0 0 0;
+  box-shadow: 0 2px 10px #1118;
+  border: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.cta:hover {
+  background: #ffe390;
+  color: #1a1e24;
+}
+
+input, textarea {
+  background: #22242b;
+  color: #e3eeff;
+  border: 1px solid #444a5d;
+  border-radius: 8px;
+}
+
+.contacts-block {
+  background: #23272f;
+  border-radius: 18px;
+  padding: 26px;
+  box-shadow: 0 4px 24px #1115;
+  margin-bottom: 38px;
+}
+
+.map-block iframe {
+  filter: invert(0.94) hue-rotate(180deg) brightness(0.9);
+  border-radius: 14px;
+}
+
+/* Мелкие детали, если нужно */
+::-webkit-scrollbar {
+  background: #222;
+  width: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #333a;
+  border-radius: 6px;
+}
