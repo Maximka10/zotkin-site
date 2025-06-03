@@ -28,7 +28,7 @@ body {
   padding: 0;
   position: sticky;
   top: 0;
-  z-index: 20;
+  z-index: 50;
 }
 .header-flex {
   display: flex;
@@ -82,6 +82,52 @@ body {
   color: #2254a7;
 }
 .nav a[style*="font-weight:700"] {
+  border-color: #2478e2;
+  background: #eaf4ff;
+  color: #2254a7;
+}
+
+.burger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2.1em;
+  color: #2478e2;
+  cursor: pointer;
+  margin-left: 12px;
+  transition: color 0.15s;
+  z-index: 100;
+}
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: 65px;
+  left: 0;
+  width: 100vw;
+  background: #fff;
+  box-shadow: 0 4px 30px #2478e233;
+  z-index: 99;
+  flex-direction: column;
+  align-items: center;
+  padding: 18px 0 22px 0;
+  gap: 18px;
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
+}
+.mobile-nav a {
+  display: block;
+  color: #2254a7;
+  font-size: 1.22em;
+  margin: 0 0 12px 0;
+  padding: 10px 24px;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 1px 5px #dde2ee22;
+}
+.mobile-nav a:hover, .mobile-nav a:focus {
   border-color: #2478e2;
   background: #eaf4ff;
   color: #2254a7;
@@ -305,14 +351,8 @@ footer {
   .usps { flex-direction: column; gap: 12px; }
   .gallery-item, .service-item { width: 98vw; }
   .logo-img.big-logo { height: 48px; }
-  .nav a {
-    width: 98vw;
-    margin: 5px 0;
-    display: block;
-    text-align: center;
-    font-size: 1.13em;
-    padding: 14px 0;
-    border-radius: 18px;
-    border-width: 2.5px;
-  }
+  .nav { display: none; }
+  .burger { display: block; }
+  .mobile-nav.show { display: flex; }
+  .header-flex { flex-direction: row; justify-content: space-between; }
 }
