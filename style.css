@@ -12,7 +12,7 @@ body {
   z-index: 0;
   top: 0; left: 0; width: 100vw; height: 100vh;
   opacity: 0.12;
-  background-image: url('pattern.png'); /* паттерн-фон, закинь картинку с этим именем */
+  background-image: url('pattern.png');
   background-repeat: repeat;
   background-size: 420px 420px;
   pointer-events: none;
@@ -69,12 +69,22 @@ body {
   color: #23272f;
   font-weight: 500;
   font-size: 1.05em;
-  padding: 6px 0;
-  transition: color 0.13s;
+  padding: 8px 22px;
+  margin: 0 2px;
+  border-radius: 14px;
+  border: 2px solid transparent;
+  box-sizing: border-box;
+  transition: background 0.13s, color 0.13s, border-color 0.13s;
 }
-.nav a:hover {
-  color: #2478e2;
-  text-shadow: 0 2px 6px #bbe2ff66;
+.nav a:hover, .nav a:focus {
+  border-color: #2478e2;
+  background: #eaf4ff;
+  color: #2254a7;
+}
+.nav a[style*="font-weight:700"] {
+  border-color: #2478e2;
+  background: #eaf4ff;
+  color: #2254a7;
 }
 
 .main-intro {
@@ -285,7 +295,7 @@ footer {
 @media (max-width: 960px) {
   .container { max-width: 98vw; }
   .header-flex { flex-direction: column; min-height: unset; }
-  .nav { flex-wrap: wrap; gap: 14px; margin-top: 10px;}
+  .nav { flex-wrap: wrap; gap: 10px; margin-top: 10px; justify-content: center; width: 100%; }
   .logo-title { font-size: 1.15em; }
   .gallery-list, .service-list { flex-direction: column; align-items: center; }
   .about-text { padding: 18px 8px; }
@@ -295,4 +305,14 @@ footer {
   .usps { flex-direction: column; gap: 12px; }
   .gallery-item, .service-item { width: 98vw; }
   .logo-img.big-logo { height: 48px; }
+  .nav a {
+    width: 98vw;
+    margin: 5px 0;
+    display: block;
+    text-align: center;
+    font-size: 1.13em;
+    padding: 14px 0;
+    border-radius: 18px;
+    border-width: 2.5px;
+  }
 }
