@@ -1,4 +1,3 @@
-/* Общие стили */
 body {
   background: #f8fafb;
   color: #23272f;
@@ -13,7 +12,7 @@ body {
   z-index: 0;
   top: 0; left: 0; width: 100vw; height: 100vh;
   opacity: 0.12;
-  background-image: url('pattern.png'); /* если используешь свой seamless-фон */
+  background-image: url('pattern.png'); /* паттерн-фон, закинь картинку с этим именем */
   background-repeat: repeat;
   background-size: 420px 420px;
   pointer-events: none;
@@ -52,6 +51,7 @@ body {
 .logo-img.big-logo {
   height: 64px;
   border-radius: 22px;
+  box-shadow: 0 2px 12px #0002;
 }
 .logo-title {
   color: #1c273b;
@@ -77,7 +77,6 @@ body {
   text-shadow: 0 2px 6px #bbe2ff66;
 }
 
-/* Главный баннер */
 .main-intro {
   background: none;
   text-align: center;
@@ -116,7 +115,6 @@ body {
   color: #ffe18b;
 }
 
-/* Блок преимуществ */
 .usps {
   display: flex;
   gap: 34px;
@@ -140,7 +138,6 @@ body {
   font-size: 1.3em;
 }
 
-/* Галерея */
 .gallery {
   padding: 30px 0 20px 0;
   text-align: center;
@@ -178,7 +175,6 @@ body {
   box-shadow: 0 1px 8px #acc4db18;
 }
 
-/* Список услуг */
 .service-list {
   display: flex;
   flex-wrap: wrap;
@@ -187,14 +183,57 @@ body {
   margin: 32px 0;
 }
 .service-item {
-  width: 340px;
+  width: 280px;
   background: #fff;
-  border-radius: 16px;
+  border-radius: 18px;
   box-shadow: 0 2px 16px #dde2ee33;
   padding: 18px 16px 12px 16px;
   margin-bottom: 18px;
   text-align: center;
   position: relative;
+  overflow: visible;
+  transition: box-shadow 0.2s;
+}
+.service-img-hover {
+  position: relative;
+  width: 100%;
+  margin-bottom: 11px;
+  cursor: pointer;
+}
+.service-img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: 0 1px 12px #bfd7ee1a;
+  transition: transform 0.25s cubic-bezier(.4,1.6,.64,1), box-shadow 0.25s;
+}
+.service-img-hover:hover .service-img {
+  transform: scale(1.11) rotate(-2deg);
+  box-shadow: 0 6px 22px #7da8f599;
+  z-index: 2;
+}
+.service-hover-desc {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  opacity: 0;
+  background: rgba(38,64,142,0.86);
+  color: #fff;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.03em;
+  font-weight: 500;
+  padding: 18px 10px;
+  transition: opacity 0.18s;
+  pointer-events: none;
+  z-index: 3;
+}
+.service-img-hover:hover .service-hover-desc {
+  opacity: 1;
+  pointer-events: auto;
 }
 .service-item h3 {
   font-size: 1.3em;
@@ -202,17 +241,7 @@ body {
   margin-bottom: 11px;
   font-weight: 700;
 }
-.method-img {
-  width: 120px;
-  height: 120px;
-  object-fit: cover;
-  border-radius: 12px;
-  background: #e9eef7;
-  margin: 10px 0 13px 0;
-  box-shadow: 0 1px 10px #bfd7ee1a;
-}
 
-/* О компании и о сайте */
 .about-text {
   margin: 0 auto;
   max-width: 670px;
@@ -226,7 +255,6 @@ body {
   color: #2478e2;
 }
 
-/* Контакты */
 .contacts-details {
   background: #fff;
   border-radius: 16px;
@@ -243,7 +271,6 @@ body {
   text-decoration: underline;
 }
 
-/* Подвал */
 footer {
   background: #fff;
   color: #5a6680;
@@ -255,7 +282,6 @@ footer {
   box-shadow: 0 -2px 12px #dde2ee19;
 }
 
-/* Мобильная адаптация */
 @media (max-width: 960px) {
   .container { max-width: 98vw; }
   .header-flex { flex-direction: column; min-height: unset; }
