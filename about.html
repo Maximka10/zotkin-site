@@ -7,46 +7,56 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="bg-pattern"></div>
   <header class="header">
     <div class="container header-flex">
       <a href="index.html" class="logo-link">
         <img src="logo.png" class="logo-img big-logo" alt="Золотарь 58">
         <span class="logo-title">Золотарь 58</span>
       </a>
-      <nav class="nav">
+      <nav class="nav" id="mainNav">
         <a href="services.html">Услуги</a>
-        <a href="about.html" style="color:#2478e2; font-weight:700;">О компании</a>
+        <a href="about.html" style="font-weight:700;">О компании</a>
         <a href="licenses.html">Сертификаты</a>
         <a href="contacts.html">Контакты</a>
       </nav>
+      <button class="burger" id="burgerBtn">&#9776;</button>
+    </div>
+    <div class="mobile-nav" id="mobileNav">
+      <a href="services.html">Услуги</a>
+      <a href="about.html" style="font-weight:700;">О компании</a>
+      <a href="licenses.html">Сертификаты</a>
+      <a href="contacts.html">Контакты</a>
     </div>
   </header>
-
   <main>
-    <section class="main-intro" style="margin-top:40px;">
-      <h1>О компании «Золотарь 58»</h1>
-      <p class="main-subtitle" style="margin-bottom:34px;">Ассенизаторские услуги, прочистка и откачка канализации в Пензе и области — качественно и без выходных.</p>
-      <div class="about-text">
-        <p>
-          «Золотарь 58» — профессиональный сервис по аварийной прочистке и откачке канализации, септиков, колодцев и других инженерных систем. Мы работаем с физическими и юридическими лицами на основании официальных договоров.<br><br>
-          В нашем распоряжении — современное гидродинамическое и механическое оборудование для эффективного устранения любых засоров, проведения видеодиагностики труб и полного спектра сервисных работ.<br><br>
-          <b>Преимущества сотрудничества с нами:</b><br>
-          — Круглосуточный аварийный выезд;<br>
-          — Гарантия качества, фиксированные цены;<br>
-          — Опытные специалисты с профессиональной подготовкой;<br>
-          — Безопасные технологии для всех типов труб;<br>
-          — <b>Возможна оплата наличными и безналичным расчетом.</b><br>
-          — Юридическое сопровождение для организаций.<br><br>
-          Мы всегда нацелены на долгосрочное сотрудничество, прозрачные отношения и высокое качество предоставляемых услуг.
-        </p>
-      </div>
+    <!-- Контент о компании -->
+    <section class="about-text">
+      <h1>О компании</h1>
+      <!-- Тут твой текст -->
     </section>
   </main>
-
   <footer>
     <div class="container">
       <p>© 2025 Золотарь 58 — ИП Зоткин А.И.</p>
     </div>
   </footer>
+  <script>
+    const burgerBtn = document.getElementById('burgerBtn');
+    const mobileNav = document.getElementById('mobileNav');
+    burgerBtn.addEventListener('click', () => {
+      mobileNav.classList.toggle('show');
+      if (mobileNav.classList.contains('show')) {
+        Array.from(mobileNav.getElementsByTagName('a')).forEach(a => {
+          a.onclick = () => mobileNav.classList.remove('show');
+        });
+      }
+    });
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 600) {
+        mobileNav.classList.remove('show');
+      }
+    });
+  </script>
 </body>
 </html>
