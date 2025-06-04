@@ -11,56 +11,53 @@
   <header class="header">
     <div class="container header-flex">
       <a href="index.html" class="logo-link">
-        <img src="logo.png" class="logo-img big-logo" alt="Золотарь 58">
+        <img src="logo.png" class="logo-img" alt="Золотарь 58">
         <span class="logo-title">Золотарь 58</span>
       </a>
-      <nav class="nav" id="mainNav">
+      <nav class="nav">
         <a href="services.html">Услуги</a>
         <a href="about.html">О компании</a>
         <a href="licenses.html">Сертификаты</a>
         <a href="contacts.html">Контакты</a>
       </nav>
-      <button class="burger" id="burgerBtn">&#9776;</button>
-    </div>
-    <div class="mobile-nav" id="mobileNav">
-      <a href="services.html">Услуги</a>
-      <a href="about.html">О компании</a>
-      <a href="licenses.html">Сертификаты</a>
-      <a href="contacts.html">Контакты</a>
     </div>
   </header>
 
   <main>
     <section class="main-intro">
       <h1>Откачка и прочистка канализации 24/7</h1>
-      <p class="main-subtitle">Современное оборудование, оперативный выезд, гарантия качества.<br>Работаем по Пензе и области для физ. и юр. лиц.</p>
-      <a class="call-btn" href="tel:+79022073636">Позвонить: +7 (902) 207-36-36</a>
+      <p class="main-subtitle">
+        Современное оборудование, оперативный выезд, гарантия качества.<br>
+        Работаем по Пензе и области для физ. и юр. лиц.
+      </p>
+      <a class="cta" href="tel:+79022073636">Позвонить</a>
+      <div class="main-phone">Телефон: <a href="tel:+79022073636">+7 (902) 207-36-36</a></div>
     </section>
 
     <section class="usps">
-      <div><span class="usp-icon">📞</span> Работаем 24/7</div>
-      <div><span class="usp-icon">💧</span> Современное оборудование</div>
-      <div><span class="usp-icon">📄</span> Договоры для юр. лиц</div>
+      <div class="usp-box"><span class="usp-icon">📞</span> Работаем 24/7</div>
+      <div class="usp-box"><span class="usp-icon">💧</span> Современное оборудование</div>
+      <div class="usp-box"><span class="usp-icon">📄</span> Договоры для юр. лиц</div>
     </section>
 
     <section class="gallery">
-      <h2>Наше оборудование</h2>
+      <h2>Оборудование</h2>
       <div class="gallery-list">
         <div class="gallery-item">
-          <img src="equipment1.jpg" alt="Оборудование 1" class="gallery-placeholder">
-          <span>Вакуумная машина КО-505</span>
+          <img src="equipment1.jpg" alt="Оборудование 1" class="gallery-img">
+          <span>Мощный илосос</span>
         </div>
         <div class="gallery-item">
-          <img src="equipment2.jpg" alt="Оборудование 2" class="gallery-placeholder">
-          <span>Гидродинамический аппарат</span>
+          <img src="equipment2.jpg" alt="Оборудование 2" class="gallery-img">
+          <span>Гидродинамическая машина</span>
         </div>
         <div class="gallery-item">
-          <img src="equipment3.jpg" alt="Оборудование 3" class="gallery-placeholder">
-          <span>Механический трос</span>
-        </div>
-        <div class="gallery-item">
-          <img src="equipment4.jpg" alt="Оборудование 4" class="gallery-placeholder">
+          <img src="equipment3.jpg" alt="Оборудование 3" class="gallery-img">
           <span>Видеоинспекция труб</span>
+        </div>
+        <div class="gallery-item">
+          <img src="equipment4.jpg" alt="Оборудование 4" class="gallery-img">
+          <span>Ручной инструмент</span>
         </div>
       </div>
     </section>
@@ -71,22 +68,5 @@
       <p>© 2025 Золотарь 58 — ИП Зоткин А.И.</p>
     </div>
   </footer>
-  <script>
-    const burgerBtn = document.getElementById('burgerBtn');
-    const mobileNav = document.getElementById('mobileNav');
-    burgerBtn.addEventListener('click', () => {
-      mobileNav.classList.toggle('show');
-      if (mobileNav.classList.contains('show')) {
-        Array.from(mobileNav.getElementsByTagName('a')).forEach(a => {
-          a.onclick = () => mobileNav.classList.remove('show');
-        });
-      }
-    });
-    window.addEventListener('resize', () => {
-      if (window.innerWidth > 600) {
-        mobileNav.classList.remove('show');
-      }
-    });
-  </script>
 </body>
 </html>
