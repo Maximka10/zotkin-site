@@ -11,61 +11,69 @@
   <header class="header">
     <div class="container header-flex">
       <a href="index.html" class="logo-link">
-        <img src="logo.png" class="logo-img big-logo" alt="Золотарь 58">
+        <img src="logo.png" class="logo-img" alt="Золотарь 58">
         <span class="logo-title">Золотарь 58</span>
       </a>
-      <nav class="nav" id="mainNav">
+      <nav class="nav">
         <a href="services.html" class="active">Услуги</a>
         <a href="about.html">О компании</a>
         <a href="licenses.html">Сертификаты</a>
         <a href="contacts.html">Контакты</a>
       </nav>
-      <button class="burger" id="burgerBtn">&#9776;</button>
-    </div>
-    <div class="mobile-nav" id="mobileNav">
-      <a href="services.html" class="active">Услуги</a>
-      <a href="about.html">О компании</a>
-      <a href="licenses.html">Сертификаты</a>
-      <a href="contacts.html">Контакты</a>
     </div>
   </header>
+
   <main>
     <h1>Наши услуги</h1>
     <div class="services-list">
       <div class="service-card">
         <img src="emergency-cleaning.jpg" alt="Аварийная прочистка" class="service-img">
+        <div class="service-overlay">
+          Быстрая помощь при любых засорах. Механическая и гидродинамическая прочистка труб.
+        </div>
         <h3>Аварийная прочистка канализации</h3>
-        <p>Быстрая помощь при любых засорах. Механическая и гидродинамическая прочистка труб.</p>
       </div>
       <div class="service-card">
         <img src="hydrodynamic-cleaning.jpg" alt="Гидродинамическая прочистка" class="service-img">
+        <div class="service-overlay">
+          Вода под высоким давлением очищает трубы от наростов, жира и ржавчины.
+        </div>
         <h3>Гидродинамическая прочистка</h3>
-        <p>Вода под высоким давлением очищает трубы от наростов, жира и ржавчины.</p>
       </div>
       <div class="service-card">
         <img src="mechanical-cleaning.jpg" alt="Механическая прочистка" class="service-img">
+        <div class="service-overlay">
+          Удаляем сложные засоры тросом, машинами и ручным инструментом.
+        </div>
         <h3>Механическая прочистка</h3>
-        <p>Удаляем сложные засоры тросом, машинами, ручным инструментом.</p>
       </div>
       <div class="service-card">
-        <img src="septic-cleaning.jpg" alt="Откачка выгребных ям" class="service-img">
-        <h3>Откачка выгребных ям, септиков, биотуалетов</h3>
-        <p>Быстро и аккуратно откачиваем любые объёмы. Индивидуальный подход.</p>
+        <img src="septic-cleaning.jpg" alt="Откачка ям" class="service-img">
+        <div class="service-overlay">
+          Быстро и аккуратно откачиваем любые объёмы — до 12 куб.м за выезд.
+        </div>
+        <h3>Откачка выгребных ям и септиков</h3>
       </div>
       <div class="service-card">
-        <img src="inspection.jpg" alt="Видеоинспекция" class="service-img">
+        <img src="video-inspection.jpg" alt="Видеоинспекция" class="service-img">
+        <div class="service-overlay">
+          Осмотр труб с помощью камеры. Диагностика и предупреждение аварий.
+        </div>
         <h3>Видеоинспекция канализации</h3>
-        <p>Осмотр труб видеокамерой — быстро выявляем и устраняем проблемы.</p>
       </div>
       <div class="service-card">
         <img src="well-search.jpg" alt="Поиск колодцев" class="service-img">
+        <div class="service-overlay">
+          Поиск скрытых колодцев и элементов канализации для ремонта и обслуживания.
+        </div>
         <h3>Поиск скрытых колодцев</h3>
-        <p>Находим и помогаем обслуживать скрытые элементы канализации.</p>
       </div>
       <div class="service-card">
-        <img src="org-service.jpg" alt="Обслуживание организаций" class="service-img">
+        <img src="contract-org.jpg" alt="Обслуживание организаций" class="service-img">
+        <div class="service-overlay">
+          Сервис для предприятий и юр. лиц. Официальные договора, документы, гарантия.
+        </div>
         <h3>Обслуживание организаций по договору</h3>
-        <p>Регулярный сервис для юр. лиц. Все документы и отчётность.</p>
       </div>
     </div>
   </main>
@@ -74,22 +82,5 @@
       <p>© 2025 Золотарь 58 — ИП Зоткин А.И.</p>
     </div>
   </footer>
-  <script>
-    const burgerBtn = document.getElementById('burgerBtn');
-    const mobileNav = document.getElementById('mobileNav');
-    burgerBtn.addEventListener('click', () => {
-      mobileNav.classList.toggle('show');
-      if (mobileNav.classList.contains('show')) {
-        Array.from(mobileNav.getElementsByTagName('a')).forEach(a => {
-          a.onclick = () => mobileNav.classList.remove('show');
-        });
-      }
-    });
-    window.addEventListener('resize', () => {
-      if (window.innerWidth > 600) {
-        mobileNav.classList.remove('show');
-      }
-    });
-  </script>
 </body>
 </html>
