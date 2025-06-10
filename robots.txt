@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Host: https://zolotar58.ru
+Sitemap: https://zolotar58.ru/sitemap.xml
