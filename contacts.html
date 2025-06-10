@@ -4,7 +4,12 @@
   <meta charset="UTF-8">
   <title>Контакты — Золотарь 58</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="style.css" id="theme-link">
+  <meta name="description" content="Контактные данные Золотарь 58 — телефоны, email, время работы. Пенза и область.">
+  <meta property="og:title" content="Контакты — Золотарь 58">
+  <meta property="og:description" content="Свяжитесь с нами — работаем 24/7.">
+  <meta property="og:image" content="logo.png">
+  <link rel="icon" type="image/png" href="favicon.ico">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="header">
@@ -16,36 +21,59 @@
       <nav class="nav">
         <a href="services.html">Услуги</a>
         <a href="about.html">О компании</a>
+        <a href="licenses.html">Сертификаты</a>
         <a href="contacts.html" style="color:#2478e2; font-weight:700;">Контакты</a>
       </nav>
+      <button class="burger" aria-label="Открыть меню">
+        <span></span>
+      </button>
     </div>
   </header>
-
   <main>
     <section class="main-intro" style="margin-top:35px;">
       <h1>Контакты</h1>
       <p class="main-subtitle" style="margin-bottom:18px;">Свяжитесь с нами — работаем 24/7!</p>
     </section>
-    <section class="contacts-block">
-      <div class="contacts-flex">
-        <div class="contacts-details">
+    <section class="contacts-box">
+      <div>
+        <div style="margin-bottom:1em;">
           <b>Телефон:</b><br>
           <a href="tel:+79022073636" class="phone-link">+7 (902) 207-36-36</a>
-          <span class="short-phone"><b>Короткий номер:</b> <a href="tel:+78412773636">77-36-36</a></span>
-          <br><br>
+        </div>
+        <div style="margin-bottom:1em;">
+          <b>Короткий номер:</b> <a href="tel:+78412773636" class="phone-link" style="background:#ebf3ff; color:#056ecf; border:1.2px solid #056ecf; margin-left:7px;">77-36-36</a>
+        </div>
+        <div style="margin-bottom:1em;">
           <b>Email:</b><br>
-          <a href="mailto:zolotar85@list.ru">zolotar85@list.ru</a><br><br>
+          <a href="mailto:zolotar85@list.ru" style="color:#056ecf; font-weight:500;">zolotar85@list.ru</a>
+        </div>
+        <div>
           <b>Время работы:</b><br>
-          Круглосуточно, без выходных<br>
+          Круглосуточно, без выходных
         </div>
       </div>
     </section>
   </main>
-
   <footer>
     <div class="container">
-      <p>© 2025 Золотарь 58 — ИП Зоткин А.И.</p>
+      <p class="footer-text">© 2025 Золотарь 58 — ИП Зоткин А.И.</p>
     </div>
   </footer>
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const burger = document.querySelector('.burger');
+    const nav = document.querySelector('.nav');
+    burger.addEventListener('click', function () {
+      nav.classList.toggle('open');
+      burger.classList.toggle('active');
+    });
+    document.addEventListener('click', function (e) {
+      if (!burger.contains(e.target) && !nav.contains(e.target)) {
+        nav.classList.remove('open');
+        burger.classList.remove('active');
+      }
+    });
+  });
+  </script>
 </body>
 </html>
