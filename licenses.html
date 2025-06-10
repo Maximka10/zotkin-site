@@ -4,6 +4,11 @@
   <meta charset="UTF-8">
   <title>Сертификаты и лицензии — Золотарь 58</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Сертификаты, лицензии и подтверждающие документы компании Золотарь 58.">
+  <meta property="og:title" content="Сертификаты — Золотарь 58">
+  <meta property="og:description" content="Лицензии и сертификаты на все виды работ.">
+  <meta property="og:image" content="logo.png">
+  <link rel="icon" type="image/png" href="favicon.ico">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -19,28 +24,60 @@
         <a href="licenses.html" style="color:#2478e2; font-weight:700;">Сертификаты</a>
         <a href="contacts.html">Контакты</a>
       </nav>
+      <button class="burger" aria-label="Открыть меню">
+        <span></span>
+      </button>
     </div>
   </header>
   <main>
     <section class="main-intro">
       <h1>Сертификаты и лицензии</h1>
-      <p class="main-subtitle">В ближайшее время здесь появятся сертификаты и лицензии, подтверждающие квалификацию и право ведения деятельности.</p>
     </section>
     <div class="licenses-list">
       <div class="license-item">
-        <img src="license1.jpg" alt="Скоро здесь появится сертификат" class="license-img">
-        <span>Скоро здесь появится сертификат</span>
+        <img src="license1.jpg" alt="Сертификат" class="license-img" onclick="openModal(this)">
+        <span>Сертификат</span>
       </div>
       <div class="license-item">
-        <img src="license2.jpg" alt="Скоро здесь появится лицензия" class="license-img">
-        <span>Скоро здесь появится лицензия</span>
+        <img src="license2.jpg" alt="Лицензия" class="license-img" onclick="openModal(this)">
+        <span>Лицензия</span>
       </div>
+    </div>
+    <!-- Модалка для увеличения -->
+    <div class="img-modal" id="imgModal" onclick="closeModal()">
+      <span class="close-modal" onclick="closeModal()">&times;</span>
+      <img class="modal-content" id="modalImg">
+      <div id="modalCaption"></div>
     </div>
   </main>
   <footer>
     <div class="container">
-      <p>© 2025 Золотарь 58 — ИП Зоткин А.И.</p>
+      <p class="footer-text">© 2025 Золотарь 58 — ИП Зоткин А.И.</p>
     </div>
   </footer>
+  <script>
+  function openModal(img) {
+    document.getElementById("imgModal").classList.add("open");
+    document.getElementById("modalImg").src = img.src;
+    document.getElementById("modalCaption").innerText = img.alt;
+  }
+  function closeModal() {
+    document.getElementById("imgModal").classList.remove("open");
+  }
+  document.addEventListener("DOMContentLoaded", function () {
+    const burger = document.querySelector('.burger');
+    const nav = document.querySelector('.nav');
+    burger.addEventListener('click', function () {
+      nav.classList.toggle('open');
+      burger.classList.toggle('active');
+    });
+    document.addEventListener('click', function (e) {
+      if (!burger.contains(e.target) && !nav.contains(e.target)) {
+        nav.classList.remove('open');
+        burger.classList.remove('active');
+      }
+    });
+  });
+  </script>
 </body>
 </html>
