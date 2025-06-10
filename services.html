@@ -4,6 +4,11 @@
   <meta charset="UTF-8">
   <title>Услуги — Золотарь 58</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Услуги ассенизатора в Пензе: аварийная прочистка и откачка канализации, гидродинамика, обслуживание организаций. Без выходных, 24/7.">
+  <meta property="og:title" content="Услуги — Золотарь 58">
+  <meta property="og:description" content="Аварийная прочистка и откачка канализации, гидродинамика, диагностика, обслуживание организаций. Пенза и область.">
+  <meta property="og:image" content="logo.png">
+  <link rel="icon" type="image/png" href="favicon.ico">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -19,9 +24,11 @@
         <a href="licenses.html">Сертификаты</a>
         <a href="contacts.html">Контакты</a>
       </nav>
+      <button class="burger" aria-label="Открыть меню">
+        <span></span>
+      </button>
     </div>
   </header>
-
   <main>
     <section class="main-intro" style="margin-top:35px;">
       <h1>Наши услуги</h1>
@@ -29,61 +36,55 @@
     </section>
     <section class="services-list">
       <div class="service-card">
-        <img src="emergency-cleaning.jpg" alt="Аварийная прочистка" class="service-img">
         <h3>Аварийная прочистка канализации</h3>
-        <div class="service-overlay">
-          Быстрая и эффективная помощь при любых засорах. Механическая и гидродинамическая прочистка труб.
-        </div>
+        <p>Быстрая и эффективная помощь при любых засорах. Механическая и гидродинамическая очистка труб.</p>
       </div>
       <div class="service-card">
-        <img src="hydrodynamic-cleaning.jpg" alt="Гидродинамическая прочистка" class="service-img">
         <h3>Гидродинамическая прочистка</h3>
-        <div class="service-overlay">
-          Очищаем трубы водой под давлением. Безопасно, эффективно и долговременно.
-        </div>
+        <p>Очищаем трубы водой под давлением — быстро, безопасно, долговечно.</p>
       </div>
       <div class="service-card">
-        <img src="mechanical.jpg" alt="Механическая прочистка" class="service-img">
         <h3>Механическая прочистка</h3>
-        <div class="service-overlay">
-          Удаляем сложные засоры тросом и спецтехникой — даже в старых трубах.
-        </div>
+        <p>Удаляем сложные засоры тросом и спецмашинами. Эффективно даже при старых трубах.</p>
       </div>
       <div class="service-card">
-        <img src="septic.jpg" alt="Откачка ям, септиков, биотуалетов" class="service-img">
-        <h3>Откачка выгребных ям, септиков, биотуалетов</h3>
-        <div class="service-overlay">
-          Откачиваем любые объёмы до 12 м³. Илосос, санитарная обработка, индивидуальный подход.
-        </div>
+        <h3>Откачка ям, септиков, биотуалетов</h3>
+        <p>Быстро и аккуратно откачиваем любые объёмы — до 12 куб.м за выезд. Илосос, санитарная обработка.</p>
       </div>
       <div class="service-card">
-        <img src="video.jpg" alt="Видеоинспекция канализации" class="service-img">
         <h3>Видеоинспекция канализации</h3>
-        <div class="service-overlay">
-          Осмотр труб камерой — выявляем любые проблемы, даём отчёт.
-        </div>
+        <p>Осмотр труб камерой — выявляем все скрытые проблемы, предоставляем отчёт.</p>
       </div>
       <div class="service-card">
-        <img src="search.jpg" alt="Поиск скрытых колодцев" class="service-img">
         <h3>Поиск скрытых колодцев</h3>
-        <div class="service-overlay">
-          Находим скрытые колодцы и элементы канализации — для ремонта и предотвращения аварий.
-        </div>
+        <p>Находим скрытые элементы канализации для ремонта и обслуживания.</p>
       </div>
       <div class="service-card">
-        <img src="service-org.jpg" alt="Обслуживание организаций по договору" class="service-img">
-        <h3>Обслуживание организаций по договору</h3>
-        <div class="service-overlay">
-          Сервисное обслуживание юрлиц. Официальные договора, отчётность.
-        </div>
+        <h3>Обслуживание организаций</h3>
+        <p>Регулярное сервисное обслуживание предприятий. Официальные договора и отчётность.</p>
       </div>
     </section>
   </main>
-
   <footer>
     <div class="container">
-      <p>© 2025 Золотарь 58 — ИП Зоткин А.И.</p>
+      <p class="footer-text">© 2025 Золотарь 58 — ИП Зоткин А.И.</p>
     </div>
   </footer>
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const burger = document.querySelector('.burger');
+    const nav = document.querySelector('.nav');
+    burger.addEventListener('click', function () {
+      nav.classList.toggle('open');
+      burger.classList.toggle('active');
+    });
+    document.addEventListener('click', function (e) {
+      if (!burger.contains(e.target) && !nav.contains(e.target)) {
+        nav.classList.remove('open');
+        burger.classList.remove('active');
+      }
+    });
+  });
+  </script>
 </body>
 </html>
