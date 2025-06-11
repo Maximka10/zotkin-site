@@ -10,12 +10,18 @@
 /* === Базовые стили === */
 body {
   background: var(--bg);
-  font-family: 'Segoe UI', 'Arial', sans-serif;
+  font-family: 'Montserrat', 'Segoe UI', 'Arial', sans-serif;
   margin: 0;
   color: var(--text);
   min-height: 100vh;
 }
-
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+* {
+  box-sizing: border-box;
+}
 .container {
   width: 100%;
   max-width: 1140px;
@@ -32,24 +38,19 @@ body {
   top: 0;
   z-index: 10;
 }
-/* Если хочешь сделать легкую "вуаль" над текстурой в header (раскомментируй):
-.header::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(255,255,255,0.42);
-  z-index: 0;
-  pointer-events: none;
-  border-radius: inherit;
-}
-.header > * { position: relative; z-index: 2; }
-*/
 
+/* ===== Центрированный заголовок для мобильного ===== */
+.header-title-mobile {
+  display: none;
+}
+
+/* ======= Header Flex ======= */
 .header-flex {
   display: flex;
   align-items: center;
   justify-content: space-between;
   min-height: 80px;
+  position: relative;
 }
 
 /* === Логотип === */
@@ -70,10 +71,11 @@ body {
 .logo-title {
   font-size: 2.1em;
   color: var(--main-color);
-  font-family: 'Georgia', serif;
+  font-family: 'Montserrat', 'Georgia', serif;
   font-weight: bold;
   margin-left: 10px;
   letter-spacing: 2px;
+  display: block;
 }
 
 /* === Навигация и бургер === */
@@ -125,14 +127,60 @@ body {
 .burger span:before { top: -9px; }
 .burger span:after { top: 9px; }
 
-/* Адаптивное меню */
-@media (max-width: 830px) {
-  .header-flex { flex-wrap: wrap; }
+/* ====== Мобильная адаптация header ====== */
+@media (max-width: 700px) {
+  .header-flex {
+    justify-content: center;
+    min-height: 56px;
+    position: relative;
+  }
+  .logo-link {
+    position: absolute;
+    left: 10px;
+    top: 8px;
+    gap: 10px;
+  }
+  .logo-img {
+    height: 36px;
+    width: 36px;
+    border-radius: 13px;
+  }
+  .logo-title {
+    display: none;
+  }
+  .header-title-mobile {
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 12px;
+    text-align: center;
+    font-size: 1.36em;
+    font-weight: 700;
+    color: var(--main-color);
+    letter-spacing: 1.4px;
+    z-index: 2;
+    line-height: 1.08;
+    white-space: nowrap;
+    font-family: 'Montserrat', 'Segoe UI', 'Arial', sans-serif;
+  }
+  .burger {
+    display: block !important;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    margin-left: 0;
+    width: 38px !important;
+    height: 38px !important;
+    padding: 0;
+    background: none;
+    z-index: 12;
+  }
   .nav {
     flex-direction: column;
     position: absolute;
-    right: 24px;
-    top: 80px;
+    right: 10px;
+    top: 54px;
     background: #fff;
     box-shadow: var(--shadow);
     border-radius: var(--border-radius);
@@ -143,13 +191,29 @@ body {
     z-index: 20;
   }
   .nav.open { display: flex; }
-  .burger { display: block; }
+  .nav a {
+    font-size: 1.11em;
+    padding: 0.74em 1.2em;
+    border-radius: 44px;
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+    display: block;
+  }
 }
+
+/* Скрывать моб. заголовок на десктопе */
+@media (min-width: 701px) {
+  .header-title-mobile { display: none !important; }
+  .logo-title { display: block; }
+}
+
+/* Адаптив для лого и контейнера */
 @media (max-width: 500px) {
   .logo-img {
-    height: 54px;
-    width: 54px;
-    border-radius: 20px;
+    height: 32px;
+    width: 32px;
+    border-radius: 11px;
   }
   .logo-title {
     font-size: 1.15em;
@@ -498,26 +562,10 @@ footer {
   padding: 2.1em 0 1.1em 0;
   margin-top: 30px;
 }
-/* Если нужно затемнение, раскомментируй:
-footer::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(18,40,72,0.22);
-  z-index: 0;
-  pointer-events: none;
-  border-radius: inherit;
-}
-footer > * { position: relative; z-index: 2; }
-*/
 .footer-text {
   color: #d5e2fa;
   font-size: 1em;
   text-align: center;
   opacity: 0.93;
   letter-spacing: 0.5px;
-}
-html, body {
-  max-width: 100vw;
-  overflow-x: hidden;
 }
