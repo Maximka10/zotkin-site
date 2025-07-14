@@ -4,137 +4,13 @@
   <meta charset="UTF-8">
   <title>Сертификаты и лицензии — Золотарь 58</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Сертификаты, лицензии и подтверждающие документы компании Золотарь 58.">
-  <meta property="og:title" content="Сертификаты — Золотарь 58">
-  <meta property="og:description" content="Лицензии и сертификаты на все виды работ.">
+  <meta name="description" content="Все лицензии и сертификаты на услуги по откачке, чистке канализации и обслуживанию организаций. Золотарь 58, Пенза.">
+  <meta property="og:title" content="Сертификаты и лицензии — Золотарь 58">
+  <meta property="og:description" content="Официальные лицензии, сертификаты, подтверждающие документы на все виды работ.">
   <meta property="og:image" content="logo.png">
   <link rel="icon" type="image/png" href="favicon.ico">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <link rel="canonical" href="https://zolotar58.ru/licenses.html">
-  <style>
-    /* Новый вид для блока лицензий и модалки */
-    .licenses-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 32px;
-      max-width: 840px;
-      margin: 40px auto 60px auto;
-      padding: 0 12px;
-    }
-    .license-card {
-      background: linear-gradient(125deg, #e9f3ff 0%, #f7fafc 90%);
-      border-radius: 21px;
-      box-shadow: 0 4px 20px 0 rgba(17,63,128,0.09);
-      padding: 25px 18px 18px 18px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      position: relative;
-      transition: box-shadow 0.14s, transform 0.14s;
-      cursor: pointer;
-    }
-    .license-card:hover {
-      box-shadow: 0 10px 36px 0 rgba(17,63,128,0.17);
-      transform: translateY(-2px) scale(1.03);
-    }
-    .license-img-wrapper {
-      width: 180px; height: 230px;
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 3px 20px 0 rgba(32,80,160,0.07);
-      background: #f6faff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 17px;
-      transition: box-shadow 0.14s;
-    }
-    .license-card:hover .license-img-wrapper {
-      box-shadow: 0 7px 32px 0 rgba(35,100,194,0.12);
-    }
-    .license-img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      display: block;
-      border-radius: 12px;
-      transition: transform 0.12s;
-    }
-    .license-card:hover .license-img {
-      transform: scale(1.04);
-    }
-    .license-caption {
-      margin-top: 7px;
-      font-size: 1.08em;
-      color: #215899;
-      font-weight: 600;
-      letter-spacing: 0.6px;
-      text-align: center;
-    }
-
-    /* Модальное окно для сертификата */
-    .img-modal {
-      display: none;
-      position: fixed;
-      z-index: 200;
-      left: 0; top: 0; width: 100vw; height: 100vh;
-      background: rgba(23,40,68,0.85);
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      animation: none;
-    }
-    .img-modal.open { display: flex; }
-    .modal-content {
-      max-width: 96vw;
-      max-height: 85vh;
-      border-radius: 19px;
-      box-shadow: 0 6px 38px 0 rgba(0,54,126,0.25);
-      background: #fff;
-      display: block;
-      margin-bottom: 25px;
-      animation: fadeIn 0.34s;
-    }
-    @keyframes fadeIn {
-      from { opacity:0; transform:scale(0.94);}
-      to   { opacity:1; transform:scale(1);}
-    }
-    #modalCaption {
-      color: #fff;
-      font-size: 1.22em;
-      text-align: center;
-      font-weight: 500;
-      text-shadow: 0 2px 12px #2b416b80;
-      max-width: 96vw;
-      padding: 0 8px;
-    }
-    .close-modal {
-      position: absolute;
-      top: 26px;
-      right: 36px;
-      color: #fff;
-      font-size: 3.3em;
-      cursor: pointer;
-      z-index: 201;
-      text-shadow: 0 2px 12px rgba(0,0,0,0.26);
-      transition: color 0.13s;
-      line-height: 1;
-      background: none;
-      border: none;
-    }
-    .close-modal:hover { color: #eaf3ff;}
-    @media (max-width: 650px) {
-      .licenses-grid {
-        grid-template-columns: 1fr;
-        gap: 17px;
-      }
-      .license-img-wrapper { width: 97vw; max-width: 320px; height: 45vw; max-height: 180px;}
-    }
-    @media (max-width: 480px) {
-      .modal-content { max-width: 99vw; }
-      .close-modal { top: 12px; right: 12px; font-size: 2.3em; }
-    }
-  </style>
 </head>
 <body>
   <header class="header">
@@ -147,84 +23,91 @@
       <nav class="nav">
         <a href="services.html">Услуги</a>
         <a href="about.html">О компании</a>
-        <a href="licenses.html">Сертификаты</a>
+        <a href="licenses.html" class="active">Сертификаты</a>
         <a href="contacts.html">Контакты</a>
       </nav>
-      <button class="burger" aria-label="Открыть меню">
-        <span></span>
-      </button>
+      <button class="burger" aria-label="Открыть меню"><span></span></button>
     </div>
   </header>
+
   <main>
     <section class="main-intro">
       <h1>Сертификаты и лицензии</h1>
-      <p class="main-subtitle">Все документы, подтверждающие право на выполнение работ и оказываемые услуги.</p>
+      <p class="main-subtitle">Все документы — настоящие, подлинные, доступны для проверки.</p>
     </section>
-    <div class="licenses-grid">
-      <div class="license-card">
-        <div class="license-img-wrapper">
-          <img src="license1.jpg" alt="Сертификат соответствия" class="license-img" />
-        </div>
-        <span class="license-caption">Сертификат соответствия</span>
-      </div>
-      <div class="license-card">
-        <div class="license-img-wrapper">
-          <img src="license2.jpg" alt="Лицензия на оказание услуг" class="license-img" />
-        </div>
-        <span class="license-caption">Лицензия на оказание услуг</span>
-      </div>
-      <!-- Добавь ещё блоки, если появятся документы -->
-    </div>
 
-    <!-- Модалка для увеличения -->
-    <div class="img-modal" id="imgModal">
-      <span class="close-modal" onclick="closeModal();event.stopPropagation();">&times;</span>
-      <img class="modal-content" id="modalImg" />
+    <!-- Красивый блок с лицензиями -->
+    <section class="licenses-section">
+      <div class="licenses-list">
+        <div class="license-item">
+          <div class="license-card" onclick="openModal(this)">
+            <img src="license1.jpg" alt="Сертификат соответствия" class="license-img">
+            <div class="license-caption">
+              <span class="license-title">Сертификат соответствия</span>
+              <span class="license-desc">Подтверждает допуск к спецработам</span>
+            </div>
+          </div>
+        </div>
+        <div class="license-item">
+          <div class="license-card" onclick="openModal(this)">
+            <img src="license2.jpg" alt="Лицензия на услуги" class="license-img">
+            <div class="license-caption">
+              <span class="license-title">Лицензия на услуги</span>
+              <span class="license-desc">Официальное право на работы по откачке</span>
+            </div>
+          </div>
+        </div>
+        <!-- Можешь добавить еще лицензии по такому же шаблону -->
+      </div>
+    </section>
+
+    <!-- Модальное окно для увеличения -->
+    <div class="img-modal" id="imgModal" onclick="closeModal()">
+      <span class="close-modal" onclick="closeModal()">&times;</span>
+      <img class="modal-content" id="modalImg">
       <div id="modalCaption"></div>
     </div>
   </main>
+
   <footer>
     <div class="container">
       <p class="footer-text">© 2025 Золотарь 58 — ИП Зоткин А.И. | Адрес: г. Пенза, ул. Пушанина, 46а</p>
     </div>
   </footer>
+
   <script>
-    function openModal(img) {
-      document.getElementById("imgModal").classList.add("open");
-      document.getElementById("modalImg").src = img.src;
-      document.getElementById("modalCaption").innerText = img.alt;
+    // Меню бургер
+    document.addEventListener("DOMContentLoaded", function () {
+      const burger = document.querySelector('.burger');
+      const nav = document.querySelector('.nav');
+      burger.addEventListener('click', function (e) {
+        e.stopPropagation();
+        nav.classList.toggle('open');
+        burger.classList.toggle('active');
+      });
+      document.addEventListener('click', function (e) {
+        if (!burger.contains(e.target) && !nav.contains(e.target)) {
+          nav.classList.remove('open');
+          burger.classList.remove('active');
+        }
+      });
+    });
+
+    // Модальное окно лицензий
+    function openModal(card) {
+      var modal = document.getElementById("imgModal");
+      var modalImg = document.getElementById("modalImg");
+      var modalCaption = document.getElementById("modalCaption");
+      var img = card.querySelector('img');
+      modal.classList.add("open");
+      modalImg.src = img.src;
+      modalCaption.innerHTML = card.querySelector('.license-title').innerText + "<br><span style='font-size:0.94em;opacity:0.7;'>" + card.querySelector('.license-desc').innerText + "</span>";
+      document.body.style.overflow = "hidden";
     }
     function closeModal() {
       document.getElementById("imgModal").classList.remove("open");
+      document.body.style.overflow = "";
     }
-    document.addEventListener('DOMContentLoaded', function () {
-      // Открытие модалки по клику на любую лицензию
-      document.querySelectorAll('.license-img').forEach(function(img) {
-        img.addEventListener('click', function(e) {
-          e.stopPropagation();
-          openModal(this);
-        });
-      });
-      // Для закрытия по клику вне картинки
-      document.getElementById("imgModal").addEventListener('click', function(e){
-        if(e.target === this) closeModal();
-      });
-      // Бургер для мобилы (если есть)
-      var burger = document.querySelector('.burger');
-      var nav = document.querySelector('.nav');
-      if(burger && nav){
-        burger.addEventListener('click', function () {
-          nav.classList.toggle('open');
-          burger.classList.toggle('active');
-        });
-        document.addEventListener('click', function (e) {
-          if (!burger.contains(e.target) && !nav.contains(e.target)) {
-            nav.classList.remove('open');
-            burger.classList.remove('active');
-          }
-        });
-      }
-    });
   </script>
 </body>
 </html>
