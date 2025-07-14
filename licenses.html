@@ -40,23 +40,23 @@
       </div>
     </section>
     <div class="licenses-list">
-      <div class="license-card" onclick="openModal(this)">
-        <div class="license-img-wrap">
-          <img src="license1.jpg" alt="Сертификат соответствия" class="license-img">
-          <span class="license-badge">Официально выдано</span>
-        </div>
-        <div class="license-title">Сертификат соответствия</div>
-        <div class="license-desc">Документ подтверждает соответствие оказываемых услуг стандартам.</div>
-      </div>
-      <div class="license-card" onclick="openModal(this)">
-        <div class="license-img-wrap">
-          <img src="license2.jpg" alt="Лицензия на работы" class="license-img">
-          <span class="license-badge">Действует до 2027</span>
-        </div>
-        <div class="license-title">Лицензия на работы</div>
-        <div class="license-desc">Право на выполнение сервисных и аварийных работ на инженерных сетях.</div>
-      </div>
+  <div class="license-card" onclick="openModal(this.querySelector('.license-img'));">
+    <div class="license-img-wrap">
+      <img src="license1.jpg" alt="Сертификат ISO 9001:2015" class="license-img">
+      <span class="license-badge">СЕРТИФИКАТ</span>
     </div>
+    <div class="license-title">Сертификат ISO 9001:2015</div>
+    <div class="license-desc">Система менеджмента качества подтверждена международным стандартом.</div>
+  </div>
+  <div class="license-card" onclick="openModal(this.querySelector('.license-img'));">
+    <div class="license-img-wrap">
+      <img src="license2.jpg" alt="Лицензия на ассенизаторские работы" class="license-img">
+      <span class="license-badge">ЛИЦЕНЗИЯ</span>
+    </div>
+    <div class="license-title">Лицензия на ассенизаторские работы</div>
+    <div class="license-desc">Официальная лицензия на все виды прочистки и откачки канализации.</div>
+  </div>
+</div>
     <!-- Модальное окно для просмотра сертификата -->
     <div class="img-modal" id="imgModal" onclick="closeModal()">
       <span class="close-modal" onclick="closeModal()">&times;</span>
