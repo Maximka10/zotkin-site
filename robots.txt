@@ -1,5 +1,3 @@
 User-agent: *
-Disallow:
-
+Allow: /
 Sitemap: https://zolotar58.ru/sitemap.xml
-Host: zolotar58.ru
