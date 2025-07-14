@@ -11,6 +11,34 @@
   <link rel="icon" type="image/png" href="favicon.ico">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <style>
+    .contacts-map-wrap {
+      margin: 0 auto 36px auto;
+      max-width: 540px;
+      border-radius: 18px;
+      box-shadow: 0 4px 32px 0 rgba(0,54,126,.07), 0 1.5px 5px 0 rgba(0,0,0,0.02);
+      overflow: hidden;
+      background: #f8fafb;
+    }
+    .contacts-map-title {
+      padding: 18px 20px 5px 20px;
+      font-size: 1.12em;
+      color: #225996;
+      font-weight: 600;
+      text-align: left;
+      background: none;
+    }
+    .contacts-map {
+      width: 100%;
+      height: 310px;
+      border: none;
+      display: block;
+    }
+    @media (max-width:600px){
+      .contacts-map-wrap { max-width:98vw; }
+      .contacts-map { height: 210px; }
+    }
+  </style>
 </head>
 <body>
   <header class="header">
@@ -19,7 +47,6 @@
       <img src="logo.png" class="logo-img" alt="Золотарь 58">
       <span class="logo-title">Золотарь 58</span>
     </a>
-    <!-- Кликабельный заголовок только для мобилы! -->
     <a href="index.html" class="header-title-mobile">Золотарь 58</a>
     <nav class="nav">
       <a href="services.html">Услуги</a>
@@ -38,24 +65,37 @@
       <p class="main-subtitle" style="margin-bottom:18px;">Свяжитесь с нами — работаем 24/7!</p>
     </section>
     <section class="contacts-box">
+      <div style="margin-bottom:1em;">
+        <b>Адрес:</b><br>
+        <span style="font-weight:500; color:#244a7c;">г. Пенза, ул. Пушанина, 46А</span>
+      </div>
+      <div style="margin-bottom:1em;">
+        <b>Телефон:</b><br>
+        <a href="tel:+79022073636" class="phone-link">+7 (902) 207-36-36</a>
+      </div>
+      <div style="margin-bottom:1em;">
+        <b>Короткий номер:</b> <a href="tel:+78412773636" class="phone-link" style="background:#ebf3ff; color:#056ecf; border:1.2px solid #056ecf; margin-left:7px;">77-36-36</a>
+      </div>
+      <div style="margin-bottom:1em;">
+        <b>Email:</b><br>
+        <a href="mailto:zolotar58@list.ru" style="color:#056ecf; font-weight:500;">zolotar58@list.ru</a>
+      </div>
       <div>
-        <div style="margin-bottom:1em;">
-          <b>Телефон:</b><br>
-          <a href="tel:+79022073636" class="phone-link">+7 (902) 207-36-36</a>
-        </div>
-        <div style="margin-bottom:1em;">
-          <b>Короткий номер:</b> <a href="tel:+78412773636" class="phone-link" style="background:#ebf3ff; color:#056ecf; border:1.2px solid #056ecf; margin-left:7px;">77-36-36</a>
-        </div>
-        <div style="margin-bottom:1em;">
-          <b>Email:</b><br>
-          <a href="mailto:zolotar58@list.ru" style="color:#056ecf; font-weight:500;">zolotar58@list.ru</a>
-        </div>
-        <div>
-          <b>Время работы:</b><br>
-          Круглосуточно, без выходных
-        </div>
+        <b>Время работы:</b><br>
+        Круглосуточно, без выходных
       </div>
     </section>
+    <!-- Карта -->
+    <div class="contacts-map-wrap">
+      <div class="contacts-map-title">Мы на карте:</div>
+      <iframe class="contacts-map"
+        src="https://yandex.ru/map-widget/v1/?um=constructor%3A0cdd96ea0dba431f10ac389e0099b1c95c07e3db18e9858ce29926d0972f303e&amp;source=constructor"
+        allowfullscreen
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Золотарь 58 на карте"
+      ></iframe>
+    </div>
   </main>
   <footer>
     <div class="container">
