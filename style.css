@@ -827,3 +827,16 @@ footer {
   .license-card-img { max-width: 98vw; height: 120px;}
   .close-modal { top: 14px; right: 17px; font-size: 2em;}
 }
+.logo-title {
+  font-size: 2.1em;
+  color: var(--main-color);
+  font-family: 'Montserrat', 'Georgia', serif;
+  font-weight: bold;
+  margin-left: 10px;
+  letter-spacing: 2px;
+  display: block;
+  text-shadow: 0 3px 10px rgba(0,70,180,0.10), 0 1px 0 #fff, 0 0 3px #bdd9f8;
+  /* Можно добавить ещё:
+     text-stroke: 1px #fff; (для WebKit, но не везде поддерживается)
+  */
+}
