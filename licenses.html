@@ -14,39 +14,50 @@
 </head>
 <body>
   <header class="header">
-  <div class="container header-flex">
-    <a href="index.html" class="logo-link">
-      <img src="logo.png" class="logo-img" alt="Золотарь 58">
-      <span class="logo-title">Золотарь 58</span>
-    </a>
-    <!-- Кликабельный заголовок только для мобилы! -->
-    <a href="index.html" class="header-title-mobile">Золотарь 58</a>
-    <nav class="nav">
-      <a href="services.html">Услуги</a>
-      <a href="about.html">О компании</a>
-      <a href="licenses.html">Сертификаты</a>
-      <a href="contacts.html">Контакты</a>
-    </nav>
-    <button class="burger" aria-label="Открыть меню">
-      <span></span>
-    </button>
-  </div>
-</header>
+    <div class="container header-flex">
+      <a href="index.html" class="logo-link">
+        <img src="logo.png" class="logo-img" alt="Золотарь 58">
+        <span class="logo-title">Золотарь 58</span>
+      </a>
+      <a href="index.html" class="header-title-mobile">Золотарь 58</a>
+      <nav class="nav">
+        <a href="services.html">Услуги</a>
+        <a href="about.html">О компании</a>
+        <a href="licenses.html">Сертификаты</a>
+        <a href="contacts.html">Контакты</a>
+      </nav>
+      <button class="burger" aria-label="Открыть меню">
+        <span></span>
+      </button>
+    </div>
+  </header>
   <main>
     <section class="main-intro">
       <h1>Сертификаты и лицензии</h1>
+      <div class="licenses-subtitle">
+        Все работы выполняются на основании действующих лицензий и сертификатов.<br>
+        Готовы предоставить документы по первому требованию.
+      </div>
     </section>
     <div class="licenses-list">
-      <div class="license-item">
-        <img src="license1.jpg" alt="Сертификат" class="license-img" onclick="openModal(this)">
-        <span>Сертификат</span>
+      <div class="license-card" onclick="openModal(this)">
+        <div class="license-img-wrap">
+          <img src="license1.jpg" alt="Сертификат соответствия" class="license-img">
+          <span class="license-badge">Официально выдано</span>
+        </div>
+        <div class="license-title">Сертификат соответствия</div>
+        <div class="license-desc">Документ подтверждает соответствие оказываемых услуг стандартам.</div>
       </div>
-      <div class="license-item">
-        <img src="license2.jpg" alt="Лицензия" class="license-img" onclick="openModal(this)">
-        <span>Лицензия</span>
+      <div class="license-card" onclick="openModal(this)">
+        <div class="license-img-wrap">
+          <img src="license2.jpg" alt="Лицензия на работы" class="license-img">
+          <span class="license-badge">Действует до 2027</span>
+        </div>
+        <div class="license-title">Лицензия на работы</div>
+        <div class="license-desc">Право на выполнение сервисных и аварийных работ на инженерных сетях.</div>
       </div>
     </div>
-    <!-- Модалка для увеличения -->
+    <!-- Модальное окно для просмотра сертификата -->
     <div class="img-modal" id="imgModal" onclick="closeModal()">
       <span class="close-modal" onclick="closeModal()">&times;</span>
       <img class="modal-content" id="modalImg">
@@ -59,10 +70,12 @@
     </div>
   </footer>
   <script>
-  function openModal(img) {
+  function openModal(card) {
+    const img = card.querySelector('.license-img');
     document.getElementById("imgModal").classList.add("open");
     document.getElementById("modalImg").src = img.src;
-    document.getElementById("modalCaption").innerText = img.alt;
+    document.getElementById("modalCaption").innerText =
+      card.querySelector('.license-title').innerText + (card.querySelector('.license-desc') ? ' — ' + card.querySelector('.license-desc').innerText : '');
   }
   function closeModal() {
     document.getElementById("imgModal").classList.remove("open");
