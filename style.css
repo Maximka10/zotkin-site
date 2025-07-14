@@ -831,4 +831,25 @@ footer {
   .license-card-img { max-width: 98vw; height: 120px;}
   .close-modal { top: 14px; right: 17px; font-size: 2em;}
 }
+.about-card {
+  max-width: 700px;
+  margin: 0 auto 32px auto;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 4px 32px 0 rgba(0,54,126,.07), 0 1.5px 5px 0 rgba(0,0,0,0.02);
+  padding: 2em 2.2em;
+  color: #22364e;
+  font-size: 1.19em;
+  line-height: 1.6;
+  text-align: center;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+@media (max-width:700px){
+  .about-card {
+    padding: 1em 0.7em;
+    font-size: 1.05em;
+    border-radius: 14px;
+  }
+}
 
