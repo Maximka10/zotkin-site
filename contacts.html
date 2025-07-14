@@ -4,119 +4,91 @@
   <meta charset="UTF-8">
   <title>Контакты — Золотарь 58</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Контактные данные Золотарь 58 — телефоны, email, время работы. Пенза и область.">
+  <meta name="description" content="Контактные данные Золотарь 58 — телефоны, email, время работы, адрес. Пенза и область.">
   <meta property="og:title" content="Контакты — Золотарь 58">
   <meta property="og:description" content="Свяжитесь с нами — работаем 24/7.">
   <meta property="og:image" content="logo.png">
   <link rel="icon" type="image/png" href="favicon.ico">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <style>
-    .contacts-map-wrap {
-      margin: 0 auto 36px auto;
-      max-width: 540px;
-      border-radius: 18px;
-      box-shadow: 0 4px 32px 0 rgba(0,54,126,.07), 0 1.5px 5px 0 rgba(0,0,0,0.02);
-      overflow: hidden;
-      background: #f8fafb;
-    }
-    .contacts-map-title {
-      padding: 18px 20px 5px 20px;
-      font-size: 1.12em;
-      color: #225996;
-      font-weight: 600;
-      text-align: left;
-      background: none;
-    }
-    .contacts-map {
-      width: 100%;
-      height: 310px;
-      border: none;
-      display: block;
-    }
-    @media (max-width:600px){
-      .contacts-map-wrap { max-width:98vw; }
-      .contacts-map { height: 210px; }
-    }
-  </style>
 </head>
 <body>
   <header class="header">
-  <div class="container header-flex">
-    <a href="index.html" class="logo-link">
-      <img src="logo.png" class="logo-img" alt="Золотарь 58">
-      <span class="logo-title">Золотарь 58</span>
-    </a>
-    <a href="index.html" class="header-title-mobile">Золотарь 58</a>
-    <nav class="nav">
-      <a href="services.html">Услуги</a>
-      <a href="about.html">О компании</a>
-      <a href="licenses.html">Сертификаты</a>
-      <a href="contacts.html">Контакты</a>
-    </nav>
-    <button class="burger" aria-label="Открыть меню">
-      <span></span>
-    </button>
-  </div>
-</header>
+    <div class="container header-flex">
+      <a href="index.html" class="logo-link">
+        <img src="logo.png" class="logo-img" alt="Золотарь 58">
+        <span class="logo-title">Золотарь 58</span>
+      </a>
+      <!-- Кликабельный заголовок только для мобилы! -->
+      <a href="index.html" class="header-title-mobile">Золотарь 58</a>
+      <nav class="nav">
+        <a href="services.html">Услуги</a>
+        <a href="about.html">О компании</a>
+        <a href="licenses.html">Сертификаты</a>
+        <a href="contacts.html" style="color:#2478e2; font-weight:700;">Контакты</a>
+      </nav>
+      <button class="burger" aria-label="Открыть меню">
+        <span></span>
+      </button>
+    </div>
+  </header>
   <main>
     <section class="main-intro" style="margin-top:35px;">
       <h1>Контакты</h1>
       <p class="main-subtitle" style="margin-bottom:18px;">Свяжитесь с нами — работаем 24/7!</p>
     </section>
     <section class="contacts-box">
-      <div style="margin-bottom:1em;">
-        <b>Адрес:</b><br>
-        <span style="font-weight:500; color:#244a7c;">г. Пенза, ул. Пушанина, 46А</span>
-      </div>
-      <div style="margin-bottom:1em;">
-        <b>Телефон:</b><br>
-        <a href="tel:+79022073636" class="phone-link">+7 (902) 207-36-36</a>
-      </div>
-      <div style="margin-bottom:1em;">
-        <b>Короткий номер:</b> <a href="tel:+78412773636" class="phone-link" style="background:#ebf3ff; color:#056ecf; border:1.2px solid #056ecf; margin-left:7px;">77-36-36</a>
-      </div>
-      <div style="margin-bottom:1em;">
-        <b>Email:</b><br>
-        <a href="mailto:zolotar58@list.ru" style="color:#056ecf; font-weight:500;">zolotar58@list.ru</a>
-      </div>
       <div>
-        <b>Время работы:</b><br>
-        Круглосуточно, без выходных
+        <div style="margin-bottom:1em;">
+          <b>Телефон:</b><br>
+          <a href="tel:+79022073636" class="phone-link">+7 (902) 207-36-36</a>
+        </div>
+        <div style="margin-bottom:1em;">
+          <b>Короткий номер:</b>
+          <a href="tel:+78412773636" class="phone-link" style="background:#ebf3ff; color:#056ecf; border:1.2px solid #056ecf; margin-left:7px;">77-36-36</a>
+        </div>
+        <div style="margin-bottom:1em;">
+          <b>Email:</b><br>
+          <a href="mailto:zolotar58@list.ru" style="color:#056ecf; font-weight:500;">zolotar58@list.ru</a>
+        </div>
+        <div style="margin-bottom:1em;">
+          <b>Время работы:</b><br>
+          Круглосуточно, без выходных
+        </div>
+        <div style="margin-bottom:1em;">
+          <b>Адрес:</b><br>
+          г. Пенза, ул. Пушанина, 46А
+        </div>
       </div>
     </section>
-    <!-- Карта -->
-    <div class="contacts-map-wrap">
-  <div class="contacts-map-title">Мы на карте:</div>
-  <iframe class="contacts-map"
-    src="https://yandex.ru/map-widget/v1/?um=search%3A%7BПенза%2C%20улица%20Пушанина%2C%2046%D0%90%7D&ll=45.044985%2C53.186653&z=17"
-    allowfullscreen
-    loading="lazy"
-    referrerpolicy="no-referrer-when-downgrade"
-    title="Золотарь 58 на карте"
-  ></iframe>
+    <!-- Карта с меткой на Пушанина 46А -->
+    <div style="max-width: 100%; overflow: hidden; border-radius: 16px; box-shadow: 0 4px 22px 0 rgba(0,54,126,0.11); margin: 0 auto 28px auto;">
+      <iframe
+        src="https://yandex.ru/map-widget/v1/?from=mapframe&ll=45.007500%2C53.132147&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgozMDk2MDcwNTIxEjvQoNC-0YHRgdC40Y8sINCf0LXQvdC30LAsINGD0LvQuNGG0LAg0J_Rg9GI0LDQvdC40L3QsCwgNDbQkCIKDa8HNEIVUodUQg%2C%2C&source=mapframe&um=search%3A%7B%D0%9F%D0%B5%D0%BD%D0%B7%D0%B0%2C%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%20%D0%9F%D1%83%D1%88%D0%B0%D0%BD%D0%B8%D0%BD%D0%B0%2C%2046%D0%90%7D&utm_source=mapframe&z=16.67"
+        width="100%" height="340" frameborder="0" allowfullscreen="true" style="border:0; display:block;">
+      </iframe>
     </div>
   </main>
   <footer>
     <div class="container">
-      <p class="footer-text">© 2025 Золотарь 58 — ИП Зоткин А.И. | Адрес: г. Пенза, ул. Пушанина, 46а</p>
+      <p class="footer-text">© 2025 Золотарь 58 — ИП Зоткин А.И. | Адрес: г. Пенза, ул. Пушанина, 46А</p>
     </div>
   </footer>
   <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const burger = document.querySelector('.burger');
-    const nav = document.querySelector('.nav');
-    burger.addEventListener('click', function () {
-      nav.classList.toggle('open');
-      burger.classList.toggle('active');
+    document.addEventListener("DOMContentLoaded", function () {
+      const burger = document.querySelector('.burger');
+      const nav = document.querySelector('.nav');
+      burger.addEventListener('click', function () {
+        nav.classList.toggle('open');
+        burger.classList.toggle('active');
+      });
+      document.addEventListener('click', function (e) {
+        if (!burger.contains(e.target) && !nav.contains(e.target)) {
+          nav.classList.remove('open');
+          burger.classList.remove('active');
+        }
+      });
     });
-    document.addEventListener('click', function (e) {
-      if (!burger.contains(e.target) && !nav.contains(e.target)) {
-        nav.classList.remove('open');
-        burger.classList.remove('active');
-      }
-    });
-  });
   </script>
 </body>
 </html>
