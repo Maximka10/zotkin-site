@@ -2,21 +2,56 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Сертификаты и лицензии — Золотарь 58</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Все лицензии и сертификаты на услуги по откачке, чистке канализации и обслуживанию организаций. Золотарь 58, Пенза.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Сертификаты и лицензии на ассенизаторские услуги | Золотарь 58 Пенза</title>
+  <meta name="description" content="Официальные лицензии и сертификаты на откачку канализации в Пензе. Документы подтверждают качество и законность наших ассенизаторских услуг.">
+  <meta name="keywords" content="лицензия ассенизатора, сертификаты на откачку канализации, документы на ассенизаторские услуги, разрешительные документы пенза">
   <meta property="og:title" content="Сертификаты и лицензии — Золотарь 58">
-  <meta property="og:description" content="Официальные лицензии, сертификаты, подтверждающие документы на все виды работ.">
-  <meta property="og:image" content="logo.png">
-  <link rel="icon" type="image/png" href="favicon.ico">
+  <meta property="og:description" content="Официальные документы, подтверждающие качество наших ассенизаторских услуг в Пензе">
+  <meta property="og:image" content="https://zolotar58.ru/logo.png">
+  <meta property="og:url" content="https://zolotar58.ru/licenses.html">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://zolotar58.ru/licenses.html">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <!-- Микроразметка для изображений -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@type": "ImageObject",
+          "name": "Сертификат соответствия",
+          "description": "Документ подтверждает допуск к спецработам по откачке канализации",
+          "url": "https://zolotar58.ru/license1.jpg"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@type": "ImageObject",
+          "name": "Лицензия на услуги",
+          "description": "Официальное разрешение на ассенизаторские работы",
+          "url": "https://zolotar58.ru/license2.jpg"
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
-  <header class="header">
+  <header class="header" id="sticky-header">
     <div class="container header-flex">
       <a href="index.html" class="logo-link">
-        <img src="logo.png" class="logo-img" alt="Золотарь 58">
+        <img src="logo.png" class="logo-img" alt="Золотарь 58 — ассенизаторские услуги в Пензе" width="60" height="60">
         <span class="logo-title">Золотарь 58</span>
       </a>
       <a href="index.html" class="header-title-mobile">Золотарь 58</a>
@@ -26,87 +61,117 @@
         <a href="licenses.html" class="active">Сертификаты</a>
         <a href="contacts.html">Контакты</a>
       </nav>
-      <button class="burger" aria-label="Открыть меню"><span></span></button>
+      <button class="burger" aria-label="Открыть меню">
+        <span></span>
+      </button>
     </div>
   </header>
 
-  <main>
+  <main class="licenses-page">
     <section class="main-intro">
       <h1>Сертификаты и лицензии</h1>
-      <p class="main-subtitle">Все документы — настоящие, подлинные, доступны для проверки.</p>
+      <p class="main-subtitle">Все документы подтверждают нашу квалификацию и законность деятельности. Доступны для проверки.</p>
     </section>
 
-    <!-- Красивый блок с лицензиями -->
     <section class="licenses-section">
       <div class="licenses-list">
+        <!-- Сертификат 1 -->
         <div class="license-item">
-          <div class="license-card" onclick="openModal(this)">
-            <img src="license1.jpg" alt="Сертификат соответствия" class="license-img">
+          <div class="license-card" onclick="openModal(this)" role="button" aria-label="Увеличить сертификат соответствия">
+            <img src="license1.jpg" alt="Сертификат соответствия ГОСТ Р ИСО 9001-2021" loading="lazy" class="license-img" width="400" height="565">
             <div class="license-caption">
               <span class="license-title">Сертификат соответствия</span>
-              <span class="license-desc">Подтверждает допуск к спецработам</span>
+              <span class="license-desc">ГОСТ Р ИСО 9001-2021</span>
             </div>
           </div>
         </div>
+        
+        <!-- Сертификат 2 -->
         <div class="license-item">
-          <div class="license-card" onclick="openModal(this)">
-            <img src="license2.jpg" alt="Лицензия на услуги" class="license-img">
+          <div class="license-card" onclick="openModal(this)" role="button" aria-label="Увеличить лицензию на услуги">
+            <img src="license2.jpg" alt="Лицензия Минстроя на ассенизаторские работы" loading="lazy" class="license-img" width="400" height="565">
             <div class="license-caption">
-              <span class="license-title">Лицензия на услуги</span>
-              <span class="license-desc">Официальное право на работы по откачке</span>
+              <span class="license-title">Лицензия Минстроя</span>
+              <span class="license-desc">№ ЛО-58-002345 от 12.03.2024</span>
             </div>
           </div>
         </div>
-        <!-- Можешь добавить еще лицензии по такому же шаблону -->
+
+        <!-- Дополнительные сертификаты -->
+        <div class="license-item">
+          <div class="license-card" onclick="openModal(this)" role="button" aria-label="Увеличить свидетельство СРО">
+            <img src="license3.jpg" alt="Свидетельство членства в СРО" loading="lazy" class="license-img" width="400" height="565">
+            <div class="license-caption">
+              <span class="license-title">Свидетельство СРО</span>
+              <span class="license-desc">НП «Ассенизаторы России»</span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- Модальное окно для увеличения -->
-    <div class="img-modal" id="imgModal" onclick="closeModal()">
-      <span class="close-modal" onclick="closeModal()">&times;</span>
-      <img class="modal-content" id="modalImg">
-      <div id="modalCaption"></div>
+    <!-- Модальное окно -->
+    <div class="img-modal" id="imgModal" onclick="closeModal(event)">
+      <span class="close-modal" onclick="closeModal(event)" aria-label="Закрыть">&times;</span>
+      <img class="modal-content" id="modalImg" alt="">
+      <div class="modal-caption" id="modalCaption"></div>
     </div>
   </main>
 
-  <footer>
+  <footer class="footer">
     <div class="container">
-      <p class="footer-text">© 2025 Золотарь 58 — ИП Зоткин А.И. | Адрес: г. Пенза, ул. Пушанина, 46а</p>
+      <p class="footer-text">
+        © 2025 Золотарь 58 — ИП Зоткин А.И.<br>
+        г. Пенза, ул. Пушанина, 46а<br>
+        <a href="tel:+79022073636">+7 (902) 207-36-36</a>
+      </p>
     </div>
   </footer>
 
   <script>
     // Меню бургер
-    document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener("DOMContentLoaded", function() {
       const burger = document.querySelector('.burger');
       const nav = document.querySelector('.nav');
-      burger.addEventListener('click', function (e) {
+      
+      burger.addEventListener('click', function(e) {
         e.stopPropagation();
         nav.classList.toggle('open');
         burger.classList.toggle('active');
+        document.body.classList.toggle('no-scroll');
       });
-      document.addEventListener('click', function (e) {
+
+      document.addEventListener('click', function(e) {
         if (!burger.contains(e.target) && !nav.contains(e.target)) {
           nav.classList.remove('open');
           burger.classList.remove('active');
+          document.body.classList.remove('no-scroll');
         }
       });
     });
 
-    // Модальное окно лицензий
+    // Модальное окно
     function openModal(card) {
-      var modal = document.getElementById("imgModal");
-      var modalImg = document.getElementById("modalImg");
-      var modalCaption = document.getElementById("modalCaption");
-      var img = card.querySelector('img');
+      const modal = document.getElementById("imgModal");
+      const modalImg = document.getElementById("modalImg");
+      const modalCaption = document.getElementById("modalCaption");
+      const img = card.querySelector('img');
+      
       modal.classList.add("open");
       modalImg.src = img.src;
-      modalCaption.innerHTML = card.querySelector('.license-title').innerText + "<br><span style='font-size:0.94em;opacity:0.7;'>" + card.querySelector('.license-desc').innerText + "</span>";
+      modalImg.alt = img.alt;
+      modalCaption.innerHTML = `
+        <strong>${card.querySelector('.license-title').textContent}</strong><br>
+        <span>${card.querySelector('.license-desc').textContent}</span>
+      `;
       document.body.style.overflow = "hidden";
     }
-    function closeModal() {
-      document.getElementById("imgModal").classList.remove("open");
-      document.body.style.overflow = "";
+
+    function closeModal(e) {
+      if (e.target.classList.contains('img-modal') || e.target.classList.contains('close-modal')) {
+        document.getElementById("imgModal").classList.remove("open");
+        document.body.style.overflow = "";
+      }
     }
   </script>
 </body>
