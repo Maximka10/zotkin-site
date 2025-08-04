@@ -2,8 +2,8 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Откачка канализации Пенза 24/7 | Ассенизатор Золотарь 58 — Прочистка труб, аварийная откачка</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Профессиональная откачка канализации, септиков, выгребных ям. Прочистка труб и устранение засоров. Ассенизаторские услуги по Пензе и области 24/7. Круглосуточно.">
   <meta name="keywords" content="откачка канализации пенза, ассенизатор пенза, откачка септика, аварийная откачка, чистка выгребных ям, каналопромывка, промывка канализации, прочистка труб, аварийная служба канализации, ассенизаторские услуги пенза, канализация пенза, откачка канализации круглосуточно, прочистка канализации пенза, вызов ассенизатора пенза, срочная откачка">
   <meta property="og:title" content="Ассенизатор Пенза — Золотарь 58">
@@ -11,7 +11,10 @@
   <meta property="og:image" content="https://zolotar58.ru/logo.png">
   <meta property="og:url" content="https://zolotar58.ru/">
   <meta property="og:type" content="website">
-  <link rel="icon" type="image/png" href="favicon.ico">
+  <link rel="canonical" href="https://zolotar58.ru/">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <!-- Микроразметка Schema.org для LocalBusiness -->
@@ -30,15 +33,16 @@
     },
     "url": "https://zolotar58.ru/",
     "openingHours": "24/7",
+    "priceRange": "₽₽",
     "description": "Откачка канализации, прочистка, ассенизаторские услуги, аварийная служба в Пензе и области. Официально. Быстро. Круглосуточно."
   }
   </script>
 </head>
 <body>
-  <header class="header">
+  <header class="header" id="sticky-header">
     <div class="container header-flex">
       <a href="index.html" class="logo-link">
-        <img src="logo.png" class="logo-img" alt="Золотарь 58 — Ассенизатор Пенза, откачка канализации" title="Ассенизатор Золотарь 58 в Пензе">
+        <img src="logo.png" class="logo-img" alt="Золотарь 58 — Ассенизатор Пенза, откачка канализации" title="Ассенизатор Золотарь 58 в Пензе" width="48" height="48">
         <span class="logo-title">Золотарь 58</span>
       </a>
       <a href="index.html" class="header-title-mobile">Золотарь 58</a>
@@ -68,9 +72,9 @@
     <a class="cta" href="tel:+79022073636">Позвонить: +7-902-207-36-36</a>
 
     <!-- SEO блок Услуг -->
-    <section>
+    <section class="services-section">
       <h2>Наши услуги</h2>
-      <ul>
+      <ul class="services-list">
         <li>Откачка канализации (Пенза и область)</li>
         <li>Откачка и чистка септиков</li>
         <li>Аварийная откачка выгребных ям</li>
@@ -83,7 +87,7 @@
 
     <section class="why-us">
       <h2>Почему выбирают нас</h2>
-      <ul>
+      <ul class="usp-list">
         <li><span class="usp-icon">🚚</span><b>Быстрый выезд</b> — оперативная подача машины, 24/7 по Пензе и области.</li>
         <li><span class="usp-icon">🛠️</span><b>Профессиональное оборудование</b> — гидродинамика, механика, видеоинспекция.</li>
         <li><span class="usp-icon">💼</span><b>Работа с организациями</b> — заключаем официальные договоры, выдаём документы.</li>
@@ -92,120 +96,149 @@
       </ul>
     </section>
 
-    <!-- Слайдер отзывов с оценкой звёздами и ссылкой на Яндекс -->
-    <section>
+    <!-- Слайдер отзывов -->
+    <section class="reviews-section">
       <div class="reviews-slider">
-        <div class="reviews-title">Отзывы наших клиентов</div>
+        <h2 class="reviews-title">Отзывы наших клиентов</h2>
         <div class="review-item active">
           <div class="review-rating">
-            <span style="color: #FFC700;">★★★★★</span>
+            <span class="stars">★★★★★</span>
           </div>
-          Всё понравилось, быстро приехали, всё сделали! Рекомендую.<div class="review-author">— Николай С.</div>
+          <p class="review-text">Всё понравилось, быстро приехали, всё сделали! Рекомендую.</p>
+          <div class="review-author">— Николай С.</div>
         </div>
         <div class="review-item">
           <div class="review-rating">
-            <span style="color: #FFC700;">★★★★★</span>
+            <span class="stars">★★★★★</span>
           </div>
-          Заказывал откачку септика. Приехали в течение часа, всё аккуратно.<div class="review-author">— Ирина Д.</div>
+          <p class="review-text">Заказывал откачку септика. Приехали в течение часа, всё аккуратно.</p>
+          <div class="review-author">— Ирина Д.</div>
         </div>
         <div class="review-item">
           <div class="review-rating">
-            <span style="color: #FFC700;">★★★★★</span>
+            <span class="stars">★★★★★</span>
           </div>
-          Надёжная компания, обращаюсь не первый раз. Спасибо!<div class="review-author">— Владимир М.</div>
+          <p class="review-text">Надёжная компания, обращаюсь не первый раз. Спасибо!</p>
+          <div class="review-author">— Владимир М.</div>
         </div>
         <div class="slider-nav">
-          <button class="slider-dot active"></button>
-          <button class="slider-dot"></button>
-          <button class="slider-dot"></button>
+          <button class="slider-dot active" aria-label="Показать отзыв 1"></button>
+          <button class="slider-dot" aria-label="Показать отзыв 2"></button>
+          <button class="slider-dot" aria-label="Показать отзыв 3"></button>
         </div>
         <div class="reviews-yandex-link">
-          <a href="https://uslugi.yandex.ru/profile/AleksandrZotkin-886001" target="_blank" rel="noopener">
-            Все отзывы на Яндекс.Услугах <span style="font-size:1.2em;">→</span>
+          <a href="https://uslugi.yandex.ru/profile/AleksandrZotkin-886001" target="_blank" rel="noopener nofollow">
+            Все отзывы на Яндекс.Услугах <span class="arrow">→</span>
           </a>
         </div>
       </div>
     </section>
 
-    <!-- FAQ с ключевыми словами для SEO -->
+    <!-- FAQ -->
     <section class="faq-section">
       <h2>Часто задаваемые вопросы</h2>
       <ul class="faq-list">
-        <li>
-          <span class="faq-q">Сколько стоит откачка канализации?</span>
-          <span class="faq-a">Стоимость зависит от объёма и сложности. Позвоните для расчёта: <a href="tel:+79022073636">+7-902-207-36-36</a></span>
+        <li class="faq-item">
+          <details>
+            <summary class="faq-q">Сколько стоит откачка канализации?</summary>
+            <p class="faq-a">Стоимость зависит от объёма и сложности. Позвоните для расчёта: <a href="tel:+79022073636">+7-902-207-36-36</a></p>
+          </details>
         </li>
-        <li>
-          <span class="faq-q">Вызвать ассенизатора можно ночью или в выходные?</span>
-          <span class="faq-a">Да, мы работаем <b>24/7</b> без выходных и праздников!</span>
+        <li class="faq-item">
+          <details>
+            <summary class="faq-q">Вызвать ассенизатора можно ночью или в выходные?</summary>
+            <p class="faq-a">Да, мы работаем <b>24/7</b> без выходных и праздников!</p>
+          </details>
         </li>
-        <li>
-          <span class="faq-q">Есть ли у вас лицензии и документы?</span>
-          <span class="faq-a">Да, предоставляем все официальные документы и отчёты для организаций.</span>
+        <li class="faq-item">
+          <details>
+            <summary class="faq-q">Есть ли у вас лицензии и документы?</summary>
+            <p class="faq-a">Да, предоставляем все официальные документы и отчёты для организаций.</p>
+          </details>
         </li>
-        <li>
-          <span class="faq-q">Какие услуги кроме откачки канализации?</span>
-          <span class="faq-a">Также выполняем чистку и промывку труб, откачку септиков, устранение засоров.</span>
+        <li class="faq-item">
+          <details>
+            <summary class="faq-q">Какие услуги кроме откачки канализации?</summary>
+            <p class="faq-a">Также выполняем чистку и промывку труб, откачку септиков, устранение засоров.</p>
+          </details>
         </li>
       </ul>
     </section>
 
-    <!-- Яндекс карта (SEO-friendly) -->
-    <section style="margin: 38px 0;">
+    <!-- Яндекс карта -->
+    <section class="map-section">
       <h2>Где мы работаем</h2>
-      <p><b>Ассенизатор Золотарь 58, Пенза, ул. Пушанина 46а</b></p>
-      <div style="position:relative;overflow:hidden; border-radius:18px; box-shadow:0 2px 12px rgba(0,54,126,.09); max-width:660px; margin:0 auto;">
-        <a href="https://yandex.ru/maps/org/zolotar_58/YEwYdgdnTEUHQFtpfX1yc31nYw==/?ll=45.007500%2C53.132147&z=16.67"
-          style="color:#eee;font-size:12px;position:absolute;top:0px; left:0;">Ассенизатор Пенза — Золотарь 58</a>
-        <iframe src="https://yandex.ru/map-widget/v1/?ll=45.007500%2C53.132147&z=16.67&mode=search&text=ассенизатор%20Пенза%20Пушанина%2046а"
-                width="100%" height="400" frameborder="1" allowfullscreen="true" style="position:relative;min-width:260px;"></iframe>
+      <p class="address"><b>Ассенизатор Золотарь 58, Пенза, ул. Пушанина 46а</b></p>
+      <div id="map" class="map-container">
+        <noscript>
+          <a href="https://yandex.ru/maps/org/zolotar_58/YEwYdgdnTEUHQFtpfX1yc31nYw==/?ll=45.007500%2C53.132147&z=16.67" target="_blank" rel="noopener nofollow">
+            Посмотреть карту на Яндекс.Картах
+          </a>
+        </noscript>
       </div>
     </section>
   </main>
 
-  <footer>
+  <footer class="footer">
     <div class="container">
       <p class="footer-text">
         © 2025 Золотарь 58 — ИП Зоткин А.И. | Ассенизатор в Пензе, ул. Пушанина, 46а<br>
-        <a href="https://uslugi.yandex.ru/profile/AleksandrZotkin-886001" target="_blank" rel="noopener">Отзывы Яндекс.Услуги</a> |
-        <a href="https://2gis.ru/penza/search/%D0%B0%D1%81%D1%81%D0%B5%D0%BD%D0%B8%D0%B7%D0%B0%D1%82%D0%BE%D1%80%20%D0%9F%D0%B5%D0%BD%D0%B7%D0%B0" target="_blank" rel="noopener">2ГИС</a> |
-        <a href="https://www.avito.ru/penza?q=ассенизатор" target="_blank" rel="noopener">Avito</a>
+        <a href="https://uslugi.yandex.ru/profile/AleksandrZotkin-886001" target="_blank" rel="noopener nofollow">Отзывы Яндекс.Услуги</a> |
+        <a href="https://2gis.ru/penza/search/%D0%B0%D1%81%D1%81%D0%B5%D0%BD%D0%B8%D0%B7%D0%B0%D1%82%D0%BE%D1%80%20%D0%9F%D0%B5%D0%BD%D0%B7%D0%B0" target="_blank" rel="noopener nofollow">2ГИС</a> |
+        <a href="https://www.avito.ru/penza?q=ассенизатор" target="_blank" rel="noopener nofollow">Avito</a>
       </p>
     </div>
   </footer>
 
   <script>
+    // Ленивая загрузка карты
+    function loadYandexMap() {
+      const script = document.createElement('script');
+      script.src = 'https://api-maps.yandex.ru/2.1/?apikey=ваш_ключ&lang=ru_RU&onload=initMap';
+      document.body.appendChild(script);
+    }
+
+    const mapObserver = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        loadYandexMap();
+        mapObserver.disconnect();
+      }
+    }, {threshold: 0.1});
+
+    if (document.getElementById('map')) {
+      mapObserver.observe(document.getElementById('map'));
+    }
+
     // Бургер меню
-    document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener("DOMContentLoaded", function() {
       const burger = document.querySelector('.burger');
       const nav = document.querySelector('.nav');
-      burger.addEventListener('click', function () {
+      
+      burger.addEventListener('click', function() {
         nav.classList.toggle('open');
         burger.classList.toggle('active');
-      });
-      document.addEventListener('click', function (e) {
-        if (!burger.contains(e.target) && !nav.contains(e.target)) {
-          nav.classList.remove('open');
-          burger.classList.remove('active');
-        }
+        document.body.classList.toggle('no-scroll');
       });
 
       // Слайдер отзывов
       const reviews = document.querySelectorAll('.review-item');
       const dots = document.querySelectorAll('.slider-dot');
       let current = 0;
+      
       function showReview(idx) {
         reviews.forEach((el, i) => {
           el.classList.toggle('active', i === idx);
           dots[i].classList.toggle('active', i === idx);
         });
       }
+      
       dots.forEach((dot, i) => {
         dot.addEventListener('click', () => {
           current = i;
           showReview(current);
         });
       });
+      
       setInterval(() => {
         current = (current + 1) % reviews.length;
         showReview(current);
