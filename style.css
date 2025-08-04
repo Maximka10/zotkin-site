@@ -6,278 +6,85 @@
   --border-radius: 18px;
   --shadow: 0 4px 32px rgba(0,54,126,.07), 0 1.5px 5px rgba(0,0,0,0.02);
   --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+  --water-color: rgba(214,235,255,0.15); /* Новый цвет для водного эффекта */
 }
 
-/* Базовые стили */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
+/* Обновленные стили фона */
 body {
-  background: var(--bg);
+  background: 
+    /* Водный эффект */
+    radial-gradient(circle at 20% 30%, var(--water-color) 0%, transparent 25%),
+    radial-gradient(circle at 80% 70%, var(--water-color) 0%, transparent 25%),
+    /* Основной градиент */
+    linear-gradient(to bottom, #f8fafb, #ffffff);
+  background-attachment: fixed;
   font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
   color: var(--text);
   line-height: 1.6;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
 }
 
-/* Типография */
-h1, h2, h3, h4 {
-  font-weight: 800;
-  line-height: 1.2;
-  margin-bottom: 1rem;
-  color: #1a365d;
-}
-
-h1 {
-  font-size: 2.8rem;
-  letter-spacing: -0.5px;
-}
-
-h2 {
-  font-size: 2.2rem;
-  margin-bottom: 1.5rem;
-}
-
-p {
-  font-size: 1.1rem;
-  margin-bottom: 1.5rem;
-  font-weight: 400;
-}
-
-a {
-  color: var(--main-color);
-  text-decoration: none;
-  transition: var(--transition);
-}
-
-/* Контейнеры */
-.container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
-
+/* Обновленный main с легкой прозрачностью */
 main {
   flex: 1;
   width: 100%;
   padding: 3rem 0;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(1px);
 }
 
-/* Шапка */
-.header {
-  background: white;
-  box-shadow: 0 2px 20px rgba(0,54,126,0.08);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-.header-flex {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 90px;
-}
-
-.logo-link {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.logo-img {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  object-fit: contain;
-  border: 2px solid #e3f0ff;
-}
-
-.logo-title {
-  font-size: 1.8rem;
-  font-weight: 800;
-  color: var(--main-color);
-  background: linear-gradient(to right, #056ecf, #0d8aff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* Навигация */
-.nav {
-  display: flex;
-  gap: 1.5rem;
-}
-
-.nav a {
-  font-size: 1.1rem;
-  font-weight: 600;
-  padding: 0.6rem 1.2rem;
-  border-radius: 50px;
-  transition: var(--transition);
-}
-
-.nav a:hover,
-.nav a:focus,
-.nav a.active {
-  background: rgba(5, 110, 207, 0.1);
-  color: var(--main-color);
-}
-
-/* Основной контент */
-.main-intro {
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto 3rem;
-}
-
-.main-intro h1 {
-  font-size: 2.8rem;
-  margin-bottom: 1.5rem;
-  background: linear-gradient(to right, #1a365d, #2a5885);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.main-subtitle {
-  font-size: 1.3rem;
-  color: #4a5568;
-  max-width: 700px;
-  margin: 0 auto 2rem;
-}
-
-/* Кнопки */
-.cta {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem 2.5rem;
-  font-size: 1.2rem;
-  font-weight: 700;
-  background: var(--main-color);
-  color: white;
-  border-radius: 50px;
-  box-shadow: 0 4px 15px rgba(5, 110, 207, 0.3);
-  transition: var(--transition);
-  border: none;
-  cursor: pointer;
-}
-
-.cta:hover {
-  background: var(--accent);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(5, 110, 207, 0.4);
-}
-
-/* Карточки */
+/* Обновленные карточки с прозрачностью */
 .card {
-  background: white;
+  background: rgba(255,255,255,0.95);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow);
   padding: 2rem;
   transition: var(--transition);
+  border: 1px solid rgba(5,110,207,0.05);
 }
 
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0,54,126,0.12);
+/* Улучшенный хедер с эффектом стекла */
+.header {
+  background: rgba(255,255,255,0.96);
+  box-shadow: 0 2px 20px rgba(0,54,126,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(5px);
+  border-bottom: 1px solid rgba(5,110,207,0.08);
 }
 
-/* Секции */
-.section {
-  padding: 4rem 0;
-  text-align: center;
-}
-
-.section-title {
-  font-size: 2.5rem;
-  margin-bottom: 3rem;
-  position: relative;
-  display: inline-block;
-}
-
-.section-title::after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 4px;
-  background: var(--main-color);
-  border-radius: 2px;
-}
-
-/* Подвал */
-.footer {
-  background: #1a365d;
-  color: white;
-  padding: 3rem 0;
-  margin-top: auto;
-}
-
-.footer-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.footer-links {
-  display: flex;
-  gap: 1.5rem;
-  margin-top: 1.5rem;
-}
-
-.footer-links a {
-  color: #a0b3d1;
-  font-weight: 500;
-}
-
-.footer-links a:hover {
-  color: white;
-}
-
-/* Адаптивность */
+/* Адаптивность для фона */
 @media (max-width: 768px) {
-  .container {
-    padding: 0 1.5rem;
+  body {
+    background: 
+      radial-gradient(circle at 10% 20%, var(--water-color) 0%, transparent 30%),
+      linear-gradient(to bottom, #f8fafb, #ffffff);
   }
   
-  h1 {
-    font-size: 2.2rem;
+  main {
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: none;
   }
   
-  h2 {
-    font-size: 1.8rem;
-  }
-  
-  .nav {
-    display: none;
-  }
-  
-  .burger {
-    display: block;
+  .header {
+    backdrop-filter: none;
   }
 }
 
-/* Анимации */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+/* Новые анимации воды */
+@keyframes waterFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
-.fade-in {
-  animation: fadeIn 0.6s ease-out forwards;
+/* Активация анимации только на десктопах */
+@media (min-width: 1024px) {
+  body {
+    animation: waterFlow 18s ease infinite;
+    background-size: 200% 200%;
+  }
 }
