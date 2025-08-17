@@ -755,3 +755,53 @@ footer.footer, footer {
 @media (prefers-reduced-motion: reduce) {
   * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
 }
+/* ====== LANG SWITCHER ====== */
+.lang-switcher {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  gap: 8px;
+  background: rgba(255,255,255,0.92);
+  border: 1px solid rgba(5,110,207,0.15);
+  border-radius: 12px;
+  padding: 6px;
+  box-shadow: 0 6px 18px rgba(0,54,126,.12);
+  z-index: 1200;
+  backdrop-filter: blur(6px);
+}
+.lang-switcher .lang-btn {
+  appearance: none;
+  border: none;
+  cursor: pointer;
+  font: 600 12px/1 'Montserrat', system-ui, sans-serif;
+  padding: 8px 10px;
+  border-radius: 9px;
+  color: #13436e;
+  background: #f0f7ff;
+  transition: .15s;
+}
+.lang-switcher .lang-btn:hover { background: #e4f0ff; }
+.lang-switcher .lang-btn.active {
+  background: var(--main-color);
+  color: #fff;
+  box-shadow: 0 6px 14px rgba(5,110,207,.25);
+}
+
+/* Скрываем гугловые украшательства */
+.visually-hidden { position: absolute !important; left: -9999px !important; }
+#goog-gt-tt, .goog-te-balloon-frame { display: none !important; }
+.goog-text-highlight { background: none !important; box-shadow: none !important; }
+
+/* Убираем верхний баннер Google Translate */
+.goog-te-banner-frame { display: none !important; }
+body { top: 0 !important; }
+
+/* Скрываем иконку рядом с селектом */
+.goog-te-gadget-icon { display: none !important; }
+.goog-te-gadget { font-size: 0 !important; }
+
+/* Адаптив: не перекрывать бургер на мобилке */
+@media (max-width: 700px) {
+  .lang-switcher { top: 62px; right: 10px; }
+}
