@@ -14,31 +14,40 @@
   <link rel="icon" type="image/png" href="favicon.ico">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <!-- Schema.org Service -->
+  <!-- Schema.org -->
   <script type="application/ld+json">
   {
-    "@context":"https://schema.org",
-    "@type":"Service",
-    "serviceType":"Ассенизаторские услуги, откачка и прочистка канализации",
-    "provider":{"@type":"LocalBusiness","name":"Золотарь 58","image":"https://zolotar58.ru/logo.png","telephone":"+7-902-207-36-36",
-      "address":{"@type":"PostalAddress","streetAddress":"ул. Пушанина, 46а","addressLocality":"Пенза","addressCountry":"Россия"}},
-    "areaServed":{"@type":"City","name":"Пенза"},
-    "hasOfferCatalog":{"@type":"OfferCatalog","name":"Основные услуги","itemListElement":[
-      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Откачка канализации"}},
-      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Прочистка труб и канализации"}},
-      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Обслуживание септиков и выгребных ям"}},
-      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Аварийный выезд 24/7"}},
-      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Гидродинамическая и механическая чистка"}},
-      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Видеоинспекция труб"}}
-    ]}
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Ассенизаторские услуги, откачка и прочистка канализации",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "Золотарь 58",
+      "image": "https://zolotar58.ru/logo.png",
+      "telephone": "+7-902-207-36-36",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "ул. Пушанина, 46а",
+        "addressLocality": "Пенза",
+        "addressCountry": "Россия"
+      }
+    },
+    "areaServed": {"@type": "City","name": "Пенза"}
   }
   </script>
 </head>
 <body>
+  <!-- Языковой переключатель + скрытый элемент Google -->
+  <div class="lang-switcher" aria-label="Выбор языка">
+    <button type="button" class="lang-btn" data-lang="ru" title="Русский">🇷🇺 RU</button>
+    <button type="button" class="lang-btn" data-lang="en" title="English">🇬🇧 EN</button>
+  </div>
+  <div id="google_translate_element" class="visually-hidden"></div>
+
   <header class="header">
     <div class="container header-flex">
       <a href="index.html" class="logo-link">
-        <img src="logo.png" class="logo-img" alt="Золотарь 58" width="60" height="60">
+        <img src="logo.png" class="logo-img" alt="Золотарь 58">
         <span class="logo-title">Золотарь 58</span>
       </a>
       <a href="index.html" class="header-title-mobile">Золотарь 58</a>
@@ -53,7 +62,7 @@
   </header>
 
   <div class="working-now-bar">
-    <span style="margin-right:8px;">💧</span> Работаем сейчас &nbsp;<span style="font-size:1.15em;">•</span>&nbsp; Пушанина 46а, Пенза
+    <span style="margin-right: 8px;">💧</span> Работаем сейчас &nbsp;<span style="font-size:1.15em;">•</span>&nbsp; Пушанина 46а, Пенза
   </div>
 
   <main>
@@ -63,43 +72,42 @@
         Мы предоставляем весь спектр ассенизаторских услуг в Пензе и области для частных и юридических лиц.<br>
         Круглосуточно, быстро, с гарантией результата.
       </p>
-      <a class="cta" href="tel:+79022073636" aria-label="Позвонить и заказать услугу">Позвонить</a>
     </section>
 
     <section class="services-list">
       <div class="service-card">
-        <img src="septic.jpg" alt="Откачка септиков и ям" class="service-img" width="120" height="120">
+        <img src="septic.jpg" alt="Откачка септиков и ям" class="service-img">
         <h3>Откачка канализации и септиков</h3>
         <p>Оперативная откачка и вывоз содержимого септиков, выгребных ям, колодцев, ливнёвок и пр. Собственный автопарк.</p>
       </div>
       <div class="service-card">
-        <img src="mechanical.jpg" alt="Механическая и гидродинамическая чистка" class="service-img" width="120" height="120">
+        <img src="mechanical.jpg" alt="Механическая и гидродинамическая чистка" class="service-img">
         <h3>Гидродинамическая и механическая чистка</h3>
-        <p>Устраняем засоры труб и канализации профессиональным оборудованием, работаем с любыми диаметрами.</p>
+        <p>Устраняем засоры труб и канализации профессиональным оборудованием, работаем с любыми диамерами.</p>
       </div>
       <div class="service-card">
-        <img src="video.jpg" alt="Видеоинспекция труб" class="service-img" width="120" height="120">
+        <img src="video.jpg" alt="Видеоинспекция труб" class="service-img">
         <h3>Видеоинспекция труб</h3>
-        <p>Диагностика состояния трубопроводов камерой, поиск проблем и рекомендации по ремонту.</p>
+        <p>Диагностика состояния трубопроводов камерой, поиск проблем, рекомендации по ремонту.</p>
       </div>
       <div class="service-card">
-        <img src="service-org.jpg" alt="Обслуживание организаций" class="service-img" width="120" height="120">
+        <img src="service-org.jpg" alt="Обслуживание организаций" class="service-img">
         <h3>Обслуживание организаций</h3>
-        <p>Официальные договоры и документы, комплексное обслуживание объектов юр. лиц и УК.</p>
+        <p>Официальные договоры, документы, комплексное обслуживание объектов юр. лиц и управляющих компаний.</p>
       </div>
       <div class="service-card">
-        <img src="search.jpg" alt="Аварийный выезд и поиск засоров" class="service-img" width="120" height="120">
+        <img src="search.jpg" alt="Аварийный выезд и поиск засоров" class="service-img">
         <h3>Аварийный выезд 24/7</h3>
-        <p>Быстрая помощь при засорах, затоплениях, сбоях. Работаем без выходных.</p>
+        <p>Быстрая помощь при засорах, затоплениях, сбоях. Работаем по Пензе и области, без выходных.</p>
       </div>
       <div class="service-card">
-        <img src="photo_2025-05-31_22-06-25.jpg" alt="Фото: наша техника" class="service-img" width="120" height="120">
+        <img src="photo_2025-05-31_22-06-25.jpg" alt="Фотоотчет: наша техника" class="service-img">
         <h3>Реальные фото нашей работы</h3>
-        <p>Используем современную технику. Все фото — с реальных объектов.</p>
+        <p>Мы используем современную технику. Все фото — с реальных объектов клиентов!</p>
       </div>
     </section>
 
-    <section class="about-text" style="margin-top:42px;">
+    <section class="about-text" style="margin-top: 42px;">
       <h2>Преимущества работы с нами</h2>
       <ul>
         <li>Официальный подрядчик по Пензе и области</li>
@@ -122,22 +130,52 @@
   </footer>
 
   <script>
+    // Google Translate
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement(
+        {pageLanguage: 'ru', includedLanguages: 'ru,en', autoDisplay: false},
+        'google_translate_element'
+      );
+      var saved = localStorage.getItem('site_lang');
+      if (saved) setTimeout(function(){ setLang(saved); }, 400);
+    }
+    function setLang(lang) {
+      var combo = document.querySelector('select.goog-te-combo');
+      if (!combo) return;
+      combo.value = lang;
+      combo.dispatchEvent(new Event('change'));
+      localStorage.setItem('site_lang', lang);
+      document.querySelectorAll('.lang-btn').forEach(b=>{
+        b.classList.toggle('active', b.dataset.lang === lang);
+      });
+      document.documentElement.setAttribute('lang', lang === 'en' ? 'en' : 'ru');
+    }
+    document.addEventListener('click', function(e){
+      var btn = e.target.closest('.lang-btn');
+      if (!btn) return;
+      e.preventDefault();
+      setTimeout(function(){ setLang(btn.dataset.lang); }, 50);
+    });
+
+    // Бургер
     document.addEventListener("DOMContentLoaded", function () {
       const burger = document.querySelector('.burger');
       const nav = document.querySelector('.nav');
-      burger.addEventListener('click', function () {
-        nav.classList.toggle('open');
-        burger.classList.toggle('active');
-        document.body.classList.toggle('no-scroll');
-      });
-      document.addEventListener('click', function (e) {
-        if (!burger.contains(e.target) && !nav.contains(e.target)) {
-          nav.classList.remove('open');
-          burger.classList.remove('active');
-          document.body.classList.remove('no-scroll');
-        }
-      });
+      if (burger && nav) {
+        burger.addEventListener('click', function () {
+          nav.classList.toggle('open');
+          burger.classList.toggle('active');
+        });
+        document.addEventListener('click', function (e) {
+          if (!burger.contains(e.target) && !nav.contains(e.target)) {
+            nav.classList.remove('open');
+            burger.classList.remove('active');
+          }
+        });
+      }
     });
   </script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <div id="google_translate_element" class="visually-hidden"></div>
 </body>
 </html>
