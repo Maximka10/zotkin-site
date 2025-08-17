@@ -874,3 +874,59 @@ main {
   .btn, .cta { padding: 12px 18px; }
   .main-intro { padding: 0 6px; }
 }
+/* === Mobile fixes (iOS safe area, RU/EN в шапке, нижняя плашка) === */
+:root {
+  --bar-h: 56px; /* высота нижней плашки на мобилке */
+}
+
+/* Переключатель языка живёт в хедере и не перекрывает контент */
+@media (max-width: 720px) {
+  .header-flex { position: relative; }
+  .lang-switcher{
+    position: absolute;
+    top: 8px;
+    right: 56px; /* оставляем место под бургер справа */
+    display: flex;
+    gap: 8px;
+    z-index: 60;
+  }
+  .lang-switcher .lang-btn{
+    padding: 6px 10px;
+    font-size: .85rem;
+  }
+  .burger { right: 10px; top: 10px; } /* чтобы не пересекались */
+}
+
+/* Нижняя плашка: учитываем вырезы iPhone и отступаем контент/кнопку вверх */
+@media (max-width: 720px) {
+  .working-now-bar{
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    z-index: 40;
+    min-height: var(--bar-h);
+    border-radius: 12px 12px 0 0;
+    /* safe-area для iOS (оба синтаксиса на всякий случай) */
+    padding-bottom: calc(10px + env(safe-area-inset-bottom));
+    padding-bottom: calc(10px + constant(safe-area-inset-bottom));
+  }
+
+  /* добавим места под плашку, чтобы контент не прятался за ней */
+  main{
+    padding-bottom: calc(70px + var(--bar-h) + env(safe-area-inset-bottom));
+    padding-bottom: calc(70px + var(--bar-h) + constant(safe-area-inset-bottom));
+  }
+
+  /* кнопка «вверх» — над плашкой */
+  .to-top{
+    bottom: calc(22px + var(--bar-h) + env(safe-area-inset-bottom));
+    bottom: calc(22px + var(--bar-h) + constant(safe-area-inset-bottom));
+  }
+}
+
+/* Чуть скромнее H1 на очень узких экранах (герой на главной) */
+.hero h1 { 
+  margin: 0 0 .4em;
+  font-size: clamp(1.6rem, 6.2vw, 2.2rem);
+  line-height: 1.2;
+  color: var(--main-color);
+}
