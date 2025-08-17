@@ -17,42 +17,20 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <!-- Микроразметка Organization -->
+  <!-- Organization -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Золотарь 58",
-    "legalName": "ИП Зоткин А.И.",
-    "url": "https://zolotar58.ru",
-    "logo": "https://zolotar58.ru/logo.png",
-    "foundingDate": "2020",
-    "founders": [
-      {
-        "@type": "Person",
-        "name": "Зоткин Александр Иванович"
-      }
-    ],
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "ул. Пушанина, 46а",
-      "addressLocality": "Пенза",
-      "addressRegion": "Пензенская область",
-      "postalCode": "440000",
-      "addressCountry": "Россия"
-    },
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+79022073636",
-      "contactType": "customer service",
-      "email": "zolotar58@yandex.ru",
-      "areaServed": "Пенза и область",
-      "availableLanguage": "Russian"
-    },
-    "sameAs": [
-      "https://uslugi.yandex.ru/profile/AleksandrZotkin-886001",
-      "https://2gis.ru/penza/firm/..."
-    ]
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"Золотарь 58",
+    "legalName":"ИП Зоткин А.И.",
+    "url":"https://zolotar58.ru",
+    "logo":"https://zolotar58.ru/logo.png",
+    "foundingDate":"2020",
+    "founders":[{"@type":"Person","name":"Зоткин Александр Иванович"}],
+    "address":{"@type":"PostalAddress","streetAddress":"ул. Пушанина, 46а","addressLocality":"Пенза","addressRegion":"Пензенская область","postalCode":"440000","addressCountry":"Россия"},
+    "contactPoint":{"@type":"ContactPoint","telephone":"+79022073636","contactType":"customer service","email":"zolotar58@yandex.ru","areaServed":"Пенза и область","availableLanguage":"Russian"},
+    "sameAs":["https://uslugi.yandex.ru/profile/AleksandrZotkin-886001"]
   }
   </script>
 </head>
@@ -70,9 +48,7 @@
         <a href="licenses.html">Сертификаты</a>
         <a href="contacts.html">Контакты</a>
       </nav>
-      <button class="burger" aria-label="Открыть меню">
-        <span></span>
-      </button>
+      <button class="burger" aria-label="Открыть меню"><span></span></button>
     </div>
   </header>
 
@@ -86,6 +62,7 @@
       <p class="main-subtitle">
         Профессиональные ассенизаторские услуги в Пензе с 2020 года. Современное оборудование, официальные документы, гарантия качества.
       </p>
+      <a class="cta" href="tel:+79022073636" aria-label="Позвонить в Золотарь 58">Позвонить</a>
     </section>
 
     <section class="about-content">
@@ -155,7 +132,7 @@
       <article class="cta-section">
         <h2>Готовы помочь прямо сейчас</h2>
         <p>Круглосуточный выезд по Пензе и области</p>
-        <a href="tel:+79022073636" class="cta-button">Позвонить: +7 (902) 207-36-36</a>
+        <a href="tel:+79022073636" class="cta" aria-label="Позвонить сейчас">Позвонить</a>
       </article>
     </section>
   </main>
@@ -176,18 +153,15 @@
   </footer>
 
   <script>
-    // Бургер-меню с блокировкой скролла
     document.addEventListener("DOMContentLoaded", function() {
       const burger = document.querySelector('.burger');
       const nav = document.querySelector('.nav');
-      
       burger.addEventListener('click', function(e) {
         e.stopPropagation();
         nav.classList.toggle('open');
         burger.classList.toggle('active');
         document.body.classList.toggle('no-scroll');
       });
-
       document.addEventListener('click', function(e) {
         if (!burger.contains(e.target) && !nav.contains(e.target)) {
           nav.classList.remove('open');
@@ -197,13 +171,11 @@
       });
     });
 
-    // Плавная прокрутка для якорей
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
+    // Плавная прокрутка (якоря)
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click',e=>{
         e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
+        document.querySelector(a.getAttribute('href'))?.scrollIntoView({behavior:'smooth'});
       });
     });
   </script>
