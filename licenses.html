@@ -17,19 +17,22 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <!-- Schema.org ItemList -->
+  <!-- Images schema -->
   <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"ItemList",
-    "itemListElement":[
-      {"@type":"ListItem","position":1,"item":{"@type":"ImageObject","name":"Сертификат соответствия","description":"Документ подтверждает допуск к спецработам по откачке канализации","url":"https://zolotar58.ru/license1.jpg"}},
-      {"@type":"ListItem","position":2,"item":{"@type":"ImageObject","name":"Лицензия на услуги","description":"Официальное разрешение на ассенизаторские работы","url":"https://zolotar58.ru/license2.jpg"}}
-    ]
-  }
+  {"@context":"https://schema.org","@type":"ItemList","itemListElement":[
+    {"@type":"ListItem","position":1,"item":{"@type":"ImageObject","name":"Сертификат соответствия","description":"Документ подтверждает допуск к спецработам по откачке канализации","url":"https://zolotar58.ru/license1.jpg"}},
+    {"@type":"ListItem","position":2,"item":{"@type":"ImageObject","name":"Лицензия на услуги","description":"Официальное разрешение на ассенизаторские работы","url":"https://zolotar58.ru/license2.jpg"}}
+  ]}
   </script>
 </head>
 <body>
+  <!-- Языковой переключатель + скрытый элемент Google -->
+  <div class="lang-switcher" aria-label="Выбор языка">
+    <button type="button" class="lang-btn" data-lang="ru" title="Русский">🇷🇺 RU</button>
+    <button type="button" class="lang-btn" data-lang="en" title="English">🇬🇧 EN</button>
+  </div>
+  <div id="google_translate_element" class="visually-hidden"></div>
+
   <header class="header" id="sticky-header">
     <div class="container header-flex">
       <a href="index.html" class="logo-link">
@@ -105,32 +108,59 @@
   </footer>
 
   <script>
-    // Меню бургер
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement(
+        {pageLanguage: 'ru', includedLanguages: 'ru,en', autoDisplay: false},
+        'google_translate_element'
+      );
+      var saved = localStorage.getItem('site_lang');
+      if (saved) setTimeout(function(){ setLang(saved); }, 400);
+    }
+    function setLang(lang) {
+      var combo = document.querySelector('select.goog-te-combo');
+      if (!combo) return;
+      combo.value = lang;
+      combo.dispatchEvent(new Event('change'));
+      localStorage.setItem('site_lang', lang);
+      document.querySelectorAll('.lang-btn').forEach(b=>{
+        b.classList.toggle('active', b.dataset.lang === lang);
+      });
+      document.documentElement.setAttribute('lang', lang === 'en' ? 'en' : 'ru');
+    }
+    document.addEventListener('click', function(e){
+      var btn = e.target.closest('.lang-btn');
+      if (!btn) return;
+      e.preventDefault();
+      setTimeout(function(){ setLang(btn.dataset.lang); }, 50);
+    });
+
+    // Бургер
     document.addEventListener("DOMContentLoaded", function() {
       const burger = document.querySelector('.burger');
       const nav = document.querySelector('.nav');
-      burger.addEventListener('click', function(e) {
-        e.stopPropagation();
-        nav.classList.toggle('open');
-        burger.classList.toggle('active');
-        document.body.classList.toggle('no-scroll');
-      });
-      document.addEventListener('click', function(e) {
-        if (!burger.contains(e.target) && !nav.contains(e.target)) {
-          nav.classList.remove('open');
-          burger.classList.remove('active');
-          document.body.classList.remove('no-scroll');
-        }
-      });
+      if (burger && nav) {
+        burger.addEventListener('click', function(e) {
+          e.stopPropagation();
+          nav.classList.toggle('open');
+          burger.classList.toggle('active');
+          document.body.classList.toggle('no-scroll');
+        });
+        document.addEventListener('click', function(e) {
+          if (!burger.contains(e.target) && !nav.contains(e.target)) {
+            nav.classList.remove('open');
+            burger.classList.remove('active');
+            document.body.classList.remove('no-scroll');
+          }
+        });
+      }
     });
 
-    // Модальное окно (фикс шаблонной строки)
+    // Модалка
     function openModal(card) {
       const modal = document.getElementById("imgModal");
       const modalImg = document.getElementById("modalImg");
       const modalCaption = document.getElementById("modalCaption");
       const img = card.querySelector('img');
-
       modal.classList.add("open");
       modalImg.src = img.src;
       modalImg.alt = img.alt;
@@ -140,7 +170,6 @@
       `;
       document.body.style.overflow = "hidden";
     }
-
     function closeModal(e) {
       if (e.target.classList.contains('img-modal') || e.target.classList.contains('close-modal')) {
         document.getElementById("imgModal").classList.remove("open");
@@ -148,5 +177,7 @@
       }
     }
   </script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <div id="google_translate_element" class="visually-hidden"></div>
 </body>
 </html>
