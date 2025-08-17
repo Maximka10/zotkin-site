@@ -13,15 +13,54 @@
   <meta property="og:type" content="website">
   <link rel="canonical" href="https://zolotar58.ru/">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
-
   <link rel="stylesheet" href="style.css">
 
-  <!-- Микроразметка Schema.org для LocalBusiness -->
+  <!-- Небольшие декоративные штрихи (используют твои CSS-переменные) -->
+  <style>
+    /* фон героя: мягкие «блики» + волна снизу */
+    .hero {
+      position: relative;
+      background:
+        radial-gradient(1100px 220px at 50% -60px, rgba(5,110,207,.10), transparent 60%),
+        radial-gradient(900px 200px at 10% -80px, rgba(16,116,214,.08), transparent 60%),
+        radial-gradient(900px 200px at 90% -80px, rgba(24,169,87,.07), transparent 60%);
+      border-radius: 22px;
+      padding: 38px 18px 64px;
+      box-shadow: var(--shadow-sm);
+    }
+    .hero .cta { margin-top: 12px; }
+    .hero-wave {
+      position: absolute; left: 0; right: 0; bottom: -1px; height: 48px; pointer-events: none;
+      filter: drop-shadow(0 6px 18px rgba(0,0,0,.06));
+    }
+    /* тонкие разделители между блоками */
+    .section-divider {
+      height: 14px;
+      background: linear-gradient(90deg, rgba(5,110,207,.12), rgba(5,110,207,0) 60%),
+                  linear-gradient(270deg, rgba(16,116,214,.10), rgba(16,116,214,0) 60%);
+      border-radius: 10px;
+      margin: 26px auto;
+      max-width: 980px;
+      opacity: .8;
+    }
+    /* чуть мягче карточки услуг */
+    .cards .card { backdrop-filter: blur(1px); }
+    /* мини-акцент в заголовках секций */
+    .section h2::after, .why-us h2::after, .reviews-title::after, .faq-section h2::after, .map-section h2::after{
+      content: "";
+      display: block;
+      width: 64px; height: 4px;
+      margin: 8px auto 0;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--main-color), #4a85c7);
+      opacity: .6;
+    }
+  </style>
+
+  <!-- Schema.org LocalBusiness -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -43,14 +82,14 @@
   </script>
 </head>
 <body>
-  <!-- Ссылка пропуска к основному контенту -->
+  <!-- Skip link -->
   <a class="skip-link" href="#main">К основному содержимому</a>
 
   <!-- Языковой переключатель + скрытый элемент Google -->
- <div class="lang-switcher" aria-label="Выбор языка">
-      <button type="button" class="lang-btn" data-lang="ru" title="Русский">🇷🇺 RU</button>
-      <button type="button" class="lang-btn" data-lang="en" title="English">🇬🇧 EN</button>
-    </div>
+  <div class="lang-switcher" aria-label="Выбор языка">
+    <button type="button" class="lang-btn" data-lang="ru" title="Русский" aria-pressed="true">🇷🇺 RU</button>
+    <button type="button" class="lang-btn" data-lang="en" title="English" aria-pressed="false">🇬🇧 EN</button>
+  </div>
   <div id="google_translate_element" class="visually-hidden" aria-hidden="true"></div>
 
   <!-- Шапка -->
@@ -63,7 +102,7 @@
 
       <a href="index.html" class="header-title-mobile">Золотарь 58</a>
 
-      <nav class="nav" aria-label="Основное меню">
+      <nav class="nav" aria-label="Основное меню" id="main-menu">
         <a class="nav-link" href="services.html">Услуги</a>
         <a class="nav-link" href="about.html">О компании</a>
         <a class="nav-link" href="licenses.html">Сертификаты</a>
@@ -93,7 +132,20 @@
       <a class="cta btn btn--primary" href="tel:+79022073636" aria-label="Позвонить Золотарь 58 по номеру +7-902-207-36-36">
         Позвонить: +7-902-207-36-36
       </a>
+
+      <!-- волна под героем -->
+      <svg class="hero-wave" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true">
+        <path fill="url(#g1)" d="M0,20 C220,60 520,-20 740,20 C980,64 1150,20 1440,38 L1440,60 L0,60 Z"></path>
+        <defs>
+          <linearGradient id="g1" x1="0" x2="1" y1="0" y2="0">
+            <stop offset="0" stop-color="rgba(5,110,207,.20)"/>
+            <stop offset="1" stop-color="rgba(16,116,214,.08)"/>
+          </linearGradient>
+        </defs>
+      </svg>
     </section>
+
+    <div class="section-divider" aria-hidden="true"></div>
 
     <!-- SEO блок Услуг -->
     <section class="services-section section">
@@ -125,6 +177,8 @@
       </div>
     </section>
 
+    <div class="section-divider" aria-hidden="true"></div>
+
     <!-- Слайдер отзывов -->
     <section class="reviews-section section">
       <div class="container">
@@ -139,7 +193,7 @@
 
           <div class="review-item">
             <div class="review-rating" aria-label="Оценка 5 из 5"><span class="stars" aria-hidden="true">★★★★★</span></div>
-            <p class="review-text">Заказывал откачку септика. Приехали в течение часа, всё аккуратно.</p>
+            <p class="review-text">Заказывала откачку септика. Приехали в течение часа, всё аккуратно.</p>
             <div class="review-author">— Ирина Д.</div>
           </div>
 
@@ -163,6 +217,8 @@
         </div>
       </div>
     </section>
+
+    <div class="section-divider" aria-hidden="true"></div>
 
     <!-- FAQ -->
     <section class="faq-section section section--alt">
@@ -197,17 +253,16 @@
       </div>
     </section>
 
-    <!-- Яндекс карта -->
+    <!-- Яндекс карта (как на контактах) -->
     <section class="map-section section">
       <div class="container">
         <h2>Где мы работаем</h2>
         <p class="address"><b>Ассенизатор Золотарь 58, Пенза, ул. Пушанина 46а</b></p>
-        <div id="map" class="map-container">
-          <noscript>
-            <a href="https://yandex.ru/maps/org/zolotar_58/YEwYdgdnTEUHQFtpfX1yc31nYw==/?ll=45.007500%2C53.132147&z=16.67" target="_blank" rel="noopener nofollow">
-              Посмотреть карту на Яндекс.Картах
-            </a>
-          </noscript>
+        <div class="map-container">
+          <iframe
+            src="https://yandex.ru/map-widget/v1/?ll=45.007491%2C53.132175&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgozMDk2MDcwNTIxEjvQoNC-0YHRgdC40Y8sINCf0LXQvdC30LAsINGD0LvQuNGG0LAg0J_Rg9GI0LDQvdC40L3QsCwgNDbQkCIKDa8HNEIVUodUQg%2C%2C&z=17.3"
+            width="100%" height="400" loading="lazy" frameborder="0" allowfullscreen="true"
+            aria-label="Карта с расположением офиса на улице Пушанина 46а"></iframe>
         </div>
       </div>
     </section>
@@ -219,7 +274,7 @@
       <p class="footer-text">
         © <span id="year"></span> Золотарь 58 — ИП Зоткин А.И. | Ассенизатор в Пензе, ул. Пушанина, 46а<br>
         <a href="https://uslugi.yandex.ru/profile/AleksandrZotkin-886001" target="_blank" rel="noopener nofollow">Отзывы Яндекс.Услуги</a> |
-        <a href="https://2gis.ru/penza/search/%D0%B0%D1%81%D1%81%D0%B5%D0%BD%D0%B8%D0%B7%D0%B0%D1%82%D0%BE%D1%80%20%D0%9F%D0%B5%D0%BD%D0%B7%D0%B0" target="_blank" rel="noopener nofollow">2ГИС</a> |
+        <a href="https://go.2gis.com/YrK6Y" target="_blank" rel="noopener nofollow">2ГИС</a> |
         <a href="https://www.avito.ru/penza/predlozheniya_uslug/prochistka_kanalizatsii_ustranenie_zasorov_3980560866" target="_blank" rel="noopener nofollow">Avito</a>
       </p>
     </div>
@@ -232,7 +287,7 @@
     </svg>
   </button>
 
-  <!-- Языковые скрипты + бургер/слайдер + карта + вверх -->
+  <!-- Скрипты -->
   <script>
     // ===== Google Translate init =====
     function googleTranslateElementInit() {
@@ -240,21 +295,15 @@
         {pageLanguage: 'ru', includedLanguages: 'ru,en', autoDisplay: false},
         'google_translate_element'
       );
-      // восстановим язык из localStorage
       var saved = localStorage.getItem('site_lang');
-      if (saved) {
-        setTimeout(function(){ setLang(saved); }, 400);
-      }
+      if (saved) setTimeout(function(){ setLang(saved); }, 400);
     }
-
-    // Установка языка через скрытый селект Google
     function setLang(lang) {
       var combo = document.querySelector('select.goog-te-combo');
       if (!combo) return;
       combo.value = lang;
       combo.dispatchEvent(new Event('change'));
       localStorage.setItem('site_lang', lang);
-      // подсветка активной кнопки
       document.querySelectorAll('.lang-btn').forEach(function(b){
         var isActive = b.dataset.lang === lang;
         b.classList.toggle('active', isActive);
@@ -262,8 +311,6 @@
       });
       document.documentElement.setAttribute('lang', lang === 'en' ? 'en' : 'ru');
     }
-
-    // Клики по кнопкам RU/EN
     document.addEventListener('click', function(e){
       var btn = e.target.closest('.lang-btn');
       if (!btn) return;
@@ -279,8 +326,16 @@
         burger.addEventListener('click', function() {
           var isOpen = nav.classList.toggle('open');
           burger.classList.toggle('active', isOpen);
-          document.body.classList.toggle('no-scroll', isOpen);
           burger.setAttribute('aria-expanded', String(isOpen));
+          document.body.classList.toggle('no-scroll', isOpen);
+        });
+        document.addEventListener('click', function(e){
+          if (!burger.contains(e.target) && !nav.contains(e.target)) {
+            nav.classList.remove('open');
+            burger.classList.remove('active');
+            burger.setAttribute('aria-expanded', 'false');
+            document.body.classList.remove('no-scroll');
+          }
         });
       }
 
@@ -333,23 +388,6 @@
       });
       onScroll();
     })();
-
-    // ===== Ленивая загрузка карты =====
-    function loadYandexMap() {
-      var script = document.createElement('script');
-      script.src = 'https://api-maps.yandex.ru/2.1/?lang=ru_RU&onload=initMap';
-      document.body.appendChild(script);
-    }
-    var mapTarget = document.getElementById('map');
-    if (mapTarget) {
-      var mapObserver = new IntersectionObserver(function(entries){
-        if (entries[0].isIntersecting) {
-          loadYandexMap();
-          mapObserver.disconnect();
-        }
-      }, {threshold: 0.1});
-      mapObserver.observe(mapTarget);
-    }
   </script>
 
   <!-- Скрипт Google Translate -->
