@@ -930,3 +930,34 @@ main {
   line-height: 1.2;
   color: var(--main-color);
 }
+/* ==== FIX: USP карточки на мобильных ==== */
+.usp-list li{
+  /* уже есть, дублирование не страшно */
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+
+  /* важно: разрешаем переносы */
+  flex-wrap: wrap;             /* даём тексту уходить на новую строку */
+  overflow-wrap: anywhere;     /* переносить даже длинные слова */
+  word-break: break-word;      /* запасной вариант для старых браузеров */
+  hyphens: auto;               /* мягкие переносы (если язык ru/en указан на html) */
+
+  padding-right: 16px;         /* небольшой запас справа, чтобы текст не прилипал к краю */
+  max-width: 100%;
+}
+
+@media (max-width: 480px){
+  .usp-list li{
+    font-size: 0.98rem;
+    line-height: 1.45;
+    gap: 10px;
+  }
+  /* заголовок в карточке занимает всю строку,
+     описание начинается с новой строки — ничего не "наезжает" */
+  .usp-list li b{
+    display: block;
+    margin: 0 0 4px;
+  }
+  .usp-icon{ font-size: 1.2rem; margin-top: 2px; }
+}
