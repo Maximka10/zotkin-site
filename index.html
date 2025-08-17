@@ -17,27 +17,39 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <!-- Schema.org LocalBusiness -->
+  <!-- Микроразметка Schema.org для LocalBusiness -->
   <script type="application/ld+json">
   {
-    "@context":"https://schema.org",
-    "@type":"LocalBusiness",
-    "name":"Золотарь 58",
-    "image":"https://zolotar58.ru/logo.png",
-    "telephone":"+7-902-207-36-36",
-    "address":{"@type":"PostalAddress","streetAddress":"ул. Пушанина, 46а","addressLocality":"Пенза","addressCountry":"Россия"},
-    "url":"https://zolotar58.ru/",
-    "openingHours":"24/7",
-    "priceRange":"₽₽",
-    "description":"Откачка канализации, прочистка, ассенизаторские услуги, аварийная служба в Пензе и области. Официально. Быстро. Круглосуточно."
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Золотарь 58",
+    "image": "https://zolotar58.ru/logo.png",
+    "telephone": "+7-902-207-36-36",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "ул. Пушанина, 46а",
+      "addressLocality": "Пенза",
+      "addressCountry": "Россия"
+    },
+    "url": "https://zolotar58.ru/",
+    "openingHours": "24/7",
+    "priceRange": "₽₽",
+    "description": "Откачка канализации, прочистка, ассенизаторские услуги, аварийная служба в Пензе и области. Официально. Быстро. Круглосуточно."
   }
   </script>
 </head>
 <body>
+  <!-- Языковой переключатель + скрытый элемент Google -->
+  <div class="lang-switcher" aria-label="Выбор языка">
+    <button type="button" class="lang-btn" data-lang="ru" title="Русский">🇷🇺 RU</button>
+    <button type="button" class="lang-btn" data-lang="en" title="English">🇬🇧 EN</button>
+  </div>
+  <div id="google_translate_element" class="visually-hidden"></div>
+
   <header class="header" id="sticky-header">
     <div class="container header-flex">
       <a href="index.html" class="logo-link">
-        <img src="logo.png" class="logo-img" alt="Золотарь 58 — Ассенизатор Пенза, откачка канализации" width="48" height="48">
+        <img src="logo.png" class="logo-img" alt="Золотарь 58 — Ассенизатор Пенза, откачка канализации" title="Ассенизатор Золотарь 58 в Пензе" width="48" height="48">
         <span class="logo-title">Золотарь 58</span>
       </a>
       <a href="index.html" class="header-title-mobile">Золотарь 58</a>
@@ -47,23 +59,26 @@
         <a href="licenses.html">Сертификаты</a>
         <a href="contacts.html">Контакты</a>
       </nav>
-      <button class="burger" aria-label="Открыть меню"><span></span></button>
+      <button class="burger" aria-label="Открыть меню">
+        <span></span>
+      </button>
     </div>
   </header>
 
   <div class="working-now-bar">
-    <span style="margin-right:8px;">💧</span> Работаем сейчас &nbsp;<span style="font-size:1.15em;">•</span>&nbsp; Пушанина 46а, Пенза
+    <span style="margin-right: 8px;">💧</span> Работаем сейчас &nbsp;<span style="font-size:1.15em;">•</span>&nbsp; Пушанина 46а, Пенза
   </div>
 
   <main>
     <h1>Откачка канализации и прочистка труб в Пензе 24/7</h1>
     <h2>Ассенизаторские услуги: аварийная откачка, чистка септиков, промывка канализации</h2>
     <p class="main-subtitle">
-      <b>Золотарь 58</b> — профессиональная откачка канализации, выгребных ям и септиков по Пензе и области.
+      <b>Золотарь 58</b> — профессиональная откачка канализации, выгребных ям и септиков по Пензе и области. 
       Современное оборудование, быстрый выезд <b>24/7</b>. Официально, без посредников, с гарантией результата.
     </p>
-    <a class="cta" href="tel:+79022073636" aria-label="Позвонить в Золотарь 58">Позвонить</a>
+    <a class="cta" href="tel:+79022073636">Позвонить: +7-902-207-36-36</a>
 
+    <!-- SEO блок Услуг -->
     <section class="services-section">
       <h2>Наши услуги</h2>
       <ul class="services-list">
@@ -83,11 +98,12 @@
         <li><span class="usp-icon">🚚</span><b>Быстрый выезд</b> — оперативная подача машины, 24/7 по Пензе и области.</li>
         <li><span class="usp-icon">🛠️</span><b>Профессиональное оборудование</b> — гидродинамика, механика, видеоинспекция.</li>
         <li><span class="usp-icon">💼</span><b>Работа с организациями</b> — заключаем официальные договоры, выдаём документы.</li>
-        <li><span class="usp-icon">💳</span><b>Удобная оплата</b> — наличные и безналичный расчёт.</li>
-        <li><span class="usp-icon">✅</span><b>Гарантия</b> — честный результат и чистая система.</li>
+        <li><span class="usp-icon">💳</span><b>Удобная оплата</b> — наличные и безналичный расчет.</li>
+        <li><span class="usp-icon">✅</span><b>Гарантия</b> — вы всегда получаете честный результат и чистую систему!</li>
       </ul>
     </section>
 
+    <!-- Слайдер отзывов -->
     <section class="reviews-section">
       <div class="reviews-slider">
         <h2 class="reviews-title">Отзывы наших клиентов</h2>
@@ -119,13 +135,47 @@
       </div>
     </section>
 
+    <!-- FAQ -->
+    <section class="faq-section">
+      <h2>Часто задаваемые вопросы</h2>
+      <ul class="faq-list">
+        <li class="faq-item">
+          <details>
+            <summary class="faq-q">Сколько стоит откачка канализации?</summary>
+            <p class="faq-a">Стоимость зависит от объёма и сложности. Позвоните для расчёта: <a href="tel:+79022073636">+7-902-207-36-36</a></p>
+          </details>
+        </li>
+        <li class="faq-item">
+          <details>
+            <summary class="faq-q">Вызвать ассенизатора можно ночью или в выходные?</summary>
+            <p class="faq-a">Да, мы работаем <b>24/7</b> без выходных и праздников!</p>
+          </details>
+        </li>
+        <li class="faq-item">
+          <details>
+            <summary class="faq-q">Есть ли у вас лицензии и документы?</summary>
+            <p class="faq-a">Да, предоставляем все официальные документы и отчёты для организаций.</p>
+          </details>
+        </li>
+        <li class="faq-item">
+          <details>
+            <summary class="faq-q">Какие услуги кроме откачки канализации?</summary>
+            <p class="faq-a">Также выполняем чистку и промывку труб, откачку септиков, устранение засоров.</p>
+          </details>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Яндекс карта -->
     <section class="map-section">
       <h2>Где мы работаем</h2>
       <p class="address"><b>Ассенизатор Золотарь 58, Пенза, ул. Пушанина 46а</b></p>
-      <div class="map-container">
-        <iframe src="https://yandex.ru/map-widget/v1/?ll=45.007491%2C53.132175&z=16.7&mode=search&ol=geo"
-          width="100%" height="400" loading="lazy" frameborder="0" allowfullscreen="true"
-          aria-label="Карта: Пенза, ул. Пушанина 46а"></iframe>
+      <div id="map" class="map-container">
+        <noscript>
+          <a href="https://yandex.ru/maps/org/zolotar_58/YEwYdgdnTEUHQFtpfX1yc31nYw==/?ll=45.007500%2C53.132147&z=16.67" target="_blank" rel="noopener nofollow">
+            Посмотреть карту на Яндекс.Картах
+          </a>
+        </noscript>
       </div>
     </section>
   </main>
@@ -141,30 +191,100 @@
     </div>
   </footer>
 
+  <!-- Языковые скрипты + бургер/слайдер -->
   <script>
-    // Бургер и no-scroll
+    // === Google Translate init ===
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement(
+        {pageLanguage: 'ru', includedLanguages: 'ru,en', autoDisplay: false},
+        'google_translate_element'
+      );
+      // восстановим язык из localStorage
+      var saved = localStorage.getItem('site_lang');
+      if (saved) {
+        setTimeout(function(){ setLang(saved); }, 400);
+      }
+    }
+
+    // Установка языка через скрытый селект Google
+    function setLang(lang) {
+      var combo = document.querySelector('select.goog-te-combo');
+      if (!combo) return;
+      combo.value = lang;
+      combo.dispatchEvent(new Event('change'));
+      localStorage.setItem('site_lang', lang);
+      // подсветка активной кнопки
+      document.querySelectorAll('.lang-btn').forEach(b=>{
+        b.classList.toggle('active', b.dataset.lang === lang);
+      });
+      document.documentElement.setAttribute('lang', lang === 'en' ? 'en' : 'ru');
+    }
+
+    // Клики по кнопкам RU/EN
+    document.addEventListener('click', function(e){
+      var btn = e.target.closest('.lang-btn');
+      if (!btn) return;
+      e.preventDefault();
+      setTimeout(function(){ setLang(btn.dataset.lang); }, 50);
+    });
+
+    // Бургер меню
     document.addEventListener("DOMContentLoaded", function() {
       const burger = document.querySelector('.burger');
       const nav = document.querySelector('.nav');
-      burger.addEventListener('click', function() {
-        nav.classList.toggle('open');
-        burger.classList.toggle('active');
-        document.body.classList.toggle('no-scroll');
-      });
+      if (burger && nav) {
+        burger.addEventListener('click', function() {
+          nav.classList.toggle('open');
+          burger.classList.toggle('active');
+          document.body.classList.toggle('no-scroll');
+        });
+      }
 
       // Слайдер отзывов
       const reviews = document.querySelectorAll('.review-item');
       const dots = document.querySelectorAll('.slider-dot');
       let current = 0;
-      function showReview(i) {
-        reviews.forEach((el, idx) => {
-          el.classList.toggle('active', idx === i);
-          dots[idx].classList.toggle('active', idx === i);
+
+      function showReview(idx) {
+        reviews.forEach((el, i) => {
+          el.classList.toggle('active', i === idx);
+          if (dots[i]) dots[i].classList.toggle('active', i === idx);
         });
       }
-      dots.forEach((dot, i) => dot.addEventListener('click', () => { current = i; showReview(current); }));
-      setInterval(() => { current = (current + 1) % reviews.length; showReview(current); }, 6000);
+
+      dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => {
+          current = i;
+          showReview(current);
+        });
+      });
+
+      if (reviews.length > 1) {
+        setInterval(() => {
+          current = (current + 1) % reviews.length;
+          showReview(current);
+        }, 6000);
+      }
     });
+
+    // Ленивая загрузка карты
+    function loadYandexMap() {
+      const script = document.createElement('script');
+      script.src = 'https://api-maps.yandex.ru/2.1/?lang=ru_RU&onload=initMap';
+      document.body.appendChild(script);
+    }
+    const mapTarget = document.getElementById('map');
+    if (mapTarget) {
+      const mapObserver = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+          loadYandexMap();
+          mapObserver.disconnect();
+        }
+      }, {threshold: 0.1});
+      mapObserver.observe(mapTarget);
+    }
   </script>
+  <!-- Скрипт Google Translate -->
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
