@@ -1249,4 +1249,51 @@ footer .container{
 }
 
 /************ 2) «На связи 24/7»: крестик скрыть на десктопе ************/
-@media (min-width:
+@media (min-width: 721px){
+  .working-now-bar .wnb-close{ display:none !important; }
+}
+
+/************ 3) МОБИЛЬНЫЙ ХЕДЕР: логотип слева, название не перекрывается ************/
+:root{
+  --mob-logo-w: 44px;   /* диаметр логотипа на мобилке */
+  --mob-gutter: 10px;   /* поля слева/справа */
+  --mob-burger-w: 44px; /* зона под бургер справа */
+}
+@media (max-width: 720px){
+  .header-flex{ min-height:56px; position:relative; }
+
+  /* ЛОГОТИП — фиксируем слева, над текстурой */
+  .logo-link{
+    position:absolute; left:var(--mob-gutter); top:8px; z-index:2;
+    padding:0 !important;
+  }
+  .logo-link::before{ display:none !important; } /* без «стекла» на мобиле */
+  .logo-img{
+    width:var(--mob-logo-w); height:var(--mob-logo-w);
+    border-radius:12px;
+    border:2px solid rgba(255,255,255,.85);
+    box-shadow:0 3px 10px rgba(0,0,0,.18);
+    background:#fff;
+  }
+
+  /* НАЗВАНИЕ — центрируем и даём «безопасные» поля под логотип/бургер */
+  .header-title-mobile{
+    position:absolute; top:12px;
+    left:calc(var(--mob-gutter) + var(--mob-logo-w) + 10px);
+    right:calc(var(--mob-gutter) + var(--mob-burger-w) + 10px);
+    text-align:center; z-index:1;
+    color:#fff !important; text-shadow:none !important;
+    white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+  }
+
+  /* БУРГЕР — справа, поверх всего */
+  .burger{ position:absolute; right:var(--mob-gutter); top:8px; z-index:3; }
+}
+
+/* На всех экранах убираем «свечение» у названия и делаем его читаемым */
+.logo-title{
+  color:#fff !important;
+  text-shadow:none !important;
+  -webkit-text-stroke:0 !important;
+  letter-spacing:.4px;
+}
