@@ -1014,3 +1014,82 @@ main {
     bottom: calc(12px + constant(safe-area-inset-bottom));
   }
 }
+/*********** HEADER: контраст на текстуре + белые кнопки ***********/
+
+/* 1) Название без свечения, просто чистый белый */
+.logo-title{
+  color:#fff !important;
+  text-shadow:none !important;
+  -webkit-text-stroke:0 !important;
+  letter-spacing:.4px;
+}
+
+/* 2) Небольшая «glass»-плашка под логотипом для читаемости */
+.logo-link{
+  position:relative;
+  padding:4px 10px;
+  border-radius:999px;
+}
+.logo-link::before{
+  content:"";
+  position:absolute; inset:-4px -8px;
+  border-radius:999px;
+  background: rgba(255,255,255,.10);            /* лёгкая вуаль */
+  backdrop-filter: blur(6px) saturate(140%);
+  -webkit-backdrop-filter: blur(6px) saturate(140%);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.20),
+              0 6px 16px rgba(0,0,0,.12);
+  z-index:0;
+}
+.logo-link > *{ position:relative; z-index:1; }  /* контент над плашкой */
+
+/* 3) Белые «пилюли» у пунктов меню */
+.nav a, .nav-link{
+  background:#fff !important;
+  color:var(--main-color) !important;
+  border:1px solid rgba(0,0,0,.06) !important;
+  box-shadow: 0 4px 16px rgba(0,0,0,.08);
+}
+.nav a:hover, .nav a:focus, .nav a.active,
+.nav-link:hover, .nav-link:focus{
+  transform: translateY(-1px);
+  box-shadow: 0 8px 22px rgba(0,0,0,.12);
+  background:#fff !important;
+  color:#063c72 !important;
+}
+
+/* 4) Белые кнопки RU/EN (активная — с синей окантовкой) */
+.lang-switcher, .lang-switch{
+  /* когда переключатель внутри навигации — плашка не фиксируется */
+  position:static !important;
+}
+.lang-switcher .lang-btn,
+.lang-switch .lang-btn{
+  background:#fff !important;
+  color:var(--main-color) !important;
+  border:1px solid rgba(0,0,0,.08) !important;
+  box-shadow: 0 4px 14px rgba(0,0,0,.10);
+}
+.lang-switcher .lang-btn.active,
+.lang-switch .lang-btn.active,
+.lang-switcher .lang-btn[aria-pressed="true"],
+.lang-switch .lang-btn[aria-pressed="true"]{
+  background:#fff !important;
+  color:#063c72 !important;
+  border-color: rgba(5,110,207,.40) !important;  /* синяя окантовка */
+}
+
+/* 5) Логотип — аккуратное белое кольцо, чтобы не терялся */
+.logo-img{
+  border:2px solid rgba(255,255,255,.75);
+  background:#fff;
+  box-shadow:0 3px 10px rgba(0,0,0,.18);
+}
+
+/* 6) На очень узких экранах — белый заголовок в мобильной шапке */
+@media (max-width:720px){
+  .header-title-mobile{
+    color:#fff !important;
+    text-shadow:none !important;
+  }
+}
