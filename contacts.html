@@ -36,28 +36,32 @@
   <div id="google_translate_element" class="visually-hidden" aria-hidden="true"></div>
 
   <header class="header" id="sticky-header">
-  <div class="container header-flex">
-    <a href="index.html" class="logo-link">logo.png</a>
-    <a href="index.html" class="header-title-mobile">Золотарь 58</a>
+    <div class="container header-flex">
+      <a href="index.html" class="logo-link" aria-label="На главную">
+        <img src="logo.png" class="logo-img" alt="Золотарь 58" width="60" height="60" loading="eager">
+        <span class="logo-title">Золотарь 58</span>
+      </a>
 
-    <nav class="nav" aria-label="Основное меню" id="main-menu">
-      <a href="services.html" class="nav-link">Услуги</a>
-      <a href="about.html" class="nav-link">О компании</a>
-      <a href="licenses.html" class="nav-link">Сертификаты</a>
-      <a href="contacts.html" class="nav-link">Контакты</a>
+      <a href="index.html" class="header-title-mobile">Золотарь 58</a>
 
-      <!-- ПЕРЕНЕСЁННЫЙ ПЕРЕКЛЮЧАТЕЛЬ -->
-      <div class="lang-switcher" aria-label="Выбор языка">
-        <button type="button" class="lang-btn" data-lang="ru" title="Русский" aria-pressed="true">🇷🇺 RU</button>
-        <button type="button" class="lang-btn" data-lang="en" title="English" aria-pressed="false">🇬🇧 EN</button>
-      </div>
-    </nav>
+      <nav class="nav" aria-label="Основное меню" id="main-menu">
+        <a href="services.html" class="nav-link">Услуги</a>
+        <a href="about.html" class="nav-link">О компании</a>
+        <a href="licenses.html" class="nav-link">Сертификаты</a>
+        <a href="contacts.html" class="nav-link">Контакты</a>
 
-    <button class="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="main-menu">
-      <span></span>
-    </button>
-  </div>
-</header>
+        <!-- Переключатель языка размещён внутри меню -->
+        <div class="lang-switcher" aria-label="Выбор языка">
+          <button type="button" class="lang-btn" data-lang="ru" title="Русский" aria-pressed="true">🇷🇺 RU</button>
+          <button type="button" class="lang-btn" data-lang="en" title="English" aria-pressed="false">🇬🇧 EN</button>
+        </div>
+      </nav>
+
+      <button class="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="main-menu">
+        <span></span>
+      </button>
+    </div>
+  </header>
 
   <!-- Инфополоса -->
   <div class="working-now-bar" role="status" aria-live="polite">
