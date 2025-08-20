@@ -34,22 +34,28 @@
   <div id="google_translate_element" class="visually-hidden"></div>
 
   <header class="header" id="sticky-header">
-    <div class="container header-flex">
-      <a href="index.html" class="logo-link">
-        <img src="logo.png" class="logo-img" alt="Золотарь 58 — ассенизаторские услуги в Пензе" width="60" height="60">
-        <span class="logo-title">Золотарь 58</span>
-      </a>
-      <a href="index.html" class="header-title-mobile">Золотарь 58</a>
-      <nav class="nav">
-        <a href="services.html">Услуги</a>
-        <a href="about.html">О компании</a>
-        <a href="licenses.html" class="active">Сертификаты</a>
-        <a href="contacts.html">Контакты</a>
-      </nav>
-      <button class="burger" aria-label="Открыть меню"><span></span></button>
-    </div>
-  </header>
+  <div class="container header-flex">
+    <a href="index.html" class="logo-link">…</a>
+    <a href="index.html" class="header-title-mobile">Золотарь 58</a>
 
+    <nav class="nav" aria-label="Основное меню" id="main-menu">
+      <a href="services.html" class="nav-link">Услуги</a>
+      <a href="about.html" class="nav-link">О компании</a>
+      <a href="licenses.html" class="nav-link">Сертификаты</a>
+      <a href="contacts.html" class="nav-link">Контакты</a>
+
+      <!-- ПЕРЕНЕСЁННЫЙ ПЕРЕКЛЮЧАТЕЛЬ -->
+      <div class="lang-switcher" aria-label="Выбор языка">
+        <button type="button" class="lang-btn" data-lang="ru" title="Русский" aria-pressed="true">🇷🇺 RU</button>
+        <button type="button" class="lang-btn" data-lang="en" title="English" aria-pressed="false">🇬🇧 EN</button>
+      </div>
+    </nav>
+
+    <button class="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="main-menu">
+      <span></span>
+    </button>
+  </div>
+</header>
   <main class="licenses-page">
     <section class="main-intro">
       <h1>Сертификаты и лицензии</h1>
