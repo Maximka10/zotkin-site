@@ -1148,3 +1148,70 @@ main {
   opacity:0; transition:opacity .25s ease;
 }
 .service-card img.service-img:not([src^="data:"]){ opacity:1; } /* после загрузки */
+/************ MOBILE HEADER: логотип не перекрывает название ************/
+@media (max-width: 720px){
+  /* логотип остаётся слева, но под заголовком по слою */
+  .logo-link{ z-index: 1; left: 10px; top: 10px; }
+
+  /* даём заголовку «безопасные поля» слева/справа под логотип и бургер */
+  .header-title-mobile{
+    left: 68px !important;     /* свободная зона под логотип */
+    right: 68px !important;    /* свободная зона под бургер */
+    top: 10px !important;
+    z-index: 2;                /* над логотипом */
+    color: #fff !important;    /* на текстуре читается */
+    text-shadow: none !important;
+    white-space: nowrap;       /* если текст длинный — с троеточием */
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* бургер поверх всего, чтобы был кликаем */
+  .burger{ right: 10px; top: 10px; z-index: 3; }
+
+  /* на мобиле не используем «стеклянную» подложку вокруг логотипа */
+  .logo-link::before{ display: none !important; }
+}
+
+/************ FOOTER: текст читается на новой текстуре ************/
+/* накладываем лёгкую тёмную вуаль поверх текстуры, контент — поверх вуали */
+.footer, footer{ position: relative; }
+.footer::before,
+footer::before{
+  content:"";
+  position:absolute; inset:0;
+  background: rgba(10,28,54,.55);          /* мягкая подложка для контраста */
+  pointer-events:none;
+  z-index:0;
+}
+.footer .container,
+footer .container{
+  position: relative;
+  z-index: 1;                               /* текст и ссылки поверх вуали */
+}
+
+/* делаем текст и ссылки белыми и контрастными */
+.footer-text, footer .footer-text{
+  color: #fff !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,.25);
+  opacity: 1 !important;                    /* снимаем полупрозрачность */
+}
+.footer a{
+  color: #fff !important;
+  border-bottom: 1px dashed rgba(255,255,255,.28);
+  padding-bottom: 2px;
+}
+.footer a:hover{
+  background: rgba(255,255,255,.08);
+  border-bottom-color: rgba(255,255,255,.4);
+}
+
+/* если используешь блок .footer-links — тоже подкрасим «пилюли» */
+.footer-links a{
+  color:#fff !important;
+  border-color: rgba(255,255,255,.25) !important;
+  background: rgba(255,255,255,.06);
+}
+.footer-links a:hover{
+  background: rgba(255,255,255,.12);
+}
