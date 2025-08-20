@@ -1133,3 +1133,18 @@ main {
     transform: translateZ(0); /* чтобы точно применились новые значения */
   }
 }
+/* Карточки услуг: фиксируем пропорции и лёгкое появление */
+.service-card picture,
+.service-card .service-img{
+  display:block;
+  width:100%;
+  border-radius:16px;
+  overflow:hidden;
+}
+.service-card img.service-img{
+  width:100%; height:auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  opacity:0; transition:opacity .25s ease;
+}
+.service-card img.service-img:not([src^="data:"]){ opacity:1; } /* после загрузки */
