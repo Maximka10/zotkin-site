@@ -403,5 +403,38 @@
 
   <!-- Скрипт Google Translate -->
   <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  // — Переносим любой "лишний" .lang-switcher внутрь <nav>, дубликаты удаляем
+  var nav = document.querySelector('.nav');
+  if (nav){
+    var sw = document.querySelectorAll('.lang-switcher');
+    sw.forEach(function(el, i){
+      if (!el.closest('.nav')){
+        if (!nav.querySelector('.lang-switcher')) nav.appendChild(el);
+        else el.remove();
+      }
+    });
+  }
+
+  // — Логика плашки: крестик + автоскрытие у футера
+  var bar = document.getElementById('wnb');
+  if (bar){
+    var closeBtn = bar.querySelector('.wnb-close');
+    if (closeBtn) closeBtn.addEventListener('click', function(){ bar.classList.add('wnb-hidden'); });
+
+    var footer = document.querySelector('footer, .footer');
+    if ('IntersectionObserver' in window && footer){
+      var io = new IntersectionObserver(function(entries){
+        if (!entries.length) return;
+        if (entries[0].isIntersecting) bar.classList.add('wnb-hidden');
+        else bar.classList.remove('wnb-hidden');
+      }, {threshold: 0});
+      io.observe(footer);
+    }
+  }
+});
+</script>
+
 </body>
 </html>
