@@ -1093,3 +1093,43 @@ main {
     text-shadow:none !important;
   }
 }
+/************* MOBILE FIXES: логотип и плашка «На связи 24/7» *************/
+
+/* 1) Убираем «стекло» вокруг логотипа и лишние отступы на мобиле */
+@media (max-width: 720px){
+  .logo-link{ padding: 0 !important; }
+  .logo-link::before{ display: none !important; }   /* не перекрываем заголовок */
+  .logo-img{
+    border: 2px solid rgba(255,255,255,.8);         /* аккуратное белое кольцо */
+    box-shadow: 0 3px 10px rgba(0,0,0,.18);
+  }
+  .header-title-mobile{
+    color: #fff !important;                          /* заголовок читаемый на текстуре */
+    text-shadow: none !important;
+  }
+}
+
+/* 2) Делаем плашку «На связи 24/7» компактным «пузырём» слева-снизу */
+@media (max-width: 720px){
+  #wnb{
+    left: 12px !important;
+    right: auto !important;          /* обязательно убираем растяжение вправо */
+    width: auto !important;
+    max-width: min(88vw, 420px);
+    border-radius: 999px !important;
+    padding: 8px 12px;
+  }
+  #wnb .wnb-addr, #wnb .wnb-sep{ display: none !important; } /* экономим место */
+  #wnb .wnb-close{
+    width: 28px; height: 28px; margin-left: 6px;
+    border: 0; border-radius: 50%;
+    background: rgba(255,255,255,.16); color:#fff;
+  }
+}
+
+/* 3) На всякий случай усилим приоритет, если где-то остались старые правила */
+@media (max-width: 720px){
+  .working-now-bar{
+    transform: translateZ(0); /* чтобы точно применились новые значения */
+  }
+}
