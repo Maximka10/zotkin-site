@@ -76,27 +76,37 @@
 
     <section class="services-list">
       <div class="service-card">
-        <img src="septic.jpg" alt="Откачка септиков и ям" class="service-img" loading="lazy" width="480" height="320">
+        <button type="button" class="service-img-trigger" data-image="septic.jpg" data-caption="Откачка септиков и ям">
+          <img src="septic.jpg" alt="Откачка септиков и ям" class="service-img" loading="lazy" width="480" height="320">
+        </button>
         <h3>Откачка канализации и септиков</h3>
         <p>Оперативная откачка и вывоз содержимого септиков, выгребных ям, колодцев, ливнёвок и пр. Собственный автопарк.</p>
       </div>
       <div class="service-card">
-        <img src="mechanical.jpg" alt="Механическая и гидродинамическая чистка" class="service-img" loading="lazy" width="480" height="320">
+        <button type="button" class="service-img-trigger" data-image="mechanical.jpg" data-caption="Механическая и гидродинамическая чистка">
+          <img src="mechanical.jpg" alt="Механическая и гидродинамическая чистка" class="service-img" loading="lazy" width="480" height="320">
+        </button>
         <h3>Гидродинамическая и механическая чистка</h3>
         <p>Устраняем засоры труб и канализации профессиональным оборудованием, работаем с любыми диамерами.</p>
       </div>
       <div class="service-card">
-        <img src="video.jpg" alt="Видеоинспекция труб" class="service-img" loading="lazy" width="480" height="320">
+        <button type="button" class="service-img-trigger" data-image="video.jpg" data-caption="Видеоинспекция труб">
+          <img src="video.jpg" alt="Видеоинспекция труб" class="service-img" loading="lazy" width="480" height="320">
+        </button>
         <h3>Видеоинспекция труб</h3>
         <p>Диагностика состояния трубопроводов камерой, поиск проблем, рекомендации по ремонту.</p>
       </div>
       <div class="service-card">
-        <img src="service-org.jpg" alt="Обслуживание организаций" class="service-img" loading="lazy" width="480" height="320">
+        <button type="button" class="service-img-trigger" data-image="service-org.jpg" data-caption="Обслуживание организаций">
+          <img src="service-org.jpg" alt="Обслуживание организаций" class="service-img" loading="lazy" width="480" height="320">
+        </button>
         <h3>Обслуживание организаций</h3>
         <p>Официальные договоры, документы, комплексное обслуживание объектов юр. лиц и управляющих компаний.</p>
       </div>
       <div class="service-card">
-        <img src="search.jpg" alt="Аварийный выезд и поиск засоров" class="service-img" loading="lazy" width="480" height="320">
+        <button type="button" class="service-img-trigger" data-image="search.jpg" data-caption="Аварийный выезд и поиск засоров">
+          <img src="search.jpg" alt="Аварийный выезд и поиск засоров" class="service-img" loading="lazy" width="480" height="320">
+        </button>
         <h3>Аварийный выезд 24/7</h3>
         <p>Быстрая помощь при засорах, затоплениях, сбоях. Работаем по Пензе и области, без выходных.</p>
       </div>
@@ -125,6 +135,14 @@
     </div>
   </footer>
 
+  <div class="lightbox" hidden role="dialog" aria-modal="true">
+    <button type="button" class="lightbox-close" aria-label="Закрыть изображение"></button>
+    <figure class="lightbox-figure">
+      <img src="" alt="" class="lightbox-img" loading="lazy">
+      <figcaption class="lightbox-caption"></figcaption>
+    </figure>
+  </div>
+
   <script>
     // Google Translate
     function googleTranslateElementInit() {
@@ -152,6 +170,58 @@
       e.preventDefault();
       setTimeout(function(){ setLang(btn.dataset.lang); }, 50);
     });
+
+    // Лайтбокс для изображений услуг
+    (function(){
+      const overlay = document.querySelector('.lightbox');
+      const overlayImg = overlay ? overlay.querySelector('.lightbox-img') : null;
+      const overlayCaption = overlay ? overlay.querySelector('.lightbox-caption') : null;
+      const closeBtn = overlay ? overlay.querySelector('.lightbox-close') : null;
+      let lastTrigger = null;
+
+      function openLightbox(src, caption){
+        if (!overlay || !overlayImg) return;
+        overlayImg.src = src;
+        overlayImg.alt = caption || '';
+        if (overlayCaption) overlayCaption.textContent = caption || '';
+        overlay.removeAttribute('hidden');
+        overlay.classList.add('lightbox-open');
+        document.body.classList.add('no-scroll');
+        closeBtn && closeBtn.focus();
+      }
+
+      function closeLightbox(){
+        if (!overlay) return;
+        overlay.classList.remove('lightbox-open');
+        overlay.setAttribute('hidden', '');
+        document.body.classList.remove('no-scroll');
+        if (lastTrigger) {
+          lastTrigger.focus();
+          lastTrigger = null;
+        }
+      }
+
+      document.addEventListener('click', function(e){
+        const trigger = e.target.closest('.service-img-trigger');
+        if (trigger){
+          e.preventDefault();
+          lastTrigger = trigger;
+          openLightbox(trigger.dataset.image, trigger.dataset.caption);
+          return;
+        }
+        if (overlay && overlay.classList.contains('lightbox-open')){
+          if (e.target === overlay || e.target.closest('.lightbox-close')){
+            closeLightbox();
+          }
+        }
+      });
+
+      document.addEventListener('keydown', function(e){
+        if (e.key === 'Escape' && overlay && overlay.classList.contains('lightbox-open')){
+          closeLightbox();
+        }
+      });
+    })();
 
     // Бургер
     document.addEventListener("DOMContentLoaded", function () {
