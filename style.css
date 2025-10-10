@@ -716,11 +716,51 @@ body.no-scroll { overflow: hidden; }
   overflow: hidden; cursor: pointer; transition: transform .2s ease, box-shadow .2s ease;
   border: 1px solid var(--border);
 }
+.license-card--qr {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  padding: 22px 24px 28px;
+  gap: 16px;
+  min-height: 360px;
+}
 .license-card:hover { transform: translateY(-6px); box-shadow: 0 32px 64px rgba(15, 23, 42, 0.22); }
+.license-card--qr:focus-visible {
+  outline: 3px solid rgba(37, 99, 235, 0.6);
+  outline-offset: 4px;
+}
 .license-img { width: 100%; height: 360px; object-fit: cover; background: rgba(15, 23, 42, 0.08); }
+.license-img--qr {
+  width: auto;
+  max-width: 240px;
+  height: auto;
+  object-fit: contain;
+  background: transparent;
+}
 .license-caption {
   position: absolute; left: 10px; right: 10px; bottom: 10px;
   background: rgba(15, 23, 42, .55); color: #fff; padding: 10px 12px; border-radius: 12px; backdrop-filter: blur(6px);
+}
+.license-card--qr .license-caption {
+  position: static;
+  text-align: center;
+  background: transparent;
+  color: var(--text);
+  padding: 0;
+  backdrop-filter: none;
+}
+.license-card--qr .license-title { color: var(--text); }
+.license-card--qr .license-desc { opacity: 0.85; color: var(--muted); display: block; margin-top: 4px; }
+.license-card--qr .license-hint {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--main-color);
 }
 .license-title { font-weight: 800; display: block; }
 .license-desc  { opacity: .9; }
