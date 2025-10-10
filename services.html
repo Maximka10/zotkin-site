@@ -76,27 +76,37 @@
 
     <section class="services-list">
       <div class="service-card">
-        <img src="septic.jpg" alt="Откачка септиков и ям" class="service-img" loading="lazy" width="480" height="320">
+        <button type="button" class="service-img-trigger" data-image="septic.jpg" data-caption="Откачка септиков и ям">
+          <img src="septic.jpg" alt="Откачка септиков и ям" class="service-img" loading="lazy" width="480" height="320">
+        </button>
         <h3>Откачка канализации и септиков</h3>
         <p>Оперативная откачка и вывоз содержимого септиков, выгребных ям, колодцев, ливнёвок и пр. Собственный автопарк.</p>
       </div>
       <div class="service-card">
-        <img src="mechanical.jpg" alt="Механическая и гидродинамическая чистка" class="service-img" loading="lazy" width="480" height="320">
+        <button type="button" class="service-img-trigger" data-image="mechanical.jpg" data-caption="Механическая и гидродинамическая чистка">
+          <img src="mechanical.jpg" alt="Механическая и гидродинамическая чистка" class="service-img" loading="lazy" width="480" height="320">
+        </button>
         <h3>Гидродинамическая и механическая чистка</h3>
         <p>Устраняем засоры труб и канализации профессиональным оборудованием, работаем с любыми диамерами.</p>
       </div>
       <div class="service-card">
-        <img src="video.jpg" alt="Видеоинспекция труб" class="service-img" loading="lazy" width="480" height="320">
+        <button type="button" class="service-img-trigger" data-image="video.jpg" data-caption="Видеоинспекция труб">
+          <img src="video.jpg" alt="Видеоинспекция труб" class="service-img" loading="lazy" width="480" height="320">
+        </button>
         <h3>Видеоинспекция труб</h3>
         <p>Диагностика состояния трубопроводов камерой, поиск проблем, рекомендации по ремонту.</p>
       </div>
       <div class="service-card">
-        <img src="service-org.jpg" alt="Обслуживание организаций" class="service-img" loading="lazy" width="480" height="320">
+        <button type="button" class="service-img-trigger" data-image="service-org.jpg" data-caption="Обслуживание организаций">
+          <img src="service-org.jpg" alt="Обслуживание организаций" class="service-img" loading="lazy" width="480" height="320">
+        </button>
         <h3>Обслуживание организаций</h3>
         <p>Официальные договоры, документы, комплексное обслуживание объектов юр. лиц и управляющих компаний.</p>
       </div>
       <div class="service-card">
-        <img src="search.jpg" alt="Аварийный выезд и поиск засоров" class="service-img" loading="lazy" width="480" height="320">
+        <button type="button" class="service-img-trigger" data-image="search.jpg" data-caption="Аварийный выезд и поиск засоров">
+          <img src="search.jpg" alt="Аварийный выезд и поиск засоров" class="service-img" loading="lazy" width="480" height="320">
+        </button>
         <h3>Аварийный выезд 24/7</h3>
         <p>Быстрая помощь при засорах, затоплениях, сбоях. Работаем по Пензе и области, без выходных.</p>
       </div>
@@ -125,6 +135,12 @@
     </div>
   </footer>
 
+  <div class="img-modal" id="serviceModal" role="dialog" aria-modal="true" aria-hidden="true">
+    <span class="close-modal" role="button" tabindex="0" aria-label="Закрыть изображение">&times;</span>
+    <img class="modal-content" id="serviceModalImg" alt="">
+    <div class="modal-caption" id="serviceModalCaption"></div>
+  </div>
+
   <script>
     // Google Translate
     function googleTranslateElementInit() {
@@ -152,6 +168,79 @@
       e.preventDefault();
       setTimeout(function(){ setLang(btn.dataset.lang); }, 50);
     });
+
+    // Модалка для изображений услуг
+    (function(){
+      const modal = document.getElementById('serviceModal');
+      const modalImg = document.getElementById('serviceModalImg');
+      const modalCaption = document.getElementById('serviceModalCaption');
+      const closeBtn = modal ? modal.querySelector('.close-modal') : null;
+      let lastTrigger = null;
+
+      function openModal(trigger){
+        if (!modal || !modalImg) return;
+        const src = trigger.getAttribute('data-image');
+        const caption = trigger.getAttribute('data-caption') || '';
+        const card = trigger.closest('.service-card');
+        const title = card ? card.querySelector('h3') : null;
+        const altText = caption || (title ? title.textContent.trim() : '');
+        modalImg.src = src;
+        modalImg.alt = altText;
+        if (modalCaption) {
+          if (title) {
+            modalCaption.innerHTML = `<strong>${title.textContent.trim()}</strong>${caption ? `<br><span>${caption}</span>` : ''}`;
+          } else {
+            modalCaption.textContent = caption;
+          }
+        }
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        lastTrigger = trigger;
+        closeBtn && closeBtn.focus();
+      }
+
+      function closeModal(){
+        if (!modal) return;
+        modal.classList.remove('open');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        if (lastTrigger) {
+          lastTrigger.focus();
+          lastTrigger = null;
+        }
+      }
+
+      document.querySelectorAll('.service-img-trigger').forEach(function(trigger){
+        trigger.addEventListener('click', function(e){
+          e.preventDefault();
+          openModal(trigger);
+        });
+      });
+
+      if (modal) {
+        modal.addEventListener('click', function(e){
+          if (e.target === modal || e.target.classList.contains('close-modal')) {
+            closeModal();
+          }
+        });
+      }
+
+      if (closeBtn) {
+        closeBtn.addEventListener('keydown', function(e){
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            closeModal();
+          }
+        });
+      }
+
+      document.addEventListener('keydown', function(e){
+        if (e.key === 'Escape' && modal && modal.classList.contains('open')) {
+          closeModal();
+        }
+      });
+    })();
 
     // Бургер
     document.addEventListener("DOMContentLoaded", function () {
