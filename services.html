@@ -135,10 +135,12 @@
     </div>
   </footer>
 
-  <div class="img-modal" id="serviceModal" role="dialog" aria-modal="true" aria-hidden="true">
-    <span class="close-modal" role="button" tabindex="0" aria-label="Закрыть изображение">&times;</span>
-    <img class="modal-content" id="serviceModalImg" alt="">
-    <div class="modal-caption" id="serviceModalCaption"></div>
+  <div class="lightbox" hidden role="dialog" aria-modal="true">
+    <button type="button" class="lightbox-close" aria-label="Закрыть изображение"></button>
+    <figure class="lightbox-figure">
+      <img src="" alt="" class="lightbox-img" loading="lazy">
+      <figcaption class="lightbox-caption"></figcaption>
+    </figure>
   </div>
 
   <script>
@@ -169,75 +171,54 @@
       setTimeout(function(){ setLang(btn.dataset.lang); }, 50);
     });
 
-    // Модалка для изображений услуг
+    // Лайтбокс для изображений услуг
     (function(){
-      const modal = document.getElementById('serviceModal');
-      const modalImg = document.getElementById('serviceModalImg');
-      const modalCaption = document.getElementById('serviceModalCaption');
-      const closeBtn = modal ? modal.querySelector('.close-modal') : null;
+      const overlay = document.querySelector('.lightbox');
+      const overlayImg = overlay ? overlay.querySelector('.lightbox-img') : null;
+      const overlayCaption = overlay ? overlay.querySelector('.lightbox-caption') : null;
+      const closeBtn = overlay ? overlay.querySelector('.lightbox-close') : null;
       let lastTrigger = null;
 
-      function openModal(trigger){
-        if (!modal || !modalImg) return;
-        const src = trigger.getAttribute('data-image');
-        const caption = trigger.getAttribute('data-caption') || '';
-        const card = trigger.closest('.service-card');
-        const title = card ? card.querySelector('h3') : null;
-        const altText = caption || (title ? title.textContent.trim() : '');
-        modalImg.src = src;
-        modalImg.alt = altText;
-        if (modalCaption) {
-          if (title) {
-            modalCaption.innerHTML = `<strong>${title.textContent.trim()}</strong>${caption ? `<br><span>${caption}</span>` : ''}`;
-          } else {
-            modalCaption.textContent = caption;
-          }
-        }
-        modal.classList.add('open');
-        modal.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
-        lastTrigger = trigger;
+      function openLightbox(src, caption){
+        if (!overlay || !overlayImg) return;
+        overlayImg.src = src;
+        overlayImg.alt = caption || '';
+        if (overlayCaption) overlayCaption.textContent = caption || '';
+        overlay.removeAttribute('hidden');
+        overlay.classList.add('lightbox-open');
+        document.body.classList.add('no-scroll');
         closeBtn && closeBtn.focus();
       }
 
-      function closeModal(){
-        if (!modal) return;
-        modal.classList.remove('open');
-        modal.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
+      function closeLightbox(){
+        if (!overlay) return;
+        overlay.classList.remove('lightbox-open');
+        overlay.setAttribute('hidden', '');
+        document.body.classList.remove('no-scroll');
         if (lastTrigger) {
           lastTrigger.focus();
           lastTrigger = null;
         }
       }
 
-      document.querySelectorAll('.service-img-trigger').forEach(function(trigger){
-        trigger.addEventListener('click', function(e){
+      document.addEventListener('click', function(e){
+        const trigger = e.target.closest('.service-img-trigger');
+        if (trigger){
           e.preventDefault();
-          openModal(trigger);
-        });
+          lastTrigger = trigger;
+          openLightbox(trigger.dataset.image, trigger.dataset.caption);
+          return;
+        }
+        if (overlay && overlay.classList.contains('lightbox-open')){
+          if (e.target === overlay || e.target.closest('.lightbox-close')){
+            closeLightbox();
+          }
+        }
       });
 
-      if (modal) {
-        modal.addEventListener('click', function(e){
-          if (e.target === modal || e.target.classList.contains('close-modal')) {
-            closeModal();
-          }
-        });
-      }
-
-      if (closeBtn) {
-        closeBtn.addEventListener('keydown', function(e){
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            closeModal();
-          }
-        });
-      }
-
       document.addEventListener('keydown', function(e){
-        if (e.key === 'Escape' && modal && modal.classList.contains('open')) {
-          closeModal();
+        if (e.key === 'Escape' && overlay && overlay.classList.contains('lightbox-open')){
+          closeLightbox();
         }
       });
     })();

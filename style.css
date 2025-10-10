@@ -426,6 +426,91 @@ main {
 .svc-text { overflow-wrap: anywhere; color: var(--muted); font-weight: 600; }
 
 /***********************************
+  ЛАЙТБОКС ДЛЯ ИЗОБРАЖЕНИЙ УСЛУГ
+***********************************/
+body.no-scroll { overflow: hidden; }
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(9, 12, 24, 0.7);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 999;
+  padding: 32px 18px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .25s ease;
+}
+
+.lightbox.lightbox-open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.lightbox-figure {
+  position: relative;
+  max-width: min(90vw, 720px);
+  width: 100%;
+  background: var(--surface);
+  border-radius: 24px;
+  box-shadow: var(--shadow-xl);
+  border: 1px solid var(--border);
+  padding: 18px 18px 26px;
+  text-align: center;
+}
+
+.lightbox-img {
+  width: 100%;
+  max-height: 70vh;
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: var(--shadow-lg);
+}
+
+.lightbox-caption {
+  margin-top: 14px;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(30, 41, 59, 0.22);
+  color: transparent;
+  cursor: pointer;
+}
+.lightbox-close::before {
+  content: '\00d7';
+  color: #fff;
+  font-size: 24px;
+  line-height: 1;
+  display: block;
+}
+.lightbox-close:focus-visible {
+  outline: 3px solid rgba(59, 130, 246, 0.65);
+  outline-offset: 2px;
+}
+
+@media (max-width: 640px) {
+  .lightbox-figure {
+    padding: 16px 16px 22px;
+  }
+  .lightbox-caption {
+    font-size: .95rem;
+  }
+}
+
+/***********************************
   ПОЧЕМУ МЫ
 ***********************************/
 .why-us {
@@ -636,12 +721,18 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 20px;
-  padding: 28px 28px 32px;
-  cursor: default;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  padding: 22px 24px 28px;
+  gap: 16px;
   min-height: 360px;
 }
 .license-card:hover { transform: translateY(-6px); box-shadow: 0 32px 64px rgba(15, 23, 42, 0.22); }
+.license-card--qr:focus-visible {
+  outline: 3px solid rgba(37, 99, 235, 0.6);
+  outline-offset: 4px;
+}
 .license-img { width: 100%; height: 360px; object-fit: cover; background: rgba(15, 23, 42, 0.08); }
 .license-img--qr {
   width: auto;
@@ -654,47 +745,22 @@ main {
   position: absolute; left: 10px; right: 10px; bottom: 10px;
   background: rgba(15, 23, 42, .55); color: #fff; padding: 10px 12px; border-radius: 12px; backdrop-filter: blur(6px);
 }
-.license-caption--qr {
+.license-card--qr .license-caption {
   position: static;
   text-align: center;
-  background: rgba(148, 163, 184, 0.12);
+  background: transparent;
   color: var(--text);
-  padding: 16px 18px;
-  border-radius: var(--radius-md);
+  padding: 0;
   backdrop-filter: none;
-  border: 1px solid rgba(148, 163, 184, 0.25);
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
 }
 .license-card--qr .license-title { color: var(--text); }
-.license-card--qr .license-desc { opacity: 0.85; color: var(--muted); display: block; }
+.license-card--qr .license-desc { opacity: 0.85; color: var(--muted); display: block; margin-top: 4px; }
 .license-card--qr .license-hint {
   display: block;
   margin-top: 8px;
   font-size: 0.9rem;
   font-weight: 700;
   color: var(--main-color);
-}
-.license-qr-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--radius-lg);
-  padding: 18px;
-  background: rgba(148, 163, 184, 0.12);
-  border: 1px solid rgba(148, 163, 184, 0.25);
-  cursor: pointer;
-  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
-}
-.license-qr-link:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 18px 36px rgba(15, 23, 42, 0.18);
-  border-color: rgba(37, 99, 235, 0.4);
-}
-.license-qr-link:focus-visible {
-  outline: 3px solid rgba(37, 99, 235, 0.6);
-  outline-offset: 4px;
 }
 .license-title { font-weight: 800; display: block; }
 .license-desc  { opacity: .9; }
@@ -865,38 +931,6 @@ main {
     color: var(--text);
     box-shadow: none;
   }
-
-  .container { padding: 0 20px; }
-
-  main {
-    padding: 36px 0 120px;
-    gap: 36px;
-    align-items: stretch;
-  }
-
-  .hero {
-    margin: 10px 0 0;
-    padding: 32px 20px 52px;
-    border-radius: 22px;
-    text-align: left;
-  }
-  .hero h1 { font-size: clamp(1.55rem, 6.5vw, 2.1rem); line-height: 1.2; }
-  .h2-sub {
-    font-size: 1rem;
-    line-height: 1.5;
-    margin: 8px 0 14px;
-  }
-  .main-subtitle {
-    font-size: 0.98rem;
-    text-align: left;
-    max-width: none;
-  }
-  .hero .cta { width: 100%; max-width: 320px; margin: 18px 0 0; }
-
-  .section-divider { margin: 20px auto; }
-
-  .main-intro { margin: 24px auto 12px; padding: 0 4px; }
-  .main-intro h1 { font-size: clamp(1.6rem, 7vw, 2.2rem); }
 
   /* компактная плашка 24/7 на мобилке + учёт safe-area */
   .working-now-bar{
