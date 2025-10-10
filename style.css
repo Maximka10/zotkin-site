@@ -866,6 +866,38 @@ main {
     box-shadow: none;
   }
 
+  .container { padding: 0 20px; }
+
+  main {
+    padding: 36px 0 120px;
+    gap: 36px;
+    align-items: stretch;
+  }
+
+  .hero {
+    margin: 10px 0 0;
+    padding: 32px 20px 52px;
+    border-radius: 22px;
+    text-align: left;
+  }
+  .hero h1 { font-size: clamp(1.55rem, 6.5vw, 2.1rem); line-height: 1.2; }
+  .h2-sub {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 8px 0 14px;
+  }
+  .main-subtitle {
+    font-size: 0.98rem;
+    text-align: left;
+    max-width: none;
+  }
+  .hero .cta { width: 100%; max-width: 320px; margin: 18px 0 0; }
+
+  .section-divider { margin: 20px auto; }
+
+  .main-intro { margin: 24px auto 12px; padding: 0 4px; }
+  .main-intro h1 { font-size: clamp(1.6rem, 7vw, 2.2rem); }
+
   /* компактная плашка 24/7 на мобилке + учёт safe-area */
   .working-now-bar{
     left: 12px;
@@ -873,17 +905,103 @@ main {
     bottom: calc(12px + constant(safe-area-inset-bottom));
     max-width: min(88vw, 420px);
     padding: 8px 12px;
+    font-size: 0.95rem;
+    gap: 8px;
   }
   .working-now-bar .wnb-addr,
   .working-now-bar .wnb-sep{ display: none; } /* адрес прячем */
   .to-top { right: 12px; bottom: calc(12px + env(safe-area-inset-bottom)); bottom: calc(12px + constant(safe-area-inset-bottom)); }
 
-  .services-list { grid-template-columns: 1fr; }
+  .services-list { grid-template-columns: 1fr; gap: 18px; }
   .cards { grid-template-columns: 1fr; }
-  .service-img { width: 100%; height: 180px; max-width: 360px; margin: 0 auto 14px; }
+  .cards .card {
+    justify-content: flex-start;
+    text-align: left;
+    padding: 18px;
+  }
+  .svc-text { font-size: 1rem; }
 
-  /* чтобы плашка не перекрывала контент при коротких экранах */
-  main{ padding-bottom: 120px; }
+  .service-card {
+    padding: 24px 20px;
+    text-align: left;
+  }
+  .service-img-trigger { width: 100%; }
+  .service-img {
+    width: 100%;
+    height: 200px;
+    max-width: none;
+    margin: 0 0 14px;
+    border-radius: 18px;
+  }
+  .service-card h3 { font-size: 1.16rem; }
+  .service-card p  { font-size: 0.98rem; }
+
+  .why-us {
+    margin: 24px auto 0;
+    padding: 26px 20px;
+    border-radius: 24px;
+  }
+  .usp-list li { padding: 14px 16px; }
+  .usp-icon { font-size: 1.2rem; }
+
+  .reviews-slider {
+    padding: 24px 20px;
+    margin-top: 24px;
+  }
+  .review-item { padding: 16px; }
+  .reviews-yandex-link a { width: 100%; justify-content: center; }
+  .slider-dot { width: 10px; height: 10px; }
+
+  .faq-section {
+    padding: 26px 20px;
+    border-radius: 24px;
+  }
+  .faq-item { padding: 12px 0; }
+  .faq-q { font-size: 1.02rem; }
+  .faq-a { font-size: 0.96rem; }
+
+  .licenses-list { gap: 16px; }
+  .license-card { border-radius: 22px; }
+  .license-card--qr {
+    padding: 24px 20px 26px;
+    min-height: 0;
+  }
+  .license-qr-link { width: 100%; padding: 16px; }
+  .license-img {
+    width: 100%;
+    height: auto;
+    max-height: 440px;
+  }
+  .license-caption { left: 12px; right: 12px; bottom: 12px; }
+  .license-caption--qr { padding: 14px 16px; }
+
+  .timeline { padding-left: 18px; }
+  .timeline::before { left: 8px; }
+  .timeline-item { padding-left: 18px; }
+
+  .advantages-grid { grid-template-columns: 1fr; }
+  .advantage-card {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+  .advantage-icon { font-size: 1.5rem; margin-bottom: 4px; }
+
+  .clients-logos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+  .contacts-box { grid-template-columns: 1fr; gap: 12px; }
+  .contact-item { padding: 16px; }
+
+  .footer .container, footer .container { padding: 24px 18px 32px; }
+  .footer-text, footer .footer-text { font-size: 0.95rem; }
+  .footer-links { display: grid; gap: 8px; justify-items: center; margin-top: 14px; }
+
+  .img-modal { padding: 12px; }
+  .modal-content { max-width: 94vw; max-height: 70vh; }
+  .modal-caption { bottom: 16px; padding: 8px 14px; font-size: 0.95rem; }
+  .close-modal { top: 12px; right: 14px; font-size: 32px; }
 }
 
 @media (max-width: 500px) {
@@ -891,12 +1009,46 @@ main {
   .btn, .cta { padding: 12px 18px; }
   .main-intro { padding: 0 6px; }
 
+  main { padding: 30px 0 110px; gap: 28px; }
+  .hero {
+    padding: 26px 16px 44px;
+    border-radius: 20px;
+  }
+  .hero h1 { font-size: clamp(1.45rem, 7.2vw, 1.9rem); }
+  .h2-sub { font-size: 0.98rem; }
+  .main-subtitle { font-size: 0.95rem; }
+  .hero .cta { margin-top: 16px; }
+
   .usp-list li{ font-size: .98rem; line-height: 1.45; gap: 10px; }
   .usp-list li b{ display: block; margin: 0 0 4px; }
   .usp-icon{ font-size: 1.2rem; margin-top: 2px; }
 
   .services-emoji .card{ padding: 16px; }
   .svc-emoji{ font-size: 1.25rem; }
+  .svc-text { font-size: 0.98rem; }
+
+  .service-card { padding: 22px 18px; }
+  .service-img { height: 190px; border-radius: 16px; }
+
+  .reviews-slider { padding: 22px 16px; }
+  .faq-section { padding: 22px 16px; }
+
+  .licenses-list { gap: 14px; }
+  .license-card--qr { padding: 22px 18px; }
+  .license-caption { font-size: 0.92rem; }
+  .license-caption--qr { gap: 4px; }
+
+  .advantages-grid { gap: 14px; }
+  .clients-logos { grid-template-columns: 1fr; }
+
+  .contacts-box { gap: 10px; }
+
+  .footer .container, footer .container { padding: 22px 16px 28px; }
+  .footer-text, footer .footer-text { font-size: 0.92rem; }
+  .footer-links { gap: 6px; }
+
+  .img-modal { padding: 10px; }
+  .modal-caption { bottom: 14px; font-size: 0.9rem; }
 }
 /***** HEADER: RU/EN справа, меню не перекрывается *****/
 @media (min-width: 721px){
