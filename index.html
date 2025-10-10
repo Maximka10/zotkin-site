@@ -17,6 +17,7 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/montserrat/v25/JTURjIg1_i6t8kCHKm45_dJE3gnD_vx3rCubqg.woff2" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 
@@ -40,18 +41,13 @@
   <!-- Ссылка для клавиатурной навигации -->
   <a class="skip-link" href="#main">К основному содержимому</a>
 
-  <!-- Глобальный переключатель языка (на десктопе виден в шапке, на мобиле уезжает в бургер) -->
-  <div class="lang-switcher" aria-label="Выбор языка">
-    <button type="button" class="lang-btn" data-lang="ru" title="Русский" aria-pressed="true">🇷🇺 RU</button>
-    <button type="button" class="lang-btn" data-lang="en" title="English" aria-pressed="false">🇬🇧 EN</button>
-  </div>
   <div id="google_translate_element" class="visually-hidden" aria-hidden="true"></div>
 
   <!-- Шапка -->
   <header class="header" id="sticky-header">
     <div class="container header-flex">
       <a href="index.html" class="logo-link">
-        <img src="logo.png" class="logo-img" alt="Золотарь 58 — ассенизаторские услуги в Пензе" width="60" height="60">
+        <img src="logo.png" width="60" height="60" fetchpriority="high" decoding="async" class="logo-img" alt="Золотарь 58">
         <span class="logo-title">Золотарь 58</span>
       </a>
 
@@ -63,10 +59,9 @@
         <a href="licenses.html" class="nav-link">Сертификаты</a>
         <a href="contacts.html" class="nav-link">Контакты</a>
 
-        <!-- Переключатель языка внутри бургера (виден только на мобилке) -->
-        <div class="lang-switcher nav-lang" aria-label="Выбор языка">
-          <button type="button" class="lang-btn" data-lang="ru" title="Русский">🇷🇺 RU</button>
-          <button type="button" class="lang-btn" data-lang="en" title="English">🇬🇧 EN</button>
+        <div class="lang-switcher" aria-label="Выбор языка">
+          <button type="button" class="lang-btn active" data-lang="ru" title="Русский" aria-pressed="true">🇷🇺 RU</button>
+          <button type="button" class="lang-btn" data-lang="en" title="English" aria-pressed="false">🇬🇧 EN</button>
         </div>
       </nav>
 
@@ -82,18 +77,20 @@
     На связи 24/7
     <span class="wnb-sep">•</span>
     <span class="wnb-addr">Пушанина 46а, Пенза</span>
-    <button class="wnb-close" type="button" aria-label="Скрыть уведомление">×</button>
+    <button class="wnb-close" type="button" aria-label="Закрыть">×</button>
   </div>
 
   <!-- Контент -->
   <main id="main">
     <section class="hero container">
-      <h1>Откачка канализации и прочистка труб в Пензе 24/7</h1>
-      <h2 class="h2-sub">Ассенизаторские услуги: аварийная откачка, чистка септиков, промывка канализации</h2>
-      <p class="main-subtitle">
-        <b>Золотарь 58</b> — профессиональная откачка канализации, выгребных ям и септиков по Пензе и области.
-        Современное оборудование, быстрый выезд <b>24/7</b>. Официально, без посредников, с гарантией результата.
-      </p>
+      <div class="hero-card">
+        <h1>Откачка канализации и прочистка труб в Пензе 24/7</h1>
+        <h2 class="h2-sub">Ассенизаторские услуги: аварийная откачка, чистка септиков, промывка канализации</h2>
+        <p class="main-subtitle">
+          <b>Золотарь 58</b> — профессиональная откачка канализации, выгребных ям и септиков по Пензе и области.
+          Современное оборудование, быстрый выезд <b>24/7</b>. Официально, без посредников, с гарантией результата.
+        </p>
+      </div>
       <a class="cta btn btn--primary" href="tel:+79022073636" aria-label="Позвонить по номеру +7-902-207-36-36">
         Позвонить: +7-902-207-36-36
       </a>
@@ -118,30 +115,13 @@
         <h2 class="section-title center">Наши услуги</h2>
 
         <ul class="services-list cards services-emoji">
-          <li class="card">
-            <span class="svc-emoji" aria-hidden="true">💧</span>
-            <span class="svc-text">Откачка канализации (Пенза и область)</span>
-          </li>
-          <li class="card">
-            <span class="svc-emoji" aria-hidden="true">🧼</span>
-            <span class="svc-text">Откачка и чистка септиков</span>
-          </li>
-          <li class="card">
-            <span class="svc-emoji" aria-hidden="true">🚨</span>
-            <span class="svc-text">Аварийная откачка выгребных ям</span>
-          </li>
-          <li class="card">
-            <span class="svc-emoji" aria-hidden="true">🛠️</span>
-            <span class="svc-text">Прочистка и промывка труб</span>
-          </li>
-          <li class="card">
-            <span class="svc-emoji" aria-hidden="true">🌀</span>
-            <span class="svc-text">Гидродинамическая промывка канализации</span>
-          </li>
-          <li class="card">
-            <span class="svc-emoji" aria-hidden="true">🏠</span>
-            <span class="svc-text">Обслуживание частных домов, организаций и предприятий</span>
-          </li>
+          <li class="card" data-emoji="🚚">Откачка канализации (Пенза и область)</li>
+          <li class="card" data-emoji="🧼">Откачка и чистка септиков</li>
+          <li class="card" data-emoji="🆘">Аварийная откачка выгребных ям</li>
+          <li class="card" data-emoji="🌀">Прочистка и промывка труб</li>
+          <li class="card" data-emoji="💦">Гидродинамическая промывка</li>
+          <li class="card" data-emoji="🏢">Обслуживание частных домов и организаций</li>
+          <li class="card" data-emoji="⚡">Срочный выезд аварийной службы</li>
         </ul>
       </div>
     </section>
@@ -321,20 +301,45 @@
       }
 
       // Слайдер отзывов
+      var slider = document.querySelector('.reviews-slider');
       var reviews = document.querySelectorAll('.review-item');
       var dots = document.querySelectorAll('.slider-dot');
       var current = 0;
+      var autoplayId = null;
       function showReview(idx) {
         reviews.forEach(function(el, i){
           el.classList.toggle('active', i === idx);
           if (dots[i]) dots[i].classList.toggle('active', i === idx);
         });
       }
+      function stopAutoplay(){
+        if (autoplayId){
+          clearInterval(autoplayId);
+          autoplayId = null;
+        }
+      }
+      function startAutoplay(){
+        stopAutoplay();
+        if (reviews.length > 1){
+          autoplayId = setInterval(function(){
+            current = (current + 1) % reviews.length;
+            showReview(current);
+          }, 6000);
+        }
+      }
       dots.forEach(function(dot, i){
-        dot.addEventListener('click', function(){ current = i; showReview(current); });
+        dot.addEventListener('click', function(){
+          current = i;
+          showReview(current);
+          startAutoplay();
+        });
       });
       if (reviews.length > 1) {
-        setInterval(function(){ current = (current + 1) % reviews.length; showReview(current); }, 6000);
+        startAutoplay();
+      }
+      if (slider){
+        slider.addEventListener('mouseenter', stopAutoplay);
+        slider.addEventListener('mouseleave', startAutoplay);
       }
 
       // Год в футере

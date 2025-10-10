@@ -14,6 +14,7 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/montserrat/v25/JTURjIg1_i6t8kCHKm45_dJE3gnD_vx3rCubqg.woff2" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <!-- LocalBusiness -->
@@ -29,16 +30,12 @@
   <a class="skip-link" href="#main">К основному содержимому</a>
 
   <!-- Языковой переключатель + скрытый элемент Google -->
- <div class="lang-switcher" aria-label="Выбор языка">
-      <button type="button" class="lang-btn" data-lang="ru" title="Русский">🇷🇺 RU</button>
-      <button type="button" class="lang-btn" data-lang="en" title="English">🇬🇧 EN</button>
-    </div>
   <div id="google_translate_element" class="visually-hidden" aria-hidden="true"></div>
 
   <header class="header" id="sticky-header">
     <div class="container header-flex">
       <a href="index.html" class="logo-link" aria-label="На главную">
-        <img src="logo.png" class="logo-img" alt="Золотарь 58" width="60" height="60" loading="eager">
+        <img src="logo.png" width="60" height="60" fetchpriority="high" decoding="async" class="logo-img" alt="Золотарь 58">
         <span class="logo-title">Золотарь 58</span>
       </a>
 
@@ -50,9 +47,8 @@
         <a href="licenses.html" class="nav-link">Сертификаты</a>
         <a href="contacts.html" class="nav-link">Контакты</a>
 
-        <!-- Переключатель языка размещён внутри меню -->
         <div class="lang-switcher" aria-label="Выбор языка">
-          <button type="button" class="lang-btn" data-lang="ru" title="Русский" aria-pressed="true">🇷🇺 RU</button>
+          <button type="button" class="lang-btn active" data-lang="ru" title="Русский" aria-pressed="true">🇷🇺 RU</button>
           <button type="button" class="lang-btn" data-lang="en" title="English" aria-pressed="false">🇬🇧 EN</button>
         </div>
       </nav>
@@ -69,7 +65,7 @@
   <span class="wnb-label">На связи 24/7</span>
   <span class="wnb-sep">•</span>
   <span class="wnb-addr">Пушанина 46а, Пенза</span>
-  <button class="wnb-close" aria-label="Скрыть плашку" title="Скрыть">&times;</button>
+  <button class="wnb-close" type="button" aria-label="Закрыть">×</button>
 </div>
 
 
@@ -235,19 +231,6 @@
   <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function(){
-  // — Переносим любой "лишний" .lang-switcher внутрь <nav>, дубликаты удаляем
-  var nav = document.querySelector('.nav');
-  if (nav){
-    var sw = document.querySelectorAll('.lang-switcher');
-    sw.forEach(function(el, i){
-      if (!el.closest('.nav')){
-        if (!nav.querySelector('.lang-switcher')) nav.appendChild(el);
-        else el.remove();
-      }
-    });
-  }
-
-  // — Логика плашки: крестик + автоскрытие у футера
   var bar = document.getElementById('wnb');
   if (bar){
     var closeBtn = bar.querySelector('.wnb-close');

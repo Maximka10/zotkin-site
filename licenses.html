@@ -15,6 +15,7 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/montserrat/v25/JTURjIg1_i6t8kCHKm45_dJE3gnD_vx3rCubqg.woff2" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <!-- Images schema -->
@@ -27,17 +28,12 @@
   </script>
 </head>
 <body>
-  <!-- Языковой переключатель + скрытый элемент Google -->
-  <div class="lang-switcher" aria-label="Выбор языка">
-      <button type="button" class="lang-btn" data-lang="ru" title="Русский">🇷🇺 RU</button>
-      <button type="button" class="lang-btn" data-lang="en" title="English">🇬🇧 EN</button>
-    </div>
   <div id="google_translate_element" class="visually-hidden" aria-hidden="true"></div>
 
   <header class="header" id="sticky-header">
     <div class="container header-flex">
       <a href="index.html" class="logo-link" aria-label="На главную">
-        <img src="logo.png" class="logo-img" alt="Золотарь 58" width="60" height="60" loading="eager">
+        <img src="logo.png" width="60" height="60" fetchpriority="high" decoding="async" class="logo-img" alt="Золотарь 58">
         <span class="logo-title">Золотарь 58</span>
       </a>
 
@@ -49,9 +45,8 @@
         <a href="licenses.html" class="nav-link">Сертификаты</a>
         <a href="contacts.html" class="nav-link">Контакты</a>
 
-        <!-- Переключатель языка размещён внутри меню -->
         <div class="lang-switcher" aria-label="Выбор языка">
-          <button type="button" class="lang-btn" data-lang="ru" title="Русский" aria-pressed="true">🇷🇺 RU</button>
+          <button type="button" class="lang-btn active" data-lang="ru" title="Русский" aria-pressed="true">🇷🇺 RU</button>
           <button type="button" class="lang-btn" data-lang="en" title="English" aria-pressed="false">🇬🇧 EN</button>
         </div>
       </nav>
@@ -61,12 +56,6 @@
       </button>
     </div>
   </header>
-
-    <button class="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="main-menu">
-      <span></span>
-    </button>
-  </div>
-</header>
   <main class="licenses-page">
     <section class="main-intro">
       <h1>Сертификаты и лицензии</h1>
@@ -77,7 +66,7 @@
       <div class="licenses-list">
         <div class="license-item">
           <div class="license-card" onclick="openModal(this)" role="button" aria-label="Увеличить сертификат соответствия">
-            <img src="license1.jpg" alt="Сертификат соответствия ГОСТ Р ИСО 9001-2021" loading="lazy" class="license-img" width="400" height="565">
+            <img src="license1.jpg" alt="Сертификат соответствия ГОСТ Р ИСО 9001-2021" loading="lazy" decoding="async" class="license-img" width="400" height="565">
             <div class="license-caption">
               <span class="license-title">Сертификат соответствия</span>
               <span class="license-desc">ГОСТ Р ИСО 9001-2021</span>
@@ -87,7 +76,7 @@
 
         <div class="license-item">
           <div class="license-card" onclick="openModal(this)" role="button" aria-label="Увеличить лицензию на услуги">
-            <img src="license2.jpg" alt="Лицензия Минстроя на ассенизаторские работы" loading="lazy" class="license-img" width="400" height="565">
+            <img src="license2.jpg" alt="Лицензия Минстроя на ассенизаторские работы" loading="lazy" decoding="async" class="license-img" width="400" height="565">
             <div class="license-caption">
               <span class="license-title">Лицензия Минстроя</span>
               <span class="license-desc">№ ЛО-58-002345 от 12.03.2024</span>
@@ -98,7 +87,7 @@
         <div class="license-item">
           <div class="license-card license-card--qr">
             <a class="license-qr-link" href="https://knd.gov.ru/license?registryType=wasteLicensing&amp;id=68df7c94fbcfc4d78d02bbd7" target="_blank" rel="noopener noreferrer" aria-label="Открыть страницу лицензии в реестре Росприроднадзора">
-              <img src="qr-code.svg" alt="QR-код для проверки лицензии в реестре Росприроднадзора" loading="lazy" class="license-img license-img--qr" width="400" height="400">
+              <img src="qr-code.svg" alt="QR-код для проверки лицензии в реестре Росприроднадзора" loading="lazy" decoding="async" class="license-img license-img--qr" width="400" height="400">
             </a>
             <div class="license-caption license-caption--qr">
               <span class="license-title">QR-код проверки</span>
@@ -110,7 +99,7 @@
 
         <div class="license-item">
           <a class="license-card license-card--qr" href="https://knd.gov.ru/license?registryType=wasteLicensing&amp;id=68df7c94fbcfc4d78d02bbd7" target="_blank" rel="noopener noreferrer" aria-label="Открыть страницу лицензии в реестре и отсканировать QR-код">
-            <img src="qr-code.svg" alt="QR-код для проверки лицензии в реестре Росприроднадзора" loading="lazy" class="license-img license-img--qr" width="400" height="400">
+            <img src="qr-code.svg" alt="QR-код для проверки лицензии в реестре Росприроднадзора" loading="lazy" decoding="async" class="license-img license-img--qr" width="400" height="400">
             <div class="license-caption">
               <span class="license-title">QR-код проверки</span>
               <span class="license-desc">Открывает лицензию в реестре Росприроднадзора</span>
@@ -119,11 +108,14 @@
           </a>
         </div>
       </div>
+      <div class="licenses-actions">
+        <a class="btn btn--ghost" href="https://knd.gov.ru/license?registryType=wasteLicensing&amp;id=68df7c94fbcfc4d78d02bbd7" target="_blank" rel="noopener noreferrer">QR-код проверки</a>
+      </div>
     </section>
 
     <div class="img-modal" id="imgModal" onclick="closeModal(event)">
       <span class="close-modal" onclick="closeModal(event)" aria-label="Закрыть">&times;</span>
-      <img class="modal-content" id="modalImg" alt="">
+      <img class="modal-content" id="modalImg" alt="" loading="lazy" decoding="async">
       <div class="modal-caption" id="modalCaption"></div>
     </div>
   </main>
@@ -153,8 +145,10 @@
       combo.value = lang;
       combo.dispatchEvent(new Event('change'));
       localStorage.setItem('site_lang', lang);
-      document.querySelectorAll('.lang-btn').forEach(b=>{
-        b.classList.toggle('active', b.dataset.lang === lang);
+      document.querySelectorAll('.lang-btn').forEach(function(b){
+        var isActive = b.dataset.lang === lang;
+        b.classList.toggle('active', isActive);
+        b.setAttribute('aria-pressed', String(isActive));
       });
       document.documentElement.setAttribute('lang', lang === 'en' ? 'en' : 'ru');
     }
@@ -209,6 +203,5 @@
     }
   </script>
   <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-  <div id="google_translate_element" class="visually-hidden"></div>
 </body>
 </html>
