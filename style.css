@@ -998,8 +998,10 @@ body.no-scroll { overflow: hidden; }
     min-height: 0;
   }
   .qr-link { width: 100%; padding: 16px; }
-  .license-frame{
-    max-height: none;
+  .license-img {
+    width: 100%;
+    height: auto;
+    max-height: 440px;
   }
   .license-caption { left: 12px; right: 12px; bottom: 12px; }
   .license-caption--qr { padding: 14px 16px; }
