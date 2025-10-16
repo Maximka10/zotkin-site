@@ -688,10 +688,15 @@ body.no-scroll { overflow: hidden; }
 .licenses-actions{margin-top:22px;display:flex;justify-content:center;}
 .license-item { display: flex; }
 .license-card {
-  position: relative; width: 100%;
-  background: var(--surface-strong); border-radius: var(--radius-lg); box-shadow: var(--shadow-lg);
-  overflow: hidden; cursor: pointer; transition: transform .2s ease, box-shadow .2s ease;
+  position: relative;
+  width: 100%;
+  background: #fff;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
   border: 1px solid var(--border);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform .2s ease, box-shadow .2s ease;
 }
 .license-card--qr {
   display: flex;
@@ -710,7 +715,24 @@ body.no-scroll { overflow: hidden; }
   outline: 3px solid rgba(37, 99, 235, 0.6);
   outline-offset: 4px;
 }
-.license-img { width: 100%; height: 360px; object-fit: cover; background: rgba(15, 23, 42, 0.08); }
+.license-frame{
+  width: 100%;
+  max-height: 360px;
+  aspect-ratio: 3 / 4;
+  background: #fff;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.license-img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #fff;
+  padding: 8px;
+}
 .license-img--qr {
   width: auto;
   max-width: 240px;
@@ -739,6 +761,14 @@ body.no-scroll { overflow: hidden; }
   font-weight: 700;
   color: var(--main-color);
 }
+.license-card--qr .license-qr {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+.license-card--qr .qr-link {
+  display: inline-flex;
+}
 .license-title { font-weight: 800; display: block; }
 .license-desc  { opacity: .9; }
 
@@ -748,7 +778,21 @@ body.no-scroll { overflow: hidden; }
   background: rgba(7,20,40,.65); z-index: 150; padding: 20px;
 }
 .img-modal.open { display: flex; }
-.modal-content { max-width: min(1000px, 92vw); max-height: 82vh; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,.35); }
+.img-modal .modal-content{
+  max-width: min(1000px, 92vw);
+  max-height: 82vh;
+  object-fit: contain;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0,0,0,.35);
+}
+
+.img-modal img{
+  max-width: 100%;
+  max-height: 82vh;
+  object-fit: contain;
+  display: block;
+}
 .modal-caption {
   position: absolute; bottom: 22px; left: 50%; transform: translateX(-50%);
   color: #fff; background: rgba(0,0,0,.55); padding: 10px 14px; border-radius: 999px; font-weight: 700;
@@ -786,6 +830,18 @@ body.no-scroll { overflow: hidden; }
 .lang-switcher .lang-btn:hover{transform:translateY(-1px);box-shadow:0 12px 24px rgba(5,110,207,.18);}
 .lang-switcher .lang-btn.active,
 .lang-switcher .lang-btn[aria-pressed="true"]{background:#0b4f9c;color:#fff;}
+
+/* Desktop: reserve space for RU/EN so it doesn't overlap menu */
+@media (min-width: 900px){
+  /* move switcher a bit right if needed */
+  .lang-switcher{ right: 22px; }
+
+  /* reserve space on the right so nav doesn't get under the switcher */
+  .header-flex{ padding-right: 150px; }
+
+  /* if the nav is too close to the right edge, also push it a bit left */
+  .nav{ margin-right: 24px; }
+}
 
 /***********************************
   КНОПКА "ВВЕРХ"
@@ -941,11 +997,9 @@ body.no-scroll { overflow: hidden; }
     padding: 24px 20px 26px;
     min-height: 0;
   }
-  .license-qr-link { width: 100%; padding: 16px; }
-  .license-img {
-    width: 100%;
-    height: auto;
-    max-height: 440px;
+  .qr-link { width: 100%; padding: 16px; }
+  .license-frame{
+    max-height: none;
   }
   .license-caption { left: 12px; right: 12px; bottom: 12px; }
   .license-caption--qr { padding: 14px 16px; }
@@ -974,7 +1028,7 @@ body.no-scroll { overflow: hidden; }
   .footer-links { display: grid; gap: 8px; justify-items: center; margin-top: 14px; }
 
   .img-modal { padding: 12px; }
-  .modal-content { max-width: 94vw; max-height: 70vh; }
+  .img-modal .modal-content { max-width: 94vw; max-height: 70vh; }
   .modal-caption { bottom: 16px; padding: 8px 14px; font-size: 0.95rem; }
   .close-modal { top: 12px; right: 14px; font-size: 32px; }
 }
