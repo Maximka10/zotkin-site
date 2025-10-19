@@ -1197,3 +1197,61 @@ p, li, .faq-a, .review-text {
   border-color: #fff;
   box-shadow: 0 6px 22px rgba(5,110,207,.25);
 }
+
+/* ===== Reviews on About page ===== */
+.reviews-on-about { margin-top: 26px; }
+.reviews-on-about h2 {
+  text-align: center;
+  color: var(--main-color);
+  margin: 0 0 14px;
+}
+.review-cards{
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+.review-card{
+  background:#fff;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  padding: 14px 14px 12px;
+  color:#2b4f6b;
+}
+.review-card__header{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:10px; margin-bottom:6px;
+}
+.review-card__author{ color:#0c58a8; font-weight:800; }
+.review-card__meta{ color:#597A9B; font-size:.92rem; }
+.review-card__rating{ margin-bottom:6px; }
+.review-card__text{ margin:0 0 8px; }
+.review-card__time{ color:#6b88a8; font-size:.9rem; }
+.stars{ color:#ffb400; letter-spacing:1px; }
+
+/* ===== Services grid: center last row with 2 cards (pyramid-like) ===== */
+/* Переводим сетку услуг в flex на десктопе: центрируем каждый ряд */
+@media (min-width: 900px){
+  .services-list,
+  .cards { /* оба варианта списков на сайте */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;  /* центрирует каждый ряд */
+    gap: 26px;
+  }
+  .services-list .card,
+  .cards .card,
+  .service-card {           /* универсальная ширина */
+    flex: 0 1 320px;        /* 3 карточки в ряд при широкой области */
+    max-width: 360px;
+  }
+}
+/* На планшетах/мобилках поведение прежнее — 1 или 2 колонки по minmax */
+@media (max-width: 899.98px){
+  .services-list,
+  .cards {
+    display: grid;
+    gap: 26px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    justify-items: stretch;
+  }
+}
