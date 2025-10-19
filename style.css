@@ -45,7 +45,7 @@ body {
     radial-gradient(1200px 400px at 100% 0%, rgba(37, 99, 235, 0.08), transparent),
     radial-gradient(1000px 340px at 0% 20%, rgba(14, 165, 233, 0.08), transparent),
     linear-gradient(180deg, #f8fbff 0%, #eef2ff 100%);
-  font-family: 'Manrope', 'Montserrat', 'Segoe UI', Arial, sans-serif;
+  font-family: 'Montserrat', 'Manrope', 'Segoe UI', Arial, sans-serif;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -1082,3 +1082,118 @@ body.no-scroll { overflow: hidden; }
   .modal-caption { bottom: 14px; font-size: 0.9rem; }
 }
   
+
+/* =========================
+   TYPE UPLIFT — bolder, juicier Montserrat
+   ========================= */
+:root{
+  /* базовый размер текста слегка крупнее для лучшей читаемости */
+  --font-base: 16.5px;
+  --lh-base: 1.6;
+}
+
+html { font-size: var(--font-base); }
+body { line-height: var(--lh-base); font-weight: 500; font-kerning: normal; }
+
+/* Заголовки: плотнее, но без «кричащего» вида */
+h1, .main-intro h1, .hero h1 {
+  font-weight: 800;
+  letter-spacing: .2px;
+  color: #0b4f9c; /* тёмно-синий для контраста */
+}
+h2, .h2-sub, .why-us h2, .reviews-title, .faq-section h2, .map-section h2 {
+  font-weight: 700;
+  letter-spacing: .15px;
+  color: #0b4f9c;
+}
+h3, .service-card h3, .advantage-card h3, .timeline-content h3 {
+  font-weight: 700;
+  letter-spacing: .1px;
+  color: #0e58a7;
+}
+
+/* Логотип-текст в хеддере — жирно, но без свечения */
+.logo-title{
+  font-weight: 800;
+  letter-spacing: .3px;
+  text-shadow: none;
+  color: #fff; /* под текстурный синий фон */
+}
+
+/* Навигация — сочнее текст и контраст лучше */
+.nav a, .nav-link{
+  font-weight: 700;
+  letter-spacing: .2px;
+}
+.nav a.active, .nav a:hover, .nav-link:hover{
+  font-weight: 800;
+}
+
+/* Кнопки/CTA — визуально мощнее */
+.btn, .cta, .cta-button, .phone-link.btn, .btn--primary{
+  font-weight: 800;
+  letter-spacing: .2px;
+}
+
+/* Мелкие элементы интерфейса */
+.lang-switcher .lang-btn,
+.lang-switch .lang-btn {
+  font-weight: 800;
+  letter-spacing: .15px;
+}
+
+/* Карточки услуг/списков — 600, чтобы не «плыло» при переносах */
+.cards .card,
+.services-list .card,
+.usp-list li,
+.contact-item,
+.faq-q {
+  font-weight: 600;
+}
+
+/* Текст на новых текстурных бэкграундах: белый/почти белый */
+.header .nav a,
+.header .logo-title {
+  color: #fff;
+}
+.footer, footer {
+  color: #eef6ff;
+}
+.footer a{
+  color:#fff;
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Чуть чётче цифры/важные куски */
+b, strong, .review-author, .phone-link, .contact-title {
+  font-weight: 800;
+}
+
+/* Герой — чуть крупнее на мобиле, чтобы «сочно» */
+@media (max-width: 420px){
+  .hero h1{ font-size: clamp(1.6rem, 7vw, 2.2rem); }
+  .h2-sub{ font-size: clamp(1.05rem, 4.6vw, 1.25rem); font-weight: 700; }
+}
+
+/* Стабилизация переносов, чтобы жирность не ломала макет */
+p, li, .faq-a, .review-text {
+  hyphens: auto;
+  overflow-wrap: anywhere;
+}
+
+/* контрастные «пилюльки» меню на синем фоне */
+.header .nav a{
+  background: rgba(255,255,255,.14);
+  border: 1px solid rgba(255,255,255,.22);
+  color: #fff;
+  backdrop-filter: saturate(120%) blur(4px);
+}
+.header .nav a:hover,
+.header .nav a.active{
+  background: #fff;
+  color: #0b4f9c;
+  border-color: #fff;
+  box-shadow: 0 6px 22px rgba(5,110,207,.25);
+}
