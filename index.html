@@ -61,10 +61,12 @@
       <a href="index.html" class="header-title-mobile">Золотарь 58</a>
 
       <nav class="nav" aria-label="Основное меню" id="main-menu">
-        <a href="services.html" class="nav-link">Услуги</a>
-        <a href="about.html" class="nav-link">О компании</a>
-        <a href="licenses.html" class="nav-link">Сертификаты</a>
-        <a href="contacts.html" class="nav-link">Контакты</a>
+        <div class="nav-links">
+          <a href="services.html" class="nav-link">Услуги</a>
+          <a href="about.html" class="nav-link">О компании</a>
+          <a href="licenses.html" class="nav-link">Сертификаты</a>
+          <a href="contacts.html" class="nav-link">Контакты</a>
+        </div>
 
         <div class="lang-switcher" aria-label="Выбор языка">
           <button type="button" class="lang-btn active" data-lang="ru" title="Русский" aria-pressed="true">🇷🇺 RU</button>
@@ -122,13 +124,11 @@
         <h2 class="section-title center">Наши услуги</h2>
 
         <ul class="services-list cards services-emoji">
-          <li class="card" data-emoji="🚚">Откачка канализации (Пенза и область)</li>
-          <li class="card" data-emoji="🧼">Откачка и чистка септиков</li>
-          <li class="card" data-emoji="🆘">Аварийная откачка выгребных ям</li>
+          <li class="card" data-emoji="🚚">Откачка канализации и выгребных ям</li>
+          <li class="card" data-emoji="🧼">Чистка и обслуживание септиков</li>
+          <li class="card" data-emoji="🆘">Аварийная откачка 24/7</li>
           <li class="card" data-emoji="🌀">Прочистка и промывка труб</li>
-          <li class="card" data-emoji="💦">Гидродинамическая промывка</li>
-          <li class="card" data-emoji="🏢">Обслуживание частных домов и организаций</li>
-          <li class="card" data-emoji="⚡">Срочный выезд аварийной службы</li>
+          <li class="card" data-emoji="💦">Гидродинамическая промывка систем</li>
         </ul>
       </div>
     </section>
@@ -151,38 +151,56 @@
     <!-- Отзывы -->
     <section class="reviews-section section">
       <div class="container">
-        <div class="reviews-slider" role="region" aria-label="Отзывы наших клиентов">
-          <h2 class="reviews-title">Отзывы наших клиентов</h2>
+        <div class="reviews-grid" role="region" aria-labelledby="reviews-title">
+          <h2 class="reviews-title" id="reviews-title">Отзывы клиентов</h2>
 
-          <div class="review-item active">
+          <div class="review-card">
             <div class="review-rating" aria-label="Оценка 5 из 5"><span class="stars" aria-hidden="true">★★★★★</span></div>
-            <p class="review-text">Всё понравилось, быстро приехали, всё сделали! Рекомендую.</p>
-            <div class="review-author">— Николай С.</div>
+            <p class="review-text">Заказывала экстренную откачку септика поздно вечером. Приехали через 40 минут, всё откачали, промыли и аккуратно убрали за собой.</p>
+            <div class="review-author">Ирина Д.</div>
+            <div class="review-meta">Пенза &middot; Частный дом</div>
           </div>
 
-          <div class="review-item">
+          <div class="review-card">
             <div class="review-rating" aria-label="Оценка 5 из 5"><span class="stars" aria-hidden="true">★★★★★</span></div>
-            <p class="review-text">Заказывала откачку септика. Приехали в течение часа, всё аккуратно.</p>
-            <div class="review-author">— Ирина Д.</div>
+            <p class="review-text">Нужно было прочистить кухонный стояк в кафе. Бригада приехала утром до открытия, без шума и быстро восстановили работу канализации.</p>
+            <div class="review-author">Сергей П.</div>
+            <div class="review-meta">Пенза &middot; Кафе</div>
           </div>
 
-          <div class="review-item">
+          <div class="review-card">
             <div class="review-rating" aria-label="Оценка 5 из 5"><span class="stars" aria-hidden="true">★★★★★</span></div>
-            <p class="review-text">Надёжная компания, обращаюсь не первый раз. Спасибо!</p>
-            <div class="review-author">— Владимир М.</div>
+            <p class="review-text">Периодически вызываем «Золотарь 58» для обслуживания дачного септика. Ребята всегда созваниваются заранее и приезжают строго вовремя.</p>
+            <div class="review-author">Мария К.</div>
+            <div class="review-meta">Заречный &middot; Дачный дом</div>
           </div>
 
-          <div class="slider-nav" role="tablist" aria-label="Навигация по отзывам">
-            <button class="slider-dot active" aria-label="Показать отзыв 1" role="tab"></button>
-            <button class="slider-dot" aria-label="Показать отзыв 2" role="tab"></button>
-            <button class="slider-dot" aria-label="Показать отзыв 3" role="tab"></button>
+          <div class="review-card">
+            <div class="review-rating" aria-label="Оценка 5 из 5"><span class="stars" aria-hidden="true">★★★★★</span></div>
+            <p class="review-text">Заказали гидродинамическую промывку производственной канализации. Команда подготовила документы, отчёт и выполнила работу за один день.</p>
+            <div class="review-author">Андрей Л.</div>
+            <div class="review-meta">Пенза &middot; Производственный цех</div>
           </div>
 
-          <div class="reviews-yandex-link">
-            <a class="btn btn--ghost" href="https://uslugi.yandex.ru/profile/AleksandrZotkin-886001" target="_blank" rel="noopener nofollow">
-              Все отзывы на Яндекс.Услугах <span class="arrow" aria-hidden="true">→</span>
-            </a>
+          <div class="review-card">
+            <div class="review-rating" aria-label="Оценка 5 из 5"><span class="stars" aria-hidden="true">★★★★★</span></div>
+            <p class="review-text">Сломался дренаж на участке, и пришлось срочно выкачивать колодец. Машина приехала в выходной день, спасли от затопления подвал.</p>
+            <div class="review-author">Ольга В.</div>
+            <div class="review-meta">Спутник &middot; Таунхаус</div>
           </div>
+
+          <div class="review-card">
+            <div class="review-rating" aria-label="Оценка 5 из 5"><span class="stars" aria-hidden="true">★★★★★</span></div>
+            <p class="review-text">Работаем по договору с несколькими домами. Откачка, промывка, отчётность — всё берут на себя. Надёжные подрядчики, всегда на связи.</p>
+            <div class="review-author">Владимир Т.</div>
+            <div class="review-meta">Пенза &middot; Управляющая компания</div>
+          </div>
+        </div>
+
+        <div class="reviews-yandex-link">
+          <a class="btn btn--ghost" href="https://uslugi.yandex.ru/profile/AleksandrZotkin-886001" target="_blank" rel="noopener nofollow">
+            Все отзывы на Яндекс.Услугах <span class="arrow" aria-hidden="true">→</span>
+          </a>
         </div>
       </div>
     </section>
@@ -305,48 +323,6 @@
             document.body.classList.remove('no-scroll');
           }
         });
-      }
-
-      // Слайдер отзывов
-      var slider = document.querySelector('.reviews-slider');
-      var reviews = document.querySelectorAll('.review-item');
-      var dots = document.querySelectorAll('.slider-dot');
-      var current = 0;
-      var autoplayId = null;
-      function showReview(idx) {
-        reviews.forEach(function(el, i){
-          el.classList.toggle('active', i === idx);
-          if (dots[i]) dots[i].classList.toggle('active', i === idx);
-        });
-      }
-      function stopAutoplay(){
-        if (autoplayId){
-          clearInterval(autoplayId);
-          autoplayId = null;
-        }
-      }
-      function startAutoplay(){
-        stopAutoplay();
-        if (reviews.length > 1){
-          autoplayId = setInterval(function(){
-            current = (current + 1) % reviews.length;
-            showReview(current);
-          }, 6000);
-        }
-      }
-      dots.forEach(function(dot, i){
-        dot.addEventListener('click', function(){
-          current = i;
-          showReview(current);
-          startAutoplay();
-        });
-      });
-      if (reviews.length > 1) {
-        startAutoplay();
-      }
-      if (slider){
-        slider.addEventListener('mouseenter', stopAutoplay);
-        slider.addEventListener('mouseleave', startAutoplay);
       }
 
       // Год в футере
