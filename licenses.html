@@ -121,15 +121,23 @@
     </div>
   </main>
 
-  <footer class="footer">
+  <footer class="footer" role="contentinfo">
     <div class="container">
       <p class="footer-text">
-        © 2025 Золотарь 58 — ИП Зоткин А.И.<br>
-        г. Пенза, ул. Пушанина, 46а<br>
-        <a href="tel:+79022073636">+7 (902) 207-36-36</a>
+        © <span id="year"></span> Золотарь 58 — ИП Зоткин А.И.<br>
+        г. Пенза, ул. Пушанина, 46а ·
+        <a class="phone-link" href="tel:+79022073636">+7 (902) 207-36-36</a><br>
+        <a href="https://uslugi.yandex.ru/profile/AleksandrZotkin-886001" target="_blank" rel="noopener nofollow">Отзывы на Яндекс.Услугах</a> ·
+        <a href="https://go.2gis.com/YrK6Y" target="_blank" rel="noopener nofollow">2ГИС</a>
       </p>
     </div>
   </footer>
+
+  <div class="working-now-bar" id="wnb">
+    <span class="emoji" aria-hidden="true">💧</span>
+    <b>На связи 24/7</b>
+    <button class="wnb-close" id="wnbClose" aria-label="Скрыть">×</button>
+  </div>
 
   <script>
     function googleTranslateElementInit() {
@@ -181,6 +189,8 @@
           }
         });
       }
+      var yearEl = document.getElementById('year');
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
     });
 
     // Модалка
@@ -204,6 +214,19 @@
         document.body.style.overflow = "";
       }
     }
+  </script>
+
+  <script>
+    (function(){
+      var wnb=document.getElementById('wnb'), btn=document.getElementById('wnbClose');
+      if(!wnb||!btn) return;
+      if(sessionStorage.getItem('wnb_hidden')==='1'){ wnb.style.display='none'; return; }
+      btn.addEventListener('click', function(){
+        wnb.style.opacity='0'; wnb.style.pointerEvents='none';
+        sessionStorage.setItem('wnb_hidden','1');
+        setTimeout(function(){ if(wnb) wnb.remove(); }, 250);
+      });
+    })();
   </script>
   <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
