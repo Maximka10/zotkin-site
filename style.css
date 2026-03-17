@@ -345,6 +345,22 @@ main {
 .services-list .card { width: 100%; }
 
 
+
+.equipment-list{
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.equipment-list .service-card{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+@media (max-width: 1023px){
+  .equipment-list{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 720px){
+  .equipment-list{ grid-template-columns: 1fr; }
+}
+
 /* карточки из services.html */
 .service-card{
   background: linear-gradient(150deg, var(--card-grad-1) 0%, var(--card-grad-2) 100%);
