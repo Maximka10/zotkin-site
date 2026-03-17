@@ -1278,3 +1278,265 @@ p, li, .faq-a, .review-text {
 .review-card__time{ color:#6b88a8; font-size:.9rem; }
 .stars{ color:#ffb400; letter-spacing:1px; }
 
+
+/* ===== Premium visual polish (structure-preserving) ===== */
+:root {
+  --section-space-desktop: 80px;
+  --section-space-tablet: 50px;
+  --section-space-mobile: 30px;
+}
+
+body {
+  line-height: 1.65;
+}
+
+main {
+  padding: 56px 24px var(--section-space-desktop);
+  gap: var(--section-space-desktop);
+}
+
+.main-intro {
+  margin: 42px auto 10px;
+}
+
+.main-intro h1,
+.hero h1 {
+  font-size: clamp(2.6rem, 4.4vw, 3rem);
+  line-height: 1.12;
+}
+
+h2,
+.section-title,
+.why-us h2,
+.reviews-title,
+.faq-section h2,
+.map-section h2 {
+  font-size: clamp(2rem, 3.2vw, 2.25rem);
+  line-height: 1.2;
+}
+
+h3,
+.service-card h3,
+.advantage-card h3,
+.timeline-content h3 {
+  font-size: clamp(1.35rem, 2vw, 1.5rem);
+  line-height: 1.3;
+}
+
+p,
+.main-subtitle,
+.faq-a,
+.review-text,
+.timeline-content p,
+.advantage-card p,
+.service-card p {
+  font-size: clamp(1rem, 1.05vw, 1.08rem);
+  line-height: 1.65;
+}
+
+.header-flex {
+  min-height: 94px;
+}
+
+.logo-link {
+  gap: 14px;
+}
+
+.logo-img {
+  width: 82px;
+  height: 82px;
+  border-radius: 20px;
+}
+
+.logo-title {
+  font-size: 1.4rem;
+}
+
+.nav-links {
+  gap: 16px;
+}
+
+.nav a,
+.nav-link {
+  font-size: 1.02rem;
+  padding: 0.62em 1.3em;
+  transition: transform .2s ease, background .2s ease, color .2s ease, box-shadow .2s ease;
+}
+
+.nav a:hover,
+.nav-link:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.18);
+}
+
+.hero,
+.why-us,
+.faq-section,
+.map-container,
+.license-card,
+.review-card,
+.service-card,
+.advantage-card,
+.timeline-content {
+  border-radius: 16px;
+}
+
+.services-list > .service-card,
+.equipment-list > .service-card {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.service-card,
+.advantage-card,
+.review-card,
+.timeline-content {
+  padding: 26px 24px;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.11);
+  transition: transform .22s ease, box-shadow .22s ease;
+}
+
+.service-card:hover,
+.advantage-card:hover,
+.review-card:hover,
+.timeline-content:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 38px rgba(15, 23, 42, 0.16);
+}
+
+.btn,
+.cta,
+.cta-button,
+.phone-link.btn {
+  padding: 12px 22px;
+  border-radius: 10px;
+}
+
+.footer,
+footer {
+  margin-top: 56px;
+}
+
+.footer .container,
+footer .container {
+  padding: 34px 24px 38px;
+}
+
+.footer-text,
+footer .footer-text {
+  font-size: 1.02rem;
+  line-height: 1.85;
+}
+
+@media (max-width: 1024px) {
+  main {
+    gap: var(--section-space-tablet);
+    padding-bottom: var(--section-space-tablet);
+  }
+
+  .header-flex {
+    min-height: 84px;
+  }
+
+  .logo-img {
+    width: 72px;
+    height: 72px;
+  }
+
+  .logo-title {
+    font-size: 1.26rem;
+  }
+
+  .nav a,
+  .nav-link {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 720px) {
+  main {
+    gap: var(--section-space-mobile);
+    padding: 34px 0 106px;
+  }
+
+  .header-flex {
+    min-height: 66px;
+  }
+
+  .logo-img {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+  }
+
+  .header-title-mobile {
+    top: 16px;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    width: max-content;
+    max-width: calc(100% - 140px);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 1.22rem;
+    letter-spacing: .2px;
+  }
+
+  .nav {
+    min-width: 246px;
+    padding: 18px 14px;
+    gap: 12px;
+  }
+
+  .nav-links {
+    gap: 8px;
+  }
+
+  .nav-links .nav-link {
+    padding: 11px 14px;
+    font-size: 0.98rem;
+  }
+
+  .main-intro h1,
+  .hero h1 {
+    font-size: clamp(2rem, 7vw, 2.45rem);
+  }
+
+  h2,
+  .section-title,
+  .why-us h2,
+  .reviews-title,
+  .faq-section h2,
+  .map-section h2 {
+    font-size: clamp(1.6rem, 5.8vw, 1.95rem);
+  }
+
+  h3,
+  .service-card h3,
+  .advantage-card h3,
+  .timeline-content h3 {
+    font-size: 1.26rem;
+  }
+
+  .service-card,
+  .advantage-card,
+  .review-card,
+  .timeline-content,
+  .faq-section,
+  .why-us {
+    padding: 22px 18px;
+  }
+
+  .footer .container,
+  footer .container {
+    padding: 26px 16px 30px;
+  }
+
+  .footer-text,
+  footer .footer-text {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+}
