@@ -37,9 +37,7 @@
   <a class="skip-link" href="#main">К основному содержимому</a>
 
   <!-- Языковой переключатель + скрытый элемент Google -->
-  <div id="google_translate_element" class="visually-hidden" aria-hidden="true"></div>
-
-  <header class="header" id="sticky-header">
+    <header class="header" id="sticky-header">
     <div class="container header-flex">
       <a href="index.html" class="logo-link" aria-label="На главную">
         <img src="logo.png" width="60" height="60" fetchpriority="high" decoding="async" class="logo-img" alt="Золотарь 58">
@@ -52,13 +50,9 @@
         <div class="nav-links">
           <a href="services.html" class="nav-link">Услуги</a>
           <a href="about.html" class="nav-link">О компании</a>
+          <a href="equipment.html" class="nav-link">Техника</a>
           <a href="licenses.html" class="nav-link">Сертификаты</a>
           <a href="contacts.html" class="nav-link active">Контакты</a>
-        </div>
-
-        <div class="lang-switcher" aria-label="Выбор языка">
-          <button type="button" class="lang-btn active" data-lang="ru" title="Русский" aria-pressed="true">🇷🇺 RU</button>
-          <button type="button" class="lang-btn" data-lang="en" title="English" aria-pressed="false">🇬🇧 EN</button>
         </div>
       </nav>
 
@@ -160,34 +154,6 @@
   </div>
 
   <script>
-    // ===== Google Translate init =====
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement(
-        {pageLanguage: 'ru', includedLanguages: 'ru,en', autoDisplay: false},
-        'google_translate_element'
-      );
-      var saved = localStorage.getItem('site_lang');
-      if (saved) setTimeout(function(){ setLang(saved); }, 400);
-    }
-    function setLang(lang) {
-      var combo = document.querySelector('select.goog-te-combo');
-      if (!combo) return;
-      combo.value = lang;
-      combo.dispatchEvent(new Event('change'));
-      localStorage.setItem('site_lang', lang);
-      document.querySelectorAll('.lang-btn').forEach(function(b){
-        var isActive = b.dataset.lang === lang;
-        b.classList.toggle('active', isActive);
-        b.setAttribute('aria-pressed', String(isActive));
-      });
-      document.documentElement.setAttribute('lang', lang === 'en' ? 'en' : 'ru');
-    }
-    document.addEventListener('click', function(e){
-      var btn = e.target.closest('.lang-btn');
-      if (!btn) return;
-      e.preventDefault();
-      setTimeout(function(){ setLang(btn.dataset.lang); }, 50);
-    });
 
     // ===== Бургер =====
     document.addEventListener("DOMContentLoaded", function() {
@@ -236,7 +202,6 @@
     })();
   </script>
   <!-- Скрипт Google Translate -->
-  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
   <script>
     (function(){
