@@ -1541,3 +1541,62 @@ footer .footer-text {
     line-height: 1.7;
   }
 }
+
+/***********************************
+  COOKIE BANNER
+***********************************/
+.cookie-banner {
+  position: fixed;
+  bottom: calc(20px + env(safe-area-inset-bottom));
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 500px;
+  width: calc(100% - 40px);
+  background: #111;
+  color: #fff;
+  padding: 15px 20px;
+  border-radius: 10px;
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  z-index: 9999;
+  flex-wrap: wrap;
+}
+
+.cookie-banner p {
+  font-size: 14px;
+  margin: 0;
+  color: inherit;
+  flex: 1 1 260px;
+}
+
+.cookie-banner button {
+  background: #f5a623;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #111;
+  flex: 0 0 auto;
+}
+
+.cookie-banner button:hover {
+  opacity: 0.9;
+}
+
+@media (max-width: 720px) {
+  .cookie-banner {
+    bottom: calc(88px + env(safe-area-inset-bottom));
+    width: calc(100% - 24px);
+    padding: 14px 16px;
+    align-items: flex-start;
+  }
+
+  .cookie-banner button {
+    width: 100%;
+    text-align: center;
+  }
+}

@@ -25,11 +25,11 @@
 <body class="services-page equipment-page">
   <header class="header" id="sticky-header">
     <div class="container header-flex">
-      <a href="index.html" class="logo-link">
+      <a href="/" class="logo-link">
         <img src="logo.png" width="60" height="60" fetchpriority="high" decoding="async" class="logo-img" alt="Золотарь 58">
         <span class="logo-title">Золотарь 58</span>
       </a>
-      <a href="index.html" class="header-title-mobile">Золотарь 58</a>
+      <a href="/" class="header-title-mobile">Золотарь 58</a>
       <nav class="nav" aria-label="Основное меню" id="main-menu">
         <div class="nav-links">
           <a href="services.html" class="nav-link">Услуги</a>
@@ -198,6 +198,28 @@
         }
       });
     })();
-  </script>
+  
+
+    document.addEventListener("DOMContentLoaded", function () {
+      var banner = document.getElementById("cookie-banner");
+      var button = document.getElementById("cookie-accept");
+      if (!banner || !button) return;
+
+      if (!localStorage.getItem("cookieAccepted")) {
+        banner.style.display = "flex";
+      }
+
+      button.addEventListener("click", function () {
+        localStorage.setItem("cookieAccepted", "true");
+        banner.style.display = "none";
+      });
+    });
+</script>
+  <div id="cookie-banner" class="cookie-banner">
+    <p>
+      Мы используем cookies для улучшения работы сайта. Продолжая пользоваться сайтом, вы соглашаетесь с этим.
+    </p>
+    <button id="cookie-accept">Понятно</button>
+  </div>
 </body>
 </html>
