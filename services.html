@@ -253,6 +253,28 @@
         setTimeout(function(){ if(wnb) wnb.remove(); }, 250);
       });
     })();
-  </script>
+  
+
+    document.addEventListener("DOMContentLoaded", function () {
+      var banner = document.getElementById("cookie-banner");
+      var button = document.getElementById("cookie-accept");
+      if (!banner || !button) return;
+
+      if (!localStorage.getItem("cookieAccepted")) {
+        banner.style.display = "flex";
+      }
+
+      button.addEventListener("click", function () {
+        localStorage.setItem("cookieAccepted", "true");
+        banner.style.display = "none";
+      });
+    });
+</script>
+  <div id="cookie-banner" class="cookie-banner">
+    <p>
+      Мы используем cookies для улучшения работы сайта. Продолжая пользоваться сайтом, вы соглашаетесь с этим.
+    </p>
+    <button id="cookie-accept">Понятно</button>
+  </div>
 </body>
 </html>
