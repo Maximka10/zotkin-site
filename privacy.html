@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Политика конфиденциальности — Золотарь 58</title>
+  <meta name="description" content="Политика конфиденциальности сайта Золотарь 58.">
+  <meta property="og:title" content="Политика конфиденциальности — Золотарь 58">
+  <meta property="og:description" content="Политика конфиденциальности сайта Золотарь 58.">
+  <meta property="og:image" content="https://zolotar58.ru/logo.png">
+  <meta property="og:url" content="https://zolotar58.ru/privacy.html">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://zolotar58.ru/privacy.html">
+  <link rel="icon" type="image/png" href="favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header" id="sticky-header">
+    <div class="container header-flex">
+      <a href="/" class="logo-link" aria-label="На главную">
+        <img src="logo.png" width="60" height="60" fetchpriority="high" decoding="async" class="logo-img" alt="Золотарь 58">
+        <span class="logo-title">Золотарь 58</span>
+      </a>
+      <a href="/" class="header-title-mobile">Золотарь 58</a>
+      <nav class="nav" aria-label="Основное меню" id="main-menu">
+        <div class="nav-links">
+          <a href="services.html" class="nav-link">Услуги</a>
+          <a href="about.html" class="nav-link">О компании</a>
+          <a href="equipment.html" class="nav-link">Техника</a>
+          <a href="licenses.html" class="nav-link">Сертификаты</a>
+          <a href="contacts.html" class="nav-link">Контакты</a>
+        </div>
+      </nav>
+      <a class="header-call btn btn--primary" href="tel:+79022073636" aria-label="Позвонить по номеру +7-902-207-36-36">+7 (902) 207-36-36</a>
+      <button class="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="main-menu"><span></span></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="main-intro">
+      <h1>Политика конфиденциальности</h1>
+      <p class="main-subtitle">Настоящая политика описывает порядок обработки персональных данных при использовании сайта «Золотарь 58».</p>
+    </section>
+
+    <section class="about-text" style="margin-top: 24px;">
+      <h2>1. Общие положения</h2>
+      <p>Используя сайт, пользователь подтверждает согласие на обработку данных в соответствии с действующим законодательством Российской Федерации.</p>
+
+      <h2>2. Какие данные могут обрабатываться</h2>
+      <p>На сайте могут обрабатываться данные, которые пользователь передаёт самостоятельно при обращении по телефону, а также технические данные, необходимые для корректной работы сайта (в том числе cookie).</p>
+
+      <h2>3. Цели обработки данных</h2>
+      <p>Данные используются для обратной связи с пользователем, предоставления услуг, улучшения работы сайта и выполнения обязательств перед клиентами.</p>
+
+      <h2>4. Передача третьим лицам</h2>
+      <p>Передача данных третьим лицам возможна только в случаях, предусмотренных законодательством Российской Федерации.</p>
+
+      <h2>5. Права пользователя</h2>
+      <p>Пользователь вправе обратиться для уточнения, изменения или удаления своих данных по телефону, указанному на сайте.</p>
+
+      <h2>6. Контактная информация</h2>
+      <p>Золотарь 58, г. Пенза, ул. Пушанина, 46а, телефон: <a class="phone-link" href="tel:+79022073636">+7 (902) 207-36-36</a>.</p>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <p class="footer-text">
+        © <span id="year"></span> Золотарь 58 — ИП Зоткин А.И.<br>
+        г. Пенза, ул. Пушанина, 46а ·
+        <a class="phone-link" href="tel:+79022073636">+7 (902) 207-36-36</a><br>
+        <a href="https://uslugi.yandex.ru/profile/AleksandrZotkin-886001" target="_blank" rel="noopener nofollow">Отзывы на Яндекс.Услугах</a> ·
+        <a href="https://go.2gis.com/YrK6Y" target="_blank" rel="noopener nofollow">2ГИС</a> ·
+        <a href="privacy.html">Политика конфиденциальности</a>
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var burger = document.querySelector('.burger');
+      var nav = document.querySelector('.nav');
+      if (burger && nav) {
+        burger.addEventListener('click', function (e) {
+          e.stopPropagation();
+          var isOpen = nav.classList.toggle('open');
+          burger.classList.toggle('active', isOpen);
+          burger.setAttribute('aria-expanded', String(isOpen));
+          document.body.classList.toggle('no-scroll', isOpen);
+        });
+        document.addEventListener('click', function (e) {
+          if (!burger.contains(e.target) && !nav.contains(e.target)) {
+            nav.classList.remove('open');
+            burger.classList.remove('active');
+            burger.setAttribute('aria-expanded', 'false');
+            document.body.classList.remove('no-scroll');
+          }
+        });
+      }
+      var yearEl = document.getElementById('year');
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+    });
+  </script>
+  <a id="mobile-call-btn" class="mobile-call-btn" href="tel:+79022073636" aria-label="Позвонить по номеру +7-902-207-36-36">Позвонить</a>
+</body>
+</html>
