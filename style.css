@@ -1846,6 +1846,7 @@ footer .footer-text {
     bottom: calc(84px + env(safe-area-inset-bottom));
     display: inline-flex;
   }
+<<<<<<< codex/fix-navigation-layout-and-call-button-design-9lg0cw
 
   .privacy-page .about-text {
     padding: 0 14px;
@@ -1919,4 +1920,6 @@ footer .footer-text {
     padding: 10px 14px;
     font-size: 0.88rem;
   }
+=======
+>>>>>>> main
 }
