@@ -1846,8 +1846,4 @@ footer .footer-text {
     bottom: calc(84px + env(safe-area-inset-bottom));
     display: inline-flex;
   }
-
-  .privacy-page .about-text {
-    padding: 0 14px;
-  }
 }
