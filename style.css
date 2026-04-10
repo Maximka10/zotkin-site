@@ -1846,4 +1846,80 @@ footer .footer-text {
     bottom: calc(84px + env(safe-area-inset-bottom));
     display: inline-flex;
   }
+<<<<<<< codex/fix-navigation-layout-and-call-button-design-9lg0cw
+
+  .privacy-page .about-text {
+    padding: 0 14px;
+  }
+}
+
+/* Header spacing/size normalization for desktop */
+@media (min-width: 901px) {
+  .header .container.header-flex {
+    min-height: 78px;
+    gap: 14px;
+  }
+
+  .logo-link {
+    flex: 0 0 auto;
+    gap: 10px;
+  }
+
+  .logo-img {
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+  }
+
+  .logo-title {
+    font-size: 1.04rem;
+    line-height: 1.15;
+    white-space: nowrap;
+  }
+
+  .nav {
+    flex: 1 1 auto;
+    justify-content: center;
+  }
+
+  .nav-links {
+    gap: 12px;
+    flex-wrap: nowrap;
+  }
+
+  .nav a,
+  .nav-link {
+    padding: 0.58em 1.18em;
+    font-size: 0.98rem;
+  }
+
+  .header-call {
+    margin-left: 6px;
+    padding: 11px 18px;
+    font-size: 0.95rem;
+    min-height: 44px;
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1220px) {
+  .logo-title {
+    font-size: 0.96rem;
+  }
+
+  .nav-links {
+    gap: 8px;
+  }
+
+  .nav a,
+  .nav-link {
+    padding: 0.55em 0.95em;
+    font-size: 0.92rem;
+  }
+
+  .header-call {
+    padding: 10px 14px;
+    font-size: 0.88rem;
+  }
+=======
+>>>>>>> main
 }
