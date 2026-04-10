@@ -2,6 +2,54 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="canonical" href="https://zolotar58.ru/yandex_b768750b03f70742.html">
+        <style>
+            .cookie-banner {
+                position: fixed;
+                bottom: calc(20px + env(safe-area-inset-bottom));
+                left: 50%;
+                transform: translateX(-50%);
+                max-width: 500px;
+                width: calc(100% - 40px);
+                background: #111;
+                color: #fff;
+                padding: 15px 20px;
+                border-radius: 10px;
+                display: none;
+                align-items: center;
+                justify-content: space-between;
+                gap: 15px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+                z-index: 9999;
+                flex-wrap: wrap;
+            }
+            .cookie-banner p { font-size: 14px; margin: 0; }
+            .cookie-banner button { background: #f5a623; border: none; padding: 8px 14px; border-radius: 6px; cursor: pointer; font-weight: bold; }
+            .cookie-banner button:hover { opacity: 0.9; }
+            @media (max-width: 720px) {
+                .cookie-banner { bottom: calc(16px + env(safe-area-inset-bottom)); align-items: flex-start; }
+            }
+        </style>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                var banner = document.getElementById("cookie-banner");
+                var button = document.getElementById("cookie-accept");
+                if (!banner || !button) return;
+                if (!localStorage.getItem("cookieAccepted")) {
+                    banner.style.display = "flex";
+                }
+                button.addEventListener("click", function () {
+                    localStorage.setItem("cookieAccepted", "true");
+                    banner.style.display = "none";
+                });
+            });
+        </script>
     </head>
-    <body>Verification: b768750b03f70742</body>
+    <body>Verification: b768750b03f70742
+    <div id="cookie-banner" class="cookie-banner">
+      <p>
+        Мы используем cookies для улучшения работы сайта. Продолжая пользоваться сайтом, вы соглашаетесь с этим.
+      </p>
+      <button id="cookie-accept">Понятно</button>
+    </div>
+</body>
 </html>
