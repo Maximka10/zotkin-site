@@ -946,6 +946,10 @@ body.no-scroll { overflow: hidden; }
   КОНТАКТЫ
 ***********************************/
 .contacts-page .contacts-section { width: 100%; }
+.contacts-page .map-section {
+  max-width: 100%;
+}
+
 .contacts-box {
   width: 100%; max-width: 820px; margin: 10px auto 0;
   display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
