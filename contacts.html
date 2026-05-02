@@ -76,6 +76,46 @@
       <p class="main-subtitle">Круглосуточный выезд по Пензе и области. Звоните в любое время!</p>
     </section>
 
+
+    <section class="section estimator-section" aria-labelledby="estimator-title">
+      <div class="container">
+        <h3 id="estimator-title" class="section-title">Узнать стоимость откачки септика в Пензе</h3>
+        <div class="estimator-grid">
+          <div class="estimator-field">
+            <label for="calc-volume">Объем</label>
+            <select id="calc-volume" aria-label="Выберите объем">
+              <option value="0">До 4 м³</option>
+              <option value="700">5-10 м³</option>
+              <option value="1500">Более 10 м³</option>
+            </select>
+          </div>
+          <div class="estimator-field">
+            <label for="calc-location">Локация</label>
+            <select id="calc-location" aria-label="Выберите локацию">
+              <option value="0">В черте города (Пенза)</option>
+              <option value="500">За городом (до 20 км)</option>
+              <option value="1200">Область</option>
+            </select>
+          </div>
+          <div class="estimator-field">
+            <label for="calc-hose">Длина шланга</label>
+            <select id="calc-hose" aria-label="Выберите длину шланга">
+              <option value="0">Стандарт (до 6м)</option>
+              <option value="600">Удлиненный (10-30м)</option>
+            </select>
+          </div>
+        </div>
+        <p id="calc-result" class="estimator-result" aria-live="polite">Ориентировочная цена: от 1500 ₽</p>
+        <a class="btn btn--primary estimator-cta" href="tel:+79022073636" aria-label="Заказать по ориентировочной цене">Заказать по этой цене</a>
+
+        <div class="trust-specs" aria-label="Технические характеристики">
+          <div class="trust-spec">✅ Длина шланга: до 50 метров</div>
+          <div class="trust-spec">🚛 Объем цистерны: от 4 до 12 м³</div>
+          <div class="trust-spec">📄 Работаем официально: Договор и отчетность</div>
+        </div>
+      </div>
+    </section>
+
     <section class="contacts-section">
       <div class="contacts-box">
         <div class="contact-item">
@@ -143,7 +183,9 @@
         <a class="phone-link" href="tel:+79022073636">+7 (902) 207-36-36</a><br>
         <a href="https://uslugi.yandex.ru/profile/AleksandrZotkin-886001" target="_blank" rel="noopener nofollow">Отзывы на Яндекс.Услугах</a> ·
         <a href="https://go.2gis.com/YrK6Y" target="_blank" rel="noopener nofollow">2ГИС</a> ·
-        <a href="privacy.html">Политика конфиденциальности</a>
+        <a href="privacy.html">Политика конфиденциальности</a><br>
+        <span class="footer-areas-title">Районы обслуживания:</span>
+        <span class="footer-areas">Арбеково, Терновка, ГПЗ, Центр, Шуист, КП Заря, Бессоновка, Засечное</span>
       </p>
     </div>
   </footer>
@@ -246,5 +288,27 @@
     <button id="cookie-accept">Понятно</button>
   </div>
   <a id="mobile-call-btn" class="mobile-call-btn" href="tel:+79022073636" aria-label="Позвонить по номеру +7-902-207-36-36">Позвонить</a>
+
+  <script>
+    (function(){
+      var vol = document.getElementById('calc-volume');
+      var loc = document.getElementById('calc-location');
+      var hose = document.getElementById('calc-hose');
+      var result = document.getElementById('calc-result');
+      if (!vol || !loc || !hose || !result) return;
+
+      function updateEstimate() {
+        var base = 1500;
+        var total = base + Number(vol.value) + Number(loc.value) + Number(hose.value);
+        result.textContent = 'Ориентировочная цена: от ' + total + ' ₽';
+      }
+
+      vol.addEventListener('change', updateEstimate);
+      loc.addEventListener('change', updateEstimate);
+      hose.addEventListener('change', updateEstimate);
+      updateEstimate();
+    })();
+  </script>
+
 </body>
 </html>
