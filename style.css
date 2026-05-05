@@ -2124,3 +2124,59 @@ footer .footer-text {
   .zones-list { gap: 8px; }
   .zones-list li { padding: 6px 14px; font-size: 0.88rem; }
 }
+
+/* ===== Unified cookie banner (legacy + new markup) ===== */
+.cookie-banner{
+  left: 16px;
+  right: 16px;
+  bottom: 16px;
+  margin-left: auto;
+  display: none;
+  align-items: center;
+  gap: 14px;
+}
+.cookie-banner p{margin:0;color:rgba(255,255,255,.92);font-weight:500;line-height:1.5;}
+.cookie-banner button,
+.cookie-banner__btn{
+  white-space: nowrap;
+}
+.cookie-banner:not(.cookie-banner__content){padding:16px 18px;}
+.cookie-banner #cookie-accept{
+  border:0;
+  border-radius:999px;
+  padding:11px 18px;
+  font-weight:800;
+  color:#0f52a0;
+  background:#fff;
+}
+
+/* ===== Contacts price estimator ===== */
+.estimator-section{width:100%;}
+.price-estimator{
+  max-width: 980px;
+  margin: 0 auto;
+  background: linear-gradient(145deg, rgba(255,255,255,.95), rgba(233,243,255,.9));
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  box-shadow: var(--shadow-lg);
+  padding: 30px 24px;
+}
+.estimator-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:20px 0;}
+.estimator-field label{display:block;font-weight:700;color:var(--text);margin-bottom:8px;}
+.estimator-field select{
+  width:100%;padding:12px 14px;border-radius:12px;border:1px solid rgba(148,163,184,.55);
+  background:#fff;color:var(--text);font:inherit;box-shadow: inset 0 1px 2px rgba(15,23,42,.06);
+}
+.estimator-result{font-size:1.18rem;font-weight:800;color:var(--main-color);margin:12px 0 16px;}
+.estimator-cta{min-width:260px;}
+.trust-specs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:18px;}
+.trust-spec{padding:12px 14px;border-radius:12px;background:rgba(255,255,255,.8);border:1px solid var(--border);color:var(--text);font-weight:600;}
+
+/* ===== Scroll reveal on all pages ===== */
+.reveal-in{opacity:0;transform:translateY(24px);transition:opacity .55s ease,transform .55s ease;will-change:opacity,transform;}
+.reveal-in.is-visible{opacity:1;transform:translateY(0);}
+
+@media (max-width: 900px){
+  .estimator-grid,.trust-specs{grid-template-columns:1fr;}
+  .cookie-banner{bottom:calc(76px + env(safe-area-inset-bottom));}
+}
