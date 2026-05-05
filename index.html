@@ -577,28 +577,7 @@
     <button id="cookie-accept">Понятно</button>
   </div>
   <a id="mobile-call-btn" class="mobile-call-btn" href="tel:+79022073636" aria-label="Позвонить по номеру +7-902-207-36-36">Позвонить</a>
-<script>
-(function(){
-  if (!('IntersectionObserver' in window)) return;
-  var targets = document.querySelectorAll(
-    '.service-card, .review-card, .order-step, .usp-list li, .contact-item, .zones-list li'
-  );
-  targets.forEach(function(el) {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(18px)';
-    el.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
-  });
-  var io = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = '1';
-        entry.target.style.transform = 'translateY(0)';
-        io.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
-  targets.forEach(function(el) { io.observe(el); });
-})();
-</script>
+
+  <script src="scroll-reveal.js" defer></script>
 </body>
 </html>
