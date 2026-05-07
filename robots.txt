@@ -4,3 +4,6 @@ Disallow: /yandex_b768750b03f70742.html
 Disallow: /privacy.html
 
 Sitemap: https://zolotar58.ru/sitemap.xml
+
+User-agent: *
+Host: zolotar58.ru
