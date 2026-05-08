@@ -317,6 +317,18 @@
   var textEl = document.getElementById('wnb-text');
   if (!counterEl || !textEl) return;
 
+  function getRequestWord(count) {
+    var mod10 = count % 10;
+    var mod100 = count % 100;
+    if (mod10 === 1 && mod100 !== 11) return 'заявка';
+    if (mod10 >= 2 && mod10 <= 4 && (mod100 < 12 || mod100 > 14)) return 'заявки';
+    return 'заявок';
+  }
+
+  function setCounter(count) {
+    counterEl.textContent = 'Сегодня выполнено: ' + count + ' ' + getRequestWord(count);
+  }
+
   var now = new Date();
   var h = now.getHours();
   var seed = now.getFullYear() * 10000 + (now.getMonth()+1) * 100 + now.getDate();
@@ -324,14 +336,14 @@
 
   if (h >= 22 || h < 6) {
     textEl.innerHTML = '<b>Принимаем ночные вызовы</b>';
-    counterEl.textContent = 'Сегодня выполнено: ' + base + ' заявки';
+    setCounter(base);
   } else if (h >= 6 && h < 10) {
     textEl.innerHTML = '<b>Машина свободна — выезд сразу</b>';
-    counterEl.textContent = 'Сегодня выполнено: ' + Math.max(1, base - 3) + ' заявки';
+    setCounter(Math.max(1, base - 3));
   } else {
     var done = Math.round(base * ((h - 6) / 16));
     textEl.innerHTML = '<b>На связи 24/7</b>';
-    counterEl.textContent = 'Сегодня выполнено: ' + Math.max(1, done) + ' заявки';
+    setCounter(Math.max(1, done));
   }
 })();
 </script>
