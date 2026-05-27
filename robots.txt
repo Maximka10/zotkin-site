@@ -1,9 +1,13 @@
 User-agent: *
 Allow: /
-Disallow: /yandex_b768750b03f70742.html
 Disallow: /privacy.html
 
+# Sitemap
 Sitemap: https://zolotar58.ru/sitemap.xml
 
-User-agent: *
+# Yandex
+User-agent: Yandex
+Allow: /
+Disallow: /privacy.html
 Host: zolotar58.ru
+Sitemap: https://zolotar58.ru/sitemap.xml
