@@ -109,37 +109,13 @@
 
   <section class="section section-alt">
     <div class="container">
-      <div class="section-label">Калькулятор</div>
-      <h2 class="section-title">Узнать стоимость откачки</h2>
-      <p class="section-sub">Рассчитайте ориентировочную стоимость. Точную цену уточняйте по телефону.</p>
+      <div class="section-label">Стоимость</div>
+      <h2 class="section-title">Узнать стоимость услуги</h2>
+      <p class="section-sub">Цена рассчитывается индивидуально по договорённости и зависит от услуги, объёма и удалённости. Позвоните — назовём точную стоимость и не изменим её на месте.</p>
       <div class="price-estimator">
-        <div class="estimator-grid">
-          <div class="estimator-field">
-            <label for="calc-volume">Объём</label>
-            <select id="calc-volume">
-              <option value="0">До 4 м³</option>
-              <option value="700">5–10 м³</option>
-              <option value="1500">Более 10 м³</option>
-            </select>
-          </div>
-          <div class="estimator-field">
-            <label for="calc-location">Локация</label>
-            <select id="calc-location">
-              <option value="0">Пенза (в черте города)</option>
-              <option value="500">За городом (до 20 км)</option>
-              <option value="1200">Пензенская область</option>
-            </select>
-          </div>
-          <div class="estimator-field">
-            <label for="calc-hose">Длина шланга</label>
-            <select id="calc-hose">
-              <option value="0">Стандарт (до 6 м)</option>
-              <option value="600">Удлинённый (10–30 м)</option>
-            </select>
-          </div>
-        </div>
-        <p id="calc-result" class="estimator-result" aria-live="polite">Ориентировочная цена: от 1 500 ₽</p>
-        <a class="btn btn--primary" href="tel:+79022073636">Заказать по этой цене</a>
+        <p class="estimator-result" style="margin-top:0">Цена — по договорённости</p>
+        <p style="margin-bottom:18px">Расскажите о задаче по телефону, и мы сразу сориентируем по стоимости. Работаем честно: цену согласовываем заранее, без скрытых доплат за шланг, подъезд или срочность.</p>
+        <a class="btn btn--primary" href="tel:+79022073636">📞 Позвонить и узнать цену</a>
         <div class="trust-specs" style="margin-top:20px">
           <div class="trust-spec">✅ Шланг до 50 метров</div>
           <div class="trust-spec">🚛 Цистерна от 4 до 12 м³</div>
@@ -244,23 +220,6 @@
   const cb = document.getElementById('cookie-banner');
   if (!localStorage.getItem('cookie_ok')) cb.style.display = 'block';
   document.getElementById('cookie-accept').addEventListener('click', () => { localStorage.setItem('cookie_ok','1'); cb.style.display='none'; });
-
-  // Price calculator
-  (function(){
-    const vol = document.getElementById('calc-volume');
-    const loc = document.getElementById('calc-location');
-    const hose = document.getElementById('calc-hose');
-    const res = document.getElementById('calc-result');
-    if(!vol||!loc||!hose||!res) return;
-    function update(){
-      const total = 1500 + Number(vol.value) + Number(loc.value) + Number(hose.value);
-      res.textContent = 'Ориентировочная цена: от ' + total.toLocaleString('ru-RU') + ' ₽';
-    }
-    vol.addEventListener('change', update);
-    loc.addEventListener('change', update);
-    hose.addEventListener('change', update);
-    update();
-  })();
 </script>
 <script src="scroll-reveal.js" defer></script>
 </body>
