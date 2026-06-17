@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="Золотарь 58">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2d72bc"/>
+      <stop offset="1" stop-color="#1a5fa8"/>
+    </linearGradient>
+    <linearGradient id="drop" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#4ade80"/>
+      <stop offset="1" stop-color="#1a8f5a"/>
+    </linearGradient>
+  </defs>
+  <rect width="120" height="120" rx="26" fill="url(#bg)"/>
+  <!-- water drop -->
+  <path d="M60 26 C60 26 86 58 86 76 a26 26 0 0 1 -52 0 C34 58 60 26 60 26 Z" fill="url(#drop)"/>
+  <!-- highlight -->
+  <ellipse cx="51" cy="72" rx="7" ry="11" fill="#fff" opacity="0.35"/>
+  <!-- 58 -->
+  <text x="60" y="104" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="bold" fill="#fff" text-anchor="middle" opacity="0.95">58</text>
+</svg>
