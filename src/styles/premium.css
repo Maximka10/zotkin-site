@@ -1,0 +1,21 @@
+/* Premium UI layer. Keeps legacy markup intact and adds a stronger visual system. */
+:root{--p-ink:#101827;--p-muted:#647084;--p-blue:#1261ad;--p-blue2:#0a3d79;--p-green:#16845b;--p-bg:#f4f7fb;--p-card:#fff;--p-line:#e1e8f1;--p-radius:20px;--p-shadow:0 18px 55px rgba(19,45,76,.10)}
+html.ui-refresh body{background:radial-gradient(circle at 10% 0%,#eef6ff 0,transparent 32%),var(--p-bg);color:var(--p-ink)}
+html.ui-refresh .header,html.ui-refresh header{background:rgba(255,255,255,.82);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);position:sticky;top:0;z-index:50;transition:box-shadow .25s ease,background .25s ease}
+html.ui-refresh .header.scrolled,html.ui-refresh header.scrolled{background:rgba(255,255,255,.96);box-shadow:0 10px 35px rgba(20,42,70,.10)}
+html.ui-refresh .hero,html.ui-refresh .hero-section{position:relative;overflow:hidden;background:linear-gradient(125deg,#072d59,#1261ad 55%,#16845b)}
+html.ui-refresh .hero:after,html.ui-refresh .hero-section:after{content:"";position:absolute;inset:auto -10% -55% 45%;height:80%;border-radius:50%;background:rgba(255,255,255,.08);filter:blur(2px);pointer-events:none}
+html.ui-refresh .section-title,html.ui-refresh h1,html.ui-refresh h2{font-weight:700;letter-spacing:-.045em}
+html.ui-refresh .service-card,html.ui-refresh .review-card,html.ui-refresh .advantage-card,html.ui-refresh .equipment-card,html.ui-refresh .contact-card,html.ui-refresh .info-card,html.ui-refresh .feature-card{background:linear-gradient(180deg,#fff,#fbfdff);border:1px solid var(--p-line);border-radius:var(--p-radius);box-shadow:0 8px 28px rgba(18,43,73,.06);overflow:hidden}
+html.ui-refresh .service-card:hover,html.ui-refresh .equipment-card:hover,html.ui-refresh .feature-card:hover{transform:translateY(-6px);box-shadow:var(--p-shadow);border-color:#c9dbed}
+html.ui-refresh .btn,html.ui-refresh .cta-button,html.ui-refresh button[type=submit]{border-radius:13px;font-weight:700;transition:transform .2s ease,box-shadow .2s ease}
+html.ui-refresh .btn:hover,html.ui-refresh .cta-button:hover,html.ui-refresh button[type=submit]:hover{transform:translateY(-2px)}
+html.ui-refresh input,html.ui-refresh textarea,html.ui-refresh select{border-radius:13px;border-color:#d6e0eb;box-shadow:inset 0 1px 2px rgba(15,35,60,.025)}
+html.ui-refresh input:focus,html.ui-refresh textarea:focus,html.ui-refresh select:focus{border-color:#4d91ca;box-shadow:0 0 0 4px rgba(18,97,173,.10)}
+html.ui-refresh footer{background:linear-gradient(145deg,#0c1728,#111f33);color:#cbd5e1}
+html.ui-refresh .ts-back-to-top{position:fixed;right:22px;bottom:22px;width:48px;height:48px;border:1px solid rgba(255,255,255,.22);border-radius:15px;background:#1261ad;color:#fff;font-size:21px;box-shadow:0 12px 30px rgba(10,45,80,.22);opacity:0;visibility:hidden;transform:translateY(12px);transition:.25s;z-index:60;cursor:pointer}
+html.ui-refresh .ts-back-to-top.is-visible{opacity:1;visibility:visible;transform:none}
+html.ui-refresh :focus-visible{outline:3px solid rgba(18,97,173,.32);outline-offset:3px}
+html.ui-refresh .no-scroll{overflow:hidden}
+@media(max-width:700px){html.ui-refresh .ts-back-to-top{right:14px;bottom:14px;width:44px;height:44px;border-radius:13px}html.ui-refresh .hero,html.ui-refresh .hero-section{min-height:calc(var(--ui-vh,1vh)*72)}html.ui-refresh .service-card:hover,html.ui-refresh .equipment-card:hover,html.ui-refresh .feature-card:hover{transform:none}}
+@media(prefers-reduced-motion:reduce){html.ui-refresh *,html.ui-refresh *:before,html.ui-refresh *:after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important}}
