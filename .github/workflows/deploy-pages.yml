@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
 
@@ -25,34 +25,35 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version: 22
-
-      - name: Migrate HTML sources to TypeScript
-        run: |
-          node --experimental-strip-types tools/migrate-pages.ts
-          if ! git diff --quiet; then
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add src/pages src/pages-ts
-            git commit -m "Migrate site pages to TypeScript [skip ci]"
-            git push
-          fi
+          cache: npm
 
       - name: Install dependencies
         run: npm install
 
-      - name: Generate public site from TypeScript pages
+      - name: Generate public site from TypeScript
         run: node --experimental-strip-types tools/build-site.ts
 
       - name: Compile browser TypeScript
         run: npm run build
 
-      - name: Enable UI refresh layer
+      - name: Verify generated site
         run: |
-          for file in dist/*.html; do
-            if ! grep -q 'ui-refresh.js' "$file"; then
-              perl -0pi -e 's#</body>#  <script src="ui-refresh.js" defer></script>\n</body>#i' "$file"
-            fi
-          done
+          set -e
+          test -f dist/index.html
+          test -f dist/services.html
+          test -f dist/about.html
+          test -f dist/equipment.html
+          test -f dist/licenses.html
+          test -f dist/contacts.html
+          test -f dist/privacy.html
+          test -f dist/site-enhance.js
+          test -f dist/ui-refresh.js
+          grep -q 'site-enhance.js' dist/index.html
+          grep -q 'ui-refresh.js' dist/index.html
+          if grep -R -q 'document.addEventListener("DOMContentLoaded"' dist/*.html; then
+            echo 'Unexpected legacy inline UI script found.'
+            exit 1
+          fi
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
@@ -70,5 +71,5 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Deploy to GitHub Pages
-        id: deployment
         uses: actions/deploy-pages@v4
+        id: deployment
