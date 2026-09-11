@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -26,21 +26,24 @@ jobs:
         with:
           node-version: 22
 
+      - name: Migrate HTML sources to TypeScript
+        run: |
+          node --experimental-strip-types tools/migrate-pages.ts
+          if ! git diff --quiet; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add src/pages src/pages-ts
+            git commit -m "Migrate site pages to TypeScript [skip ci]"
+            git push
+          fi
+
       - name: Install dependencies
         run: npm install
 
-      - name: Prepare public site
-        run: |
-          rm -rf dist
-          mkdir -p dist
-          cp src/pages/*.html dist/
-          cp src/styles/* dist/
-          cp src/assets/images/* dist/
-          cp src/assets/icons/* dist/
-          cp public/* dist/
-          cp CNAME dist/
+      - name: Generate public site from TypeScript pages
+        run: node --experimental-strip-types tools/build-site.ts
 
-      - name: Compile TypeScript
+      - name: Compile browser TypeScript
         run: npm run build
 
       - name: Enable UI refresh layer
