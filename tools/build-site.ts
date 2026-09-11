@@ -36,16 +36,19 @@ const main = async (): Promise<void> => {
     writeFileSync(join(dist, outputName), page.html, 'utf8');
   }
 
-  const copyDirectoryFiles = (source: string, destination: string): void => {
+  const copyDirectoryContents = (source: string, destination: string): void => {
     if (!existsSync(source)) return;
     mkdirSync(destination, { recursive: true });
-    cpSync(source, destination, { recursive: true });
+
+    for (const entry of readdirSync(source)) {
+      cpSync(join(source, entry), join(destination, entry), { recursive: true });
+    }
   };
 
-  copyDirectoryFiles(join(root, 'src', 'styles'), dist);
-  copyDirectoryFiles(join(root, 'src', 'assets', 'images'), dist);
-  copyDirectoryFiles(join(root, 'src', 'assets', 'icons'), dist);
-  copyDirectoryFiles(join(root, 'public'), dist);
+  copyDirectoryContents(join(root, 'src', 'styles'), dist);
+  copyDirectoryContents(join(root, 'src', 'assets', 'images'), dist);
+  copyDirectoryContents(join(root, 'src', 'assets', 'icons'), dist);
+  copyDirectoryContents(join(root, 'public'), dist);
 
   const cname = join(root, 'CNAME');
   if (existsSync(cname)) {
