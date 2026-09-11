@@ -4,51 +4,58 @@ import { pathToFileURL } from 'node:url';
 
 type PageModule = { html?: unknown };
 
-const root = process.cwd();
-const dist = join(root, 'dist');
-const pagesDir = join(root, 'src', 'pages-ts');
+const main = async (): Promise<void> => {
+  const root = process.cwd();
+  const dist = join(root, 'dist');
+  const pagesDir = join(root, 'src', 'pages-ts');
 
-if (!existsSync(pagesDir)) {
-  throw new Error('src/pages-ts is missing. The TypeScript page source has not been migrated.');
-}
-
-rmSync(dist, { recursive: true, force: true });
-mkdirSync(dist, { recursive: true });
-
-const pageFiles = readdirSync(pagesDir)
-  .filter((file) => file.endsWith('.ts'))
-  .sort();
-
-if (pageFiles.length === 0) {
-  throw new Error('No TypeScript pages were found.');
-}
-
-for (const file of pageFiles) {
-  const moduleUrl = pathToFileURL(join(pagesDir, file)).href;
-  const page = (await import(moduleUrl)) as PageModule;
-
-  if (typeof page.html !== 'string' || !page.html.includes('<!DOCTYPE html>')) {
-    throw new Error(`Invalid page module: ${file}`);
+  if (!existsSync(pagesDir)) {
+    throw new Error('src/pages-ts is missing. The TypeScript page source has not been migrated.');
   }
 
-  const outputName = file.replace(/\.ts$/i, '.html');
-  writeFileSync(join(dist, outputName), page.html, 'utf8');
-}
+  rmSync(dist, { recursive: true, force: true });
+  mkdirSync(dist, { recursive: true });
 
-const copyDirectoryFiles = (source: string, destination: string): void => {
-  if (!existsSync(source)) return;
-  mkdirSync(destination, { recursive: true });
-  cpSync(source, destination, { recursive: true });
+  const pageFiles = readdirSync(pagesDir)
+    .filter((file) => file.endsWith('.ts'))
+    .sort();
+
+  if (pageFiles.length === 0) {
+    throw new Error('No TypeScript pages were found.');
+  }
+
+  for (const file of pageFiles) {
+    const moduleUrl = pathToFileURL(join(pagesDir, file)).href;
+    const page = (await import(moduleUrl)) as PageModule;
+
+    if (typeof page.html !== 'string' || !page.html.includes('<!DOCTYPE html>')) {
+      throw new Error(`Invalid page module: ${file}`);
+    }
+
+    const outputName = file.replace(/\.ts$/i, '.html');
+    writeFileSync(join(dist, outputName), page.html, 'utf8');
+  }
+
+  const copyDirectoryFiles = (source: string, destination: string): void => {
+    if (!existsSync(source)) return;
+    mkdirSync(destination, { recursive: true });
+    cpSync(source, destination, { recursive: true });
+  };
+
+  copyDirectoryFiles(join(root, 'src', 'styles'), dist);
+  copyDirectoryFiles(join(root, 'src', 'assets', 'images'), dist);
+  copyDirectoryFiles(join(root, 'src', 'assets', 'icons'), dist);
+  copyDirectoryFiles(join(root, 'public'), dist);
+
+  const cname = join(root, 'CNAME');
+  if (existsSync(cname)) {
+    cpSync(cname, join(dist, 'CNAME'));
+  }
+
+  console.log(`Generated ${pageFiles.length} static HTML pages from TypeScript.`);
 };
 
-copyDirectoryFiles(join(root, 'src', 'styles'), dist);
-copyDirectoryFiles(join(root, 'src', 'assets', 'images'), dist);
-copyDirectoryFiles(join(root, 'src', 'assets', 'icons'), dist);
-copyDirectoryFiles(join(root, 'public'), dist);
-
-const cname = join(root, 'CNAME');
-if (existsSync(cname)) {
-  cpSync(cname, join(dist, 'CNAME'));
-}
-
-console.log(`Generated ${pageFiles.length} static HTML pages from TypeScript.`);
+void main().catch((error: unknown) => {
+  console.error(error);
+  process.exitCode = 1;
+});
