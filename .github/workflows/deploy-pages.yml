@@ -37,23 +37,7 @@ jobs:
         run: npm run build
 
       - name: Verify generated site
-        run: |
-          set -e
-          test -f dist/index.html
-          test -f dist/services.html
-          test -f dist/about.html
-          test -f dist/equipment.html
-          test -f dist/licenses.html
-          test -f dist/contacts.html
-          test -f dist/privacy.html
-          test -f dist/site-enhance.js
-          test -f dist/ui-refresh.js
-          grep -q 'site-enhance.js' dist/index.html
-          grep -q 'ui-refresh.js' dist/index.html
-          if grep -R -q 'document.addEventListener("DOMContentLoaded"' dist/*.html; then
-            echo 'Unexpected legacy inline UI script found.'
-            exit 1
-          fi
+        run: node --experimental-strip-types tools/verify-site.ts
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
