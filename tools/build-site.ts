@@ -4,6 +4,16 @@ import { pathToFileURL } from 'node:url';
 
 type PageModule = { html?: unknown };
 
+const stripLegacyInlineUiScript = (html: string): string => html.replace(
+  /\s*<script>\s*document\.addEventListener\([\s\S]*?var burger\s*=\s*document\.querySelector\(['"]\.burger['"]\)[\s\S]*?<\/script>/i,
+  ''
+);
+
+const injectEnhancementScript = (html: string): string => {
+  if (html.includes('site-enhance.js')) return html;
+  return html.replace(/<\/body>/i, '  <script src="site-enhance.js" defer></script>\n</body>');
+};
+
 const main = async (): Promise<void> => {
   const root = process.cwd();
   const dist = join(root, 'dist');
@@ -33,7 +43,8 @@ const main = async (): Promise<void> => {
     }
 
     const outputName = file.replace(/\.ts$/i, '.html');
-    writeFileSync(join(dist, outputName), page.html, 'utf8');
+    const normalizedHtml = injectEnhancementScript(stripLegacyInlineUiScript(page.html));
+    writeFileSync(join(dist, outputName), normalizedHtml, 'utf8');
   }
 
   const copyDirectoryContents = (source: string, destination: string): void => {
