@@ -1,16 +1,16 @@
 (function () {
-  var storageKey = 'zolotar58_cookie_consent';
+  const storageKey = 'zolotar58_cookie_consent';
 
-  function hasConsent() {
+  function hasConsent(): boolean {
     return window.localStorage.getItem(storageKey) === 'accepted';
   }
 
-  function saveConsent() {
+  function saveConsent(): void {
     window.localStorage.setItem(storageKey, 'accepted');
   }
 
-  function buildBanner() {
-    var banner = document.createElement('div');
+  function buildBanner(): HTMLDivElement {
+    const banner = document.createElement('div');
     banner.className = 'cookie-banner';
     banner.id = 'cookieBanner';
     banner.setAttribute('role', 'region');
@@ -32,11 +32,11 @@
   document.addEventListener('DOMContentLoaded', function () {
     if (hasConsent() || document.getElementById('cookieBanner')) return;
 
-    var banner = buildBanner();
+    const banner = buildBanner();
     document.body.appendChild(banner);
 
-    var button = document.getElementById('cookieBannerAccept');
-    if (!button) return;
+    const button = document.getElementById('cookieBannerAccept');
+    if (!(button instanceof HTMLButtonElement)) return;
 
     button.addEventListener('click', function () {
       saveConsent();
