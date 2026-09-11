@@ -1,0 +1,12 @@
+/* Zolotar 58 design system v2 — final visual polish */
+html.ui-refresh{scroll-behavior:smooth}html.ui-refresh body{overflow-x:hidden}html.ui-refresh ::selection{background:#1467b3;color:#fff}
+html.ui-refresh .header,html.ui-refresh header{transition:background .25s ease,box-shadow .25s ease,transform .25s ease}
+html.ui-refresh .header.scrolled,html.ui-refresh header.scrolled{box-shadow:0 12px 38px rgba(8,39,70,.12)}
+html.ui-refresh .hero>* ,html.ui-refresh .hero-section>*{position:relative;z-index:1}
+html.ui-refresh .hero .btn,html.ui-refresh .hero .cta-button,html.ui-refresh .hero button{box-shadow:0 12px 28px rgba(0,35,70,.22)}
+html.ui-refresh .section-title:after{content:"";display:block;width:54px;height:4px;margin-top:16px;border-radius:99px;background:linear-gradient(90deg,#1467b3,#159267)}
+html.ui-refresh .service-card,html.ui-refresh .card,html.ui-refresh .review-card,html.ui-refresh .equipment-card,html.ui-refresh .contact-card,html.ui-refresh .advantage-card{backface-visibility:hidden}
+html.ui-refresh a{text-underline-offset:3px}html.ui-refresh a:not(.btn):not(.cta-button):hover{color:#1467b3}
+html.ui-refresh .burger{z-index:80}html.ui-refresh .nav.open{z-index:70}
+@media(max-width:700px){html.ui-refresh body{font-size:15.5px}html.ui-refresh section{scroll-margin-top:76px}html.ui-refresh .section-title:after{margin-top:12px;width:44px;height:3px}}
+@media(prefers-reduced-motion:reduce){html.ui-refresh{scroll-behavior:auto}}
