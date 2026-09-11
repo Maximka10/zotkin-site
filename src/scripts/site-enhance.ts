@@ -74,7 +74,9 @@
   const initHeader = (): void => {
     const header = document.getElementById('sticky-header') ?? document.querySelector<HTMLElement>('.header');
     if (!header) return;
-    const update = (): void => header.classList.toggle('scrolled', window.scrollY > 12);
+    const update = (): void => {
+      header.classList.toggle('scrolled', window.scrollY > 12);
+    };
     update();
     window.addEventListener('scroll', update, { passive: true });
   };
@@ -89,7 +91,9 @@
         obs.unobserve(entry.target);
       });
     }, { threshold: 0.08, rootMargin: '0px 0px -40px' });
-    items.forEach((item) => observer.observe(item));
+    items.forEach((item) => {
+      observer.observe(item);
+    });
   };
 
   const initBackToTop = (): void => {
@@ -98,9 +102,13 @@
     button.className = 'ts-back-to-top';
     button.setAttribute('aria-label', 'Вернуться наверх');
     button.innerHTML = '↑';
-    button.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    button.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
     body.appendChild(button);
-    const update = (): void => button.classList.toggle('is-visible', window.scrollY > 500);
+    const update = (): void => {
+      button.classList.toggle('is-visible', window.scrollY > 500);
+    };
     update();
     window.addEventListener('scroll', update, { passive: true });
   };
@@ -117,7 +125,9 @@
   };
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init, { once: true });
+    document.addEventListener('DOMContentLoaded', () => {
+      init();
+    }, { once: true });
   } else {
     init();
   }
