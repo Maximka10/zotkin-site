@@ -43,6 +43,14 @@ jobs:
       - name: Compile TypeScript
         run: npm run build
 
+      - name: Enable UI refresh layer
+        run: |
+          for file in dist/*.html; do
+            if ! grep -q 'ui-refresh.js' "$file"; then
+              perl -0pi -e 's#</body>#  <script src="ui-refresh.js" defer></script>\n</body>#i' "$file"
+            fi
+          done
+
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
 
