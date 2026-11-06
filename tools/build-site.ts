@@ -2,6 +2,31 @@ import { cpSync, existsSync, mkdirSync, readdirSync, rmSync, writeFileSync } fro
 import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
 type PageModule={html?:unknown};
-const stripLegacy=(html:string):string=>html.replace(/\s*<script>\s*document\.addEventListener\([\s\S]*?var burger\s*=\s*document\.querySelector\(['"]\.burger['"]\)[\s\S]*?<\/script>/i,'');
-const inject=(html:string):string=>{let result=stripLegacy(html);for(const script of ['ui-refresh.js','site-enhance.js','ui-health.js'])if(!result.includes(script))result=result.replace(/<\/body>/i,`  <script src="${script}" defer></script>\n</body>`);return result;};
-const main=async():Promise<void>=>{const root=process.cwd(),dist=join(root,'dist'),pages=join(root,'src','pages-ts');if(!existsSync(pages))throw new Error('src/pages-ts is missing.');rmSync(dist,{recursive:true,force:true});mkdirSync(dist,{recursive:true});const files=readdirSync(pages).filter(f=>f.endsWith('.ts')).sort();if(!files.length)throw new Error('No TypeScript pages were found.');for(const file of files){const mod=(await import(pathToFileURL(join(pages,file)).href)) as PageModule;if(typeof mod.html!=='string'||!mod.html.includes('<!DOCTYPE html>'))throw new Error(`Invalid page module: ${file}`);writeFileSync(join(dist,file.replace(/\.ts$/i,'.html')),inject(mod.html),'utf8');}const copy=(source:string):void=>{if(!existsSync(source))return;for(const entry of readdirSync(source))cpSync(join(source,entry),join(dist,entry),{recursive:true});};copy(join(root,'src','styles'));copy(join(root,'src','assets','images'));copy(join(root,'src','assets','icons'));copy(join(root,'public'));if(existsSync(join(root,'CNAME')))cpSync(join(root,'CNAME'),join(dist,'CNAME'));console.log(`Generated ${files.length} static HTML pages from TypeScript.`);};void main().catch((error:unknown)=>{console.error(error);process.exitCode=1;});
+const stripLegacy=(html:string):string=>html.replace(/\s*<script>\s*document\.addEventListener\(['"]DOMContentLoaded['"][\s\S]*?var burger\s*=\s*document\.querySelector\(['"]\.burger['"]\)[\s\S]*?<\/script>/i,'');
+const inject=(html:string):string=>{
+  let result=stripLegacy(html);
+  if(!result.includes('winter.css')) result=result.replace(/<\/head>/i,'  <link rel="stylesheet" href="winter.css">\n</head>');
+  if(!result.includes('winter-snow')) result=result.replace(/<body([^>]*)>/i,'<body$1>\n  <div class="winter-snow" aria-hidden="true"></div>');
+  for(const script of ['ui-refresh.js','site-enhance.js','ui-health.js']) if(!result.includes(script)) result=result.replace(/<\/body>/i,`  <script src="${script}" defer></script>\n</body>`);
+  return result;
+};
+const main=async():Promise<void>=>{
+  const root=process.cwd(),dist=join(root,'dist'),pages=join(root,'src','pages-ts');
+  if(!existsSync(pages)) throw new Error('src/pages-ts is missing.');
+  rmSync(dist,{recursive:true,force:true}); mkdirSync(dist,{recursive:true});
+  const files=readdirSync(pages).filter(f=>f.endsWith('.ts')).sort();
+  if(!files.length) throw new Error('No TypeScript pages were found.');
+  for(const file of files){
+    const mod=(await import(pathToFileURL(join(pages,file)).href)) as PageModule;
+    if(typeof mod.html!=='string'||!mod.html.includes('<!DOCTYPE html>')) throw new Error(`Invalid page module: ${file}`);
+    writeFileSync(join(dist,file.replace(/\.ts$/i,'.html')),inject(mod.html),'utf8');
+  }
+  const copy=(source:string):void=>{
+    if(!existsSync(source)) return;
+    for(const entry of readdirSync(source)) cpSync(join(source,entry),join(dist,entry),{recursive:true});
+  };
+  copy(join(root,'src','styles')); copy(join(root,'src','assets','images')); copy(join(root,'src','assets','icons')); copy(join(root,'public'));
+  if(existsSync(join(root,'CNAME'))) cpSync(join(root,'CNAME'),join(dist,'CNAME'));
+  console.log(`Generated ${files.length} static HTML pages from TypeScript.`);
+};
+void main().catch((error:unknown)=>{console.error(error);process.exitCode=1;});
