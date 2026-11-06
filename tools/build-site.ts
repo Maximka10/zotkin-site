@@ -2,7 +2,7 @@ import { cpSync, existsSync, mkdirSync, readdirSync, rmSync, writeFileSync } fro
 import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
 type PageModule={html?:unknown};
-const stripLegacy=(html:string):string=>html.replace(/\s*<script>\s*document\.addEventListener\(['"]DOMContentLoaded['"][\s\S]*?var burger\s*=\s*document\.querySelector\(['"]\.burger['"]\)[\s\S]*?<\/script>/i,'');
+const stripLegacy=(html:string):string=>html.replace(/\s*<script>\s*document\.addEventListener\([\s\S]*?var burger\s*=\s*document\.querySelector\(['"]\.burger['"]\)[\s\S]*?<\/script>/i,'');
 const inject=(html:string):string=>{
   let result=stripLegacy(html);
   if(!result.includes('winter.css')) result=result.replace(/<\/head>/i,'  <link rel="stylesheet" href="winter.css">\n</head>');
