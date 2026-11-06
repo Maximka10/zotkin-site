@@ -1,78 +1,73 @@
-/* Seasonal winter atmosphere for Zолотарь 58.
-   Decorative only: no layout changes, no interaction blocking. */
-
+/* Lightweight winter snowfall. Decorative layer only: never intercepts input. */
 .winter-snow {
   position: fixed;
-  inset: -12vh 0 0;
-  z-index: 80;
+  inset: 0;
+  z-index: 900;
   overflow: hidden;
   pointer-events: none;
   user-select: none;
-  opacity: .58;
-  contain: strict;
+  opacity: .78;
+  contain: layout paint;
   background-image:
-    radial-gradient(2px 2px at 18px 24px, rgba(255,255,255,.95) 98%, transparent),
-    radial-gradient(1.5px 1.5px at 74px 118px, rgba(255,255,255,.82) 98%, transparent),
-    radial-gradient(2.5px 2.5px at 146px 68px, rgba(255,255,255,.76) 98%, transparent),
-    radial-gradient(1px 1px at 212px 164px, rgba(255,255,255,.9) 98%, transparent),
-    radial-gradient(2px 2px at 286px 38px, rgba(255,255,255,.72) 98%, transparent);
+    radial-gradient(2px 2px at 18px 24px, rgba(255,255,255,.98) 98%, transparent),
+    radial-gradient(2px 2px at 74px 118px, rgba(235,247,255,.95) 98%, transparent),
+    radial-gradient(3px 3px at 146px 68px, rgba(255,255,255,.9) 98%, transparent),
+    radial-gradient(1.5px 1.5px at 212px 164px, rgba(255,255,255,.95) 98%, transparent),
+    radial-gradient(2px 2px at 286px 38px, rgba(235,247,255,.9) 98%, transparent);
   background-size: 320px 220px;
-  animation: winter-snow-drift 22s linear infinite;
+  animation: winter-snow-near 18s linear infinite;
 }
 
 .winter-snow::before,
 .winter-snow::after {
   content: "";
   position: absolute;
-  inset: -20vh 0 0;
+  inset: -100% 0 0;
+  display: block;
+  pointer-events: none;
   background-repeat: repeat;
-  will-change: transform;
 }
 
 .winter-snow::before {
-  opacity: .48;
+  opacity: .72;
   background-image:
-    radial-gradient(3px 3px at 32px 52px, rgba(255,255,255,.9) 98%, transparent),
-    radial-gradient(2px 2px at 118px 172px, rgba(220,239,255,.9) 98%, transparent),
-    radial-gradient(2px 2px at 238px 92px, rgba(255,255,255,.8) 98%, transparent);
+    radial-gradient(2.5px 2.5px at 32px 52px, rgba(255,255,255,.96) 98%, transparent),
+    radial-gradient(2px 2px at 118px 172px, rgba(225,242,255,.92) 98%, transparent),
+    radial-gradient(3px 3px at 238px 92px, rgba(255,255,255,.9) 98%, transparent),
+    radial-gradient(1.5px 1.5px at 340px 220px, rgba(255,255,255,.9) 98%, transparent);
   background-size: 390px 270px;
-  animation: winter-snow-fall 30s linear infinite;
+  animation: winter-snow-mid 26s linear infinite;
 }
 
 .winter-snow::after {
-  opacity: .32;
+  opacity: .46;
   background-image:
     radial-gradient(1px 1px at 48px 88px, #fff 98%, transparent),
     radial-gradient(1.5px 1.5px at 184px 34px, #fff 98%, transparent),
-    radial-gradient(1px 1px at 302px 188px, #fff 98%, transparent);
+    radial-gradient(1px 1px at 302px 188px, #fff 98%, transparent),
+    radial-gradient(1.5px 1.5px at 420px 120px, #fff 98%, transparent);
   background-size: 250px 190px;
-  animation: winter-snow-fall 42s linear infinite reverse;
+  animation: winter-snow-far 36s linear infinite;
 }
 
-@keyframes winter-snow-fall {
-  from { transform: translate3d(-10px, -8vh, 0); }
-  to { transform: translate3d(24px, 108vh, 0); }
+@keyframes winter-snow-near {
+  from { background-position: 0 -220px; }
+  to { background-position: 80px 100vh; }
+}
+@keyframes winter-snow-mid {
+  from { transform: translate3d(-12px, -100%, 0); }
+  to { transform: translate3d(20px, 100%, 0); }
+}
+@keyframes winter-snow-far {
+  from { transform: translate3d(8px, -100%, 0); }
+  to { transform: translate3d(-18px, 100%, 0); }
 }
 
-@keyframes winter-snow-drift {
-  from { background-position: 0 -10vh; }
-  to { background-position: 110px 100vh; }
-}
-
-/* Subtle cool-toned depth on existing cards only. */
-.service-card,
-.advantage-card,
-.review-card,
-.review-card.card,
-.step-item,
-.order-step {
-  box-shadow: 0 5px 24px rgba(34, 91, 145, .055);
-}
-
+/* Keep the winter effect clear but understated on small screens. */
 @media (max-width: 600px) {
-  .winter-snow { opacity: .40; }
-  .winter-snow::before { opacity: .34; }
-  .winter-snow::after { opacity: .22; }
+  .winter-snow { opacity: .62; }
+  .winter-snow::before { opacity: .56; }
+  .winter-snow::after { opacity: .34; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -82,3 +77,5 @@
     animation: none !important;
   }
 }
+
+/* The winter layer must never introduce decorative lines or hero overlays. */
