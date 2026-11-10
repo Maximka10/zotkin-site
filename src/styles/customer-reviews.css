@@ -1,0 +1,25 @@
+.reviews-panel .rv-summary{display:flex;align-items:center;justify-content:space-between;gap:22px;flex-wrap:wrap;margin:26px 0 30px;padding:20px 24px;border:1px solid #dce6f0;border-radius:16px;background:#fff}
+.reviews-panel .rv-count{display:flex;align-items:center;gap:15px}
+.reviews-panel .rv-count strong{font-family:'Unbounded',sans-serif;font-size:36px;line-height:1;color:#1a5fa8;font-weight:600}
+.reviews-panel .rv-count span{font-size:13px;line-height:1.5;color:#5a687a}
+.reviews-panel .rv-profile{font-size:14px;font-weight:600;color:#1a5fa8;line-height:1.5;min-height:44px;display:inline-flex;align-items:center}
+.reviews-panel .rv-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.reviews-panel .rv-card{min-width:0;padding:23px;display:flex;flex-direction:column;gap:18px}
+.reviews-panel .rv-person{display:flex;align-items:flex-start;gap:11px}
+.reviews-panel .rv-avatar{display:flex;align-items:center;justify-content:center;width:38px;height:38px;flex-shrink:0;border-radius:50%;background:#eaf2fb;color:#1a5fa8;font-size:12px;font-weight:700}
+.reviews-panel .rv-name{font:600 15px/1.4 'Golos Text',system-ui,sans-serif;color:#20344a;margin:0 0 4px;overflow-wrap:anywhere}
+.reviews-panel .rv-date,.reviews-panel .rv-context{display:block;color:#6a788a;font-size:12px;line-height:1.5}
+.reviews-panel .rv-quote{margin:0;flex:1;color:#26384c;font:400 14px/1.8 'Golos Text',system-ui,sans-serif;overflow-wrap:anywhere}
+.reviews-panel .rv-source{display:flex;flex-direction:column;gap:3px;border-top:1px solid #e5ebf2;padding-top:12px;font-size:12px;line-height:1.5;color:#748195}
+.reviews-panel .rv-source a{color:#1a5fa8;min-height:28px;display:flex;align-items:center}
+.reviews-panel .rv-excerpt{font-size:11px;color:#748195}
+.reviews-panel .rv-more{margin-top:24px}
+.reviews-panel .rv-more summary{width:fit-content;max-width:100%;cursor:pointer;min-height:46px;padding:10px 18px;border:1px solid #b6cce3;background:#fff;border-radius:9px;color:#1a5fa8;font-size:14px;font-weight:600;line-height:1.6}
+.reviews-panel .rv-more summary:focus-visible{outline:3px solid #1a5fa8;outline-offset:3px}
+.reviews-panel .rv-more .rv-grid{margin-top:24px}
+.reviews-panel .rv-when-open{display:none}
+.reviews-panel .rv-more[open] .rv-when-open{display:inline}
+.reviews-panel .rv-more[open] .rv-when-closed{display:none}
+.reviews-panel .rv-note{font-size:12px;line-height:1.7;color:#748195;max-width:780px;margin:22px 0 0}
+@media(max-width:1023px){.reviews-panel .rv-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.reviews-panel .rv-grid{grid-template-columns:1fr}.reviews-panel .rv-summary{padding:18px;gap:12px}.reviews-panel .rv-card{padding:20px}.reviews-panel .rv-count strong{font-size:32px}.reviews-panel .rv-name{font-size:15px}.reviews-panel .rv-more summary{width:100%;text-align:center}}
