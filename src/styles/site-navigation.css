@@ -1,0 +1,17 @@
+/* Shared navigation accommodates the additional company direction. */
+html.ui-refresh header.has-autokrepost-nav .header-inner,
+html.ui-refresh header.has-autokrepost-nav .header-flex{gap:12px;max-width:1280px}
+html.ui-refresh header.has-autokrepost-nav nav a{font-size:12.5px;padding:7px 8px;white-space:nowrap}
+html.ui-refresh header.has-autokrepost-nav .nav-links{gap:0}
+html.ui-refresh header.has-autokrepost-nav .header-call,
+html.ui-refresh header.has-autokrepost-nav .btn-call-header{flex-shrink:0;padding-left:14px;padding-right:14px}
+html.ui-refresh header.has-autokrepost-nav .ak-nav-link{color:#1a5fa8}
+@media(max-width:1240px){
+ html.ui-refresh header.has-autokrepost-nav nav{display:none}
+ html.ui-refresh header.has-autokrepost-nav .burger{display:flex;flex-shrink:0}
+ html.ui-refresh header.has-autokrepost-nav .header-live-badge,
+ html.ui-refresh header.has-autokrepost-nav .header-badge{display:none}
+ html.ui-refresh header.has-autokrepost-nav nav.nav.open{display:flex;position:fixed;inset:76px 0 0;background:#fff;padding:24px;overflow-y:auto;z-index:70}
+ html.ui-refresh header.has-autokrepost-nav nav.nav.open .nav-links{display:flex;flex-direction:column;width:100%;align-items:stretch}
+ html.ui-refresh header.has-autokrepost-nav nav.nav.open a{font-size:17px;min-height:44px;padding:10px 14px}
+}
